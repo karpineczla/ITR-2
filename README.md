@@ -29,7 +29,7 @@ This is our senior year capstone project. It is a year long project with the fir
 7. cd into the web folder and install dependencies
    npm install
 8. install CORS for sanity, cd into the studio folder and run
-   sanity cors add http://localhost:5173
+   sanity cors add http://localhost:5173 (need to add whatever the url is for your local host)
 
 **To Run the React App**
 1. cd into the web folder
