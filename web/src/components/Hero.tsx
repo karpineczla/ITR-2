@@ -24,7 +24,6 @@ export default function Hero({ data }: HeroProps) {
   const [loading, setLoading] = useState(!data)
   const [heroData, setHeroData] = useState<HeroData | null>(data || null)
 
-  // Fetch hero data from Sanity if not provided
   useEffect(() => {
     if (!data) {
       const fetchHero = async () => {
@@ -46,13 +45,13 @@ export default function Hero({ data }: HeroProps) {
     }
   }, [data])
 
-  // Auto-scroll images
+  //Auto-scroll images
   useEffect(() => {
     if (!heroData?.images || heroData.images.length === 0) return
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroData.images.length)
-    }, 5000) // Change image every 5 seconds
+    }, 5000) //change every 5 seconds
 
     return () => clearInterval(interval)
   }, [heroData])

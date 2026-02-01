@@ -11,7 +11,7 @@ export const hero = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'Optional title or heading for the hero section',
+      description: 'Optional title or heading for the hero section (not putting one)',
     }),
     defineField({
       name: 'images',
