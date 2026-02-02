@@ -20,6 +20,7 @@
   width: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: none;
+  display: flex;
 }
 
 .card-button:hover {
@@ -36,10 +37,10 @@
 
 .card-image {
   width: 90%;
-  height: 150px;
   object-fit: cover;
   display: block;
-  padding: 1rem 0;
+  border-radius: 15px;
+  margin-bottom: 15px;
 }
 
 .card-title {
