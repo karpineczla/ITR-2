@@ -4,10 +4,13 @@
 
 This is our senior year capstone project. It is a year long project with the first semester focused on planning and gathering feedback, and the second semester dedicated to implementing and finalizing the project. We are working with ITRR (Institute for Tourism and Recreational Research) at the University of Montana. We are taking their current site, redesigning it, moving it to another hosting platform, building out their databases, and delivering a polished website that reflects their needs and branding. 
 
+Wireframe: https://www.figma.com/design/QUX5gP9tTtS7K3z67uBpfk/ITRR-high-fidelity-prototype?node-id=0-1&m=dev&t=BPjxce6Avwg8QvnJ-1
+
 **Tech Stack**
 - React and Vite
 - Firebase Hosting
-- Sanity
+- Sanity Studio (headless cms)
+- TypeScript
 
 **Challenges**
 - add these after
