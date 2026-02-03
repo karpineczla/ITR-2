@@ -1,7 +1,7 @@
 import {defineType, defineField} from 'sanity'
 
 export const HomeGridCards = defineType({
-  name: 'homeGridCards',
+  name: 'HomeGridCards',
   title: 'Home Grid Cards',
   type: 'document',
   fields: [
@@ -20,12 +20,6 @@ export const HomeGridCards = defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'title',
-              title: 'Card Title',
-              type: 'string',
-              validation: Rule => Rule.required(),
-            }),
-            defineField({
               name: 'description',
               title: 'Description',
               type: 'text',
@@ -40,14 +34,13 @@ export const HomeGridCards = defineType({
           ],
           preview: {
             select: {
-              title: 'title',
-              subtitle: 'description',
+              title: 'description',
               icon: 'icon',
             },
-            prepare({title, subtitle, icon}) {
+            prepare({title, icon}) {
               return {
-                title: `${icon || '📄'} ${title}`,
-                subtitle: subtitle,
+                title: `${icon || '📄'} ${title || 'Card'}`,
+                subtitle: title,
               }
             },
           },

@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { client } from '../sanityClient'
-import HomeGridCard from './homeGridCard'
+import HomeGridCard from './HomeGridCard'
 import '../styles/HomeGridCard.css'
 
 interface GridCard {
   _key: string
-  title: string
   description?: string
   icon?: string
 }
@@ -35,7 +34,6 @@ export default function HomeGrid({ data }: HomeGridProps) {
             title,
             cards[]{
               _key,
-              title,
               description,
               icon
             }
@@ -63,7 +61,6 @@ export default function HomeGrid({ data }: HomeGridProps) {
         <HomeGridCard
           key={item._key}
           icon={item.icon || '📄'}
-          title={item.title}
           description={item.description}
         />
       ))}

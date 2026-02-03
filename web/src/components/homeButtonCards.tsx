@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { client } from '../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
 import '../styles/HomeButtonCards.css'
-
 const builder = createImageUrlBuilder(client)
 
 interface Card {
