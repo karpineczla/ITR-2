@@ -43,3 +43,15 @@ Wireframe: https://www.figma.com/design/QUX5gP9tTtS7K3z67uBpfk/ITRR-high-fidelit
 1. cd into the studio folder
 2. run "npm run dev" or "sanity dev"
 3. follow the URL
+
+
+## Individual Work Process ##
+1. create a new branch off of develop
+2. pull from develop just to make sure everything up updated
+3. work on your part
+4. stage, comment, and commit any changes
+5. pull from develop
+6. publish branch
+7. create a pull request from your branch to develop
+8. resolve any merge conflcits and merge to develop
+9. delete your branch to avoid confusion
