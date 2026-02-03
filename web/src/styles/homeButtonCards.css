@@ -8,11 +8,12 @@
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  border: solid blue 2px;
 }
 
 .card-button {
   background-color: rgb(91, 11, 11);
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -63,5 +64,13 @@
   .card-button {
     width: 100%;
     max-width: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-container {
+    gap: 3rem;
+    justify-content: space-between;
+    max-width: 1200px;
   }
 }
