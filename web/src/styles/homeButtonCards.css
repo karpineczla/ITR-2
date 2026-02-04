@@ -1,14 +1,12 @@
 .cards-container {
   display: flex;
   gap: 1.5rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 4rem;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 80vw;
   margin: 0 auto;
   box-sizing: border-box;
-  border: solid blue 2px;
 }
 
 .card-button {
