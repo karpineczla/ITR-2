@@ -6,7 +6,6 @@ import '../styles/HomeGridCard.css'
 interface GridCard {
   _key: string
   description?: string
-  icon?: string
 }
 
 interface GridCardsData {
@@ -34,8 +33,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
             title,
             cards[]{
               _key,
-              description,
-              icon
+              description
             }
           }`
           const result = await client.fetch(query)
@@ -60,7 +58,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
       {gridData.cards.map((item) => (
         <HomeGridCard
           key={item._key}
-          icon={item.icon || '📄'}
+          icon={null}
           description={item.description}
         />
       ))}

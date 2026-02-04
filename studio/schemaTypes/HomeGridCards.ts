@@ -25,21 +25,14 @@ export const HomeGridCards = defineType({
               type: 'text',
               rows: 4,
             }),
-            defineField({
-              name: 'icon',
-              title: 'Icon',
-              type: 'string',
-              description: 'icon identifier',
-            }),
           ],
           preview: {
             select: {
               title: 'description',
-              icon: 'icon',
             },
-            prepare({title, icon}) {
+            prepare({title}) {
               return {
-                title: `${icon || '📄'} ${title || 'Card'}`,
+                title: title || 'Card',
                 subtitle: title,
               }
             },
