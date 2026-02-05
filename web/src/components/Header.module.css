@@ -1,0 +1,79 @@
+/* Header.module.css */
+.headerContainer {
+    all: initial; 
+    font-family: sans-serif;
+    width: 100%;
+    display: block;
+
+    /*makes the header be at the very top of the page*/
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+
+/*  makes the links montserat*/
+.navLink {
+    font-family: 'Montserrat', sans-serif;
+    color: white !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* makes serarch montserrat font */
+.searchInput {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+}
+
+.topSection {
+    background-color: #D1D1D1 !important;
+    padding: 1rem 2rem;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoImg {
+    height: 60px;
+    width: auto;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.searchIcon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.navBar {
+    background-color: #700028 !important;
+    padding: 12px;
+}
+
+.navList {
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    color: white !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
