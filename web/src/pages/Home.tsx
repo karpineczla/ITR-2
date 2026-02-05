@@ -1,4 +1,3 @@
-
 import Hero from '../components/Hero'
 import HomeButtonCards from '../components/HomeButtonCards'
 import HomeGrid from '../components/HomeGrid'

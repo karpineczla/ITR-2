@@ -1,3 +1,13 @@
+//data structure 
+/*
+
+interface GridCardData {
+  _key: string,
+  description?: string
+}
+  
+*/
+
 interface GridCardProps {
   icon: React.ReactNode
   description?: string

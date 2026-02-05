@@ -41,5 +41,16 @@ export const homeButtonCards = {
         }
       ]
     }
-  ]
+  ],
+  //what the title is in studio for the document
+    preview: {
+    select: {
+      title: 'title'
+    },
+    prepare({title}: {title: string}) {
+      return {
+        title: title || 'Home Button Cards'
+      }
+    },
+  },
 }
