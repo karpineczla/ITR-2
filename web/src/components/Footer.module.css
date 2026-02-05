@@ -1,0 +1,66 @@
+/* Footer.module.css */
+.footerContainer {
+    all: initial;
+    display: block;
+    width: 100%;
+    background-color: #D1D1D1; 
+    padding: 2rem 4rem;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/*left side / addresses */
+.addressSection {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.addressSection p {
+    margin: 0;
+}
+
+/* Center Links and Divider */
+.linksSection {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.divider {
+    width: 2px;
+    height: 40px;
+    background-color: #000;
+}
+
+/* Right side social media */
+.socialSection {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcon {
+    width: 32px;
+    height: 32px;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.socialIcon:hover {
+    color: #700028; /* maroon hover effect */
+}

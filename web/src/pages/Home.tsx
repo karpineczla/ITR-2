@@ -1,6 +1,7 @@
 
 import Hero from '../components/Hero'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import HomeButtonCards from '../components/homeButtonCards'
 
@@ -10,6 +11,7 @@ export default function Home() {
             <Header />
             <Hero />
             <HomeButtonCards />
+            <Footer />
         </main>
     );
 }
