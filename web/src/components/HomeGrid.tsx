@@ -26,7 +26,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
     if (!data) {
         console.log('Fetching grid cards data...')
       const fetchGridCards = async () => {
-        console.log('Starting fetchGridCards...')
+        //console.log('Starting fetchGridCards...')
         try {
           const query = `*[_type == "HomeGridCards"][0]{
             _id,
@@ -38,7 +38,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
           }`
           const result = await client.fetch(query)
           setGridData(result)
-          console.log('Grid cards data:', result)
+          //console.log('Grid cards data:', result)
         } catch (error) {
           console.error('Failed to fetch grid cards data:', error)
         } finally {
@@ -46,7 +46,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
         }
       }
       fetchGridCards()
-      console.log('fetchGridCards called')
+      //console.log('fetchGridCards called')
     }
   }, [data])
 
