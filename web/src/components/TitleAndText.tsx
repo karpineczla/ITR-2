@@ -15,7 +15,7 @@ export default function TitleAndText() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = `*[_type == "titleTextBlock"][0]{
+        const query = `*[_type == "titleAndText"][0]{
           _id,
           title,
           text
@@ -33,7 +33,12 @@ export default function TitleAndText() {
   }, [])
 
   if (loading) return <div className="title-text-container">Loading...</div>
-  if (!blockData) return null
+  if (!blockData)
+    return (
+      <div className="title-text-container">
+        No data returned for `titleTextBlock`.
+      </div>
+    )
 
   return (
     <div className="title-text-container">

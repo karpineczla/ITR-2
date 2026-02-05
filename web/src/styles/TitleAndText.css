@@ -2,19 +2,20 @@
   padding: 3rem 2rem;
   max-width: 800px;
   margin: 0 auto;
+  border: red solid 2px;
 }
 
 .title-text-title {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .title-text-body {
   font-size: 1.1rem;
-  color: #666;
+  color: #ffffff;
   line-height: 1.8;
   white-space: pre-wrap;
   word-wrap: break-word;
