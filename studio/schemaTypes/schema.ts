@@ -4,6 +4,7 @@ import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
 import { homeGridCards } from './homeGridCards'
 import { titleAndText } from './titleAndText'
+import { publicationsButtonCards } from './publicationsButtonCards'
 
 export const schemaTypes = [
     test,
@@ -12,4 +13,5 @@ export const schemaTypes = [
     homeButtonCards,
     homeGridCards,
     titleAndText,
+    publicationsButtonCards,
 ]
