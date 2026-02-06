@@ -1,11 +1,12 @@
 
-import styles from './Header.module.css'; 
+import styles from '../styles/Header.module.css'; 
 import logo from '../assets/ItrrLogo.png';
 
 const Header = () => {
   const navLinks = [
+    //need to change these later o match the page names 
     { name: 'About', href: '/about' },
-    { name: 'Publications and Reports', href: '/publications' },
+    { name: 'Publications and Reports', href: '/PublicationsAndReports' },
     { name: 'Interactive Data', href: '/data' },
     { name: 'Employment Opportunities', href: '/employment' },
     { name: 'Resources', href: '/resources' },

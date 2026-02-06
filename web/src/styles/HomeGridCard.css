@@ -3,12 +3,12 @@
   grid-template-columns: repeat(2, 1fr);
   gap: .5rem;
   padding: 4rem;
-  max-width: 60vw;
+  max-width: 70vw;
   margin: 0 auto;
 }
 
 .grid-card {
-  background: white;
+  background: #dadada;
   padding: 1rem 1rem 1rem 0;
   height: 150px;
   display: flex;
@@ -31,14 +31,14 @@
 */
 
 .grid-card-icon {
-  font-size: 4rem;
-  background-color: #e4b279;
+  font-size: 3rem;
+  background-color: #6d6455;
   align-items: center;
   justify-content: center;
   display: flex;
-  height: 12vh;
-  width: 12vh;
-  min-width: 12vh;
+  height: 14vh;
+  width: 14vh;
+  min-width: 14vh;
   border-radius: 50%;
   position: relative;
   flex-shrink: 0;
@@ -50,7 +50,7 @@
   font-weight: 900;
   content: '\f15c';
   font-size: 3.5rem;
-  color: rgb(134, 38, 38);
+  color: #ddcfba;
   position: absolute;
   top: 50%;
   left: 50%;

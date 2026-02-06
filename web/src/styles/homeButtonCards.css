@@ -68,7 +68,7 @@
 @media (min-width: 1024px) {
   .cards-container {
     gap: 3rem;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1200px;
   }
 }
