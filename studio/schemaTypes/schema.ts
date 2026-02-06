@@ -2,7 +2,7 @@ import test from './test'
 import reports from './reports'
 import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
-import { HomeGridCards } from './HomeGridCards'
+import { homeGridCards } from './homeGridCards'
 import { titleAndText } from './titleAndText'
 
 export const schemaTypes = [
@@ -10,6 +10,6 @@ export const schemaTypes = [
     reports,
     hero,
     homeButtonCards,
-    HomeGridCards,
+    homeGridCards,
     titleAndText,
 ]

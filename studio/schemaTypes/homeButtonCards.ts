@@ -1,9 +1,13 @@
+//schema for the navigation cards on the homepage
+
+import { defineField } from "sanity"
+
 export const homeButtonCards = {
   name: 'homeButtonCards',
   title: 'Home Button Cards',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'cards',
       title: 'Cards',
       type: 'array',
@@ -11,13 +15,13 @@ export const homeButtonCards = {
         {
           type: 'object',
           fields: [
-            {
+            defineField({
               name: 'title',
               title: 'Card Title',
               type: 'string',
               validation: (Rule: any) => Rule.required()
-            },
-            {
+            }),
+            defineField({
               name: 'image',
               title: 'Card Image',
               type: 'image',
@@ -25,12 +29,12 @@ export const homeButtonCards = {
                 hotspot: true
               },
               validation: (Rule: any) => Rule.required()
-            },
-            {
+            }),
+            defineField({
               name: 'link',
               title: 'Link URL (Optional)',
               type: 'string'
-            }
+            })
           ],
           preview: {
             select: {
@@ -41,7 +45,7 @@ export const homeButtonCards = {
         }
       ]
     }
-  ],
+  )],
   //what the title is in studio for the document
     preview: {
     select: {

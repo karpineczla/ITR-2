@@ -1,7 +1,7 @@
 import {defineType, defineField} from 'sanity'
 
-export const HomeGridCards = defineType({
-  name: 'HomeGridCards',
+export const homeGridCards = defineType({
+  name: 'homeGridCards',
   title: 'Home Grid Cards',
   type: 'document',
   fields: [
