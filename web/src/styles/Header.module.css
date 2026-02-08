@@ -4,11 +4,8 @@
     font-family: sans-serif;
     width: 100%;
     display: block;
-
     /*makes the header be at the very top of the page*/
-    position: absolute; 
-    top: 0;
-    left: 0;
+    position: relative;
 }
 
 
@@ -58,7 +55,7 @@
 
 .navBar {
     background-color: #700028 !important;
-    padding: 12px;
+    padding: 3vh;
 }
 
 .navList {

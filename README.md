@@ -44,14 +44,14 @@ Wireframe: https://www.figma.com/design/QUX5gP9tTtS7K3z67uBpfk/ITRR-high-fidelit
 2. run "npm run dev" or "sanity dev"
 3. follow the URL
 
--------- To Add Firebase ---------
-1. install firebase globally with "npm install -g firebase-tools" if its not installed already 
-2. in the main project directory run firebase login
-3. enter credentials 
 
--------- To Deploy Changes ----------
-1. run "firebase serve" to host locally 
-or
-2. cd into web and run "npm run build" to get latest build
-3. run cd .. to get into project root
-4. run "firebase deploy --only hosting" to deploy changes to the web
+## Individual Work Process ##
+1. create a new branch off of develop
+2. pull from develop just to make sure everything up updated
+3. work on your part
+4. stage, comment, and commit any changes
+5. pull from develop
+6. publish branch
+7. create a pull request from your branch to develop
+8. resolve any merge conflcits and merge to develop
+9. delete your branch to avoid confusion

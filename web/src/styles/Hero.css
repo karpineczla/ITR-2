@@ -7,18 +7,17 @@
 
 .hero {
   position: relative;
-  width: 100vw;
+  max-width: 100%;
   overflow: hidden;
   background-color: #f0f0f0;
-  border: red solid 2px;
+  height: 18vh;
 }
 
 .hero-container {
   position: relative;
-  width: 100%;
-  height: 600px;
+  max-width: 100%;
+  max-height: 100%;
   overflow: hidden;
-
 }
 
 .hero-image {
@@ -30,8 +29,12 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .hero {
+    height: 30vh;
+  }
+  
   .hero-container {
-    height: 100px;
+    height: 100%;
   }
 
   .hero-title {
