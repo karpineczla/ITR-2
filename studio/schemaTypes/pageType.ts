@@ -8,6 +8,22 @@ export const pageType = defineType({
   title: 'Page',
   fields: [
     defineField({name: 'title', type: 'string'}),
+    defineField(
+      {name: 'slug',
+      title:'Slug - URL Location',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 200, // will be ignored if slugify is set
+        // Slugify enforces specific type of url style
+        slugify: input => input
+                            .toLowerCase() //lowercase
+                            .replace(/\s+/g, '-') //no spaces
+                            .slice(0, 200)}, //less than 200 characters
+      validation: (rule) => rule
+        .required()
+        .error(`Required to generate a page on the website`),
+}),
     defineField(        {
           title: 'Content', 
           name: 'content',
