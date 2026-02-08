@@ -2,9 +2,9 @@
 
 import { defineField } from "sanity"
 
-export const homeButtonCards = {
-  name: 'homeButtonCards',
-  title: 'Home Button Cards',
+export const publicationsButtonCards = {
+  name: 'publicationsButtonCards',
+  title: 'Publications Button Cards',
   type: 'document',
   fields: [
     defineField({
@@ -20,6 +20,12 @@ export const homeButtonCards = {
               title: 'Card Title',
               type: 'string',
               validation: (Rule: any) => Rule.required()
+            }),
+            defineField ({
+                name: 'description',
+                title: 'Card Description',
+                type: 'text',
+                validation: (Rule: any) => Rule.required()
             }),
             defineField({
               name: 'image',
@@ -53,7 +59,7 @@ export const homeButtonCards = {
     },
     prepare({title}: {title: string}) {
       return {
-        title: title || 'Home Button Cards'
+        title: title || 'Publications Button Cards'
       }
     },
   },

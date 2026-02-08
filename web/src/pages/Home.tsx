@@ -1,9 +1,9 @@
-
 import Hero from '../components/Hero'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-
-import HomeButtonCards from '../components/homeButtonCards'
+import HomeGrid from '../components/HomeGrid'
+import HomeButtonCards from '../components/HomeButtonCards'
+import '../styles/Home.css'
 
 export default function Home() {
     return (
@@ -11,6 +11,7 @@ export default function Home() {
             <Header />
             <Hero />
             <HomeButtonCards />
+            <HomeGrid />
             <Footer />
         </main>
     );

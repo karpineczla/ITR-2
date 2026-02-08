@@ -1,18 +1,17 @@
 .cards-container {
   display: flex;
   gap: 1.5rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 4rem;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 80vw;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .card-button {
   background-color: rgb(91, 11, 11);
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -63,5 +62,13 @@
   .card-button {
     width: 100%;
     max-width: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-container {
+    gap: 3rem;
+    justify-content: center;
+    max-width: 1200px;
   }
 }

@@ -1,0 +1,90 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  padding: 4rem;
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
+.grid-card {
+  background: #dadada;
+  padding: 1rem 1rem 1rem 0;
+  height: 150px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  justify-content: flex-start;
+  gap: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*
+.grid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+*/
+
+.grid-card-icon {
+  font-size: 2rem;
+  background-color: #6d6455;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 14vh;
+  width: 14vh;
+  min-width: 14vh;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 4rem;
+}
+
+.grid-card-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f15c';
+  font-size: 2rem;
+  color: #ddcfba;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* card-specific icons based on position (use the unicode values) */
+.grid-card:nth-child(1) .grid-card-icon::before {
+  content: '\f201';
+}
+
+.grid-card:nth-child(2) .grid-card-icon::before {
+  content: '\f002';
+}
+
+.grid-card:nth-child(3) .grid-card-icon::before {
+  content: '\f07b';
+}
+
+.grid-card:nth-child(4) .grid-card-icon::before {
+  content: '\f0eb';
+}
+
+.grid-card-description {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
