@@ -8,19 +8,29 @@ interface TitleTextData {
   text: string
 }
 
-export default function TitleAndText() {
+interface TitleAndTextProps {
+  title?: string
+}
+
+export default function TitleAndText({ title }: TitleAndTextProps) {
   const [loading, setLoading] = useState(true)
   const [blockData, setBlockData] = useState<TitleTextData | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = `*[_type == "titleAndText"][0]{
-          _id,
-          title,
-          text
-        }`
-        const result = await client.fetch(query)
+        const query = title
+          ? `*[_type == "titleAndText" && title == $title][0]{
+              _id,
+              title,
+              text
+            }`
+          : `*[_type == "titleAndText"][0]{
+              _id,
+              title,
+              text
+            }`
+        const result = await client.fetch(query, title ? { title } : undefined)
         setBlockData(result)
         //console.log('Title & Text data:)', result)
       } catch (error) {
@@ -30,7 +40,7 @@ export default function TitleAndText() {
       }
     }
     fetchData()
-  }, [])
+  }, [title])
 
   if (loading) return <div className="title-text-container">Loading...</div>
   if (!blockData)
