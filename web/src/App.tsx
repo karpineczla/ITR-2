@@ -1,31 +1,24 @@
-import { useEffect, useState } from 'react'
-import { client } from './sanityClient'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import PublicationsAndReports from './pages/PublicationsAndReports'
+import Spending from './pages/Spending'
+import Publications from './pages/Publications'
+import RecentFindings from './pages/RecentFindings'
+import News from './pages/News'
 
-interface TestDoc {
-  _id: string
-  title: string
-}
-
-function App() {
-  const [data, setData] = useState<TestDoc[]>([])
-
-  useEffect(() => {
-    client.fetch('*[_type == "test"]').then((res) => {
-      console.log('Sanity data:', res)
-      setData(res)
-    })
-  }, [])
-
+export default function App() {
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Sanity Fetch Test</h1>
-      {data.length > 0 ? (
-        <p>Received: {data[0].title}</p>
-      ) : (
-        <p>No data yet...</p>
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Add rest of the routes here */}
+        <Route path="/PublicationsAndReports" element={<PublicationsAndReports />} />
+        <Route path="/Spending" element={<Spending />} />
+        <Route path="/News" element={<News />} />
+        <Route path="/RecentFindings" element={<RecentFindings />} />
+        <Route path="/Publications" element={<Publications />} />
+
+      </Routes>
+    </Router>
   )
 }
-
-export default App
