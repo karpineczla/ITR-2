@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import PublicationsAndReports from './pages/PublicationsAndReports'
-import Spending from './pages/Spending'
-import Publications from './pages/Publications'
-import RecentFindings from './pages/RecentFindings'
-import News from './pages/News'
+import Home from './pages/itrr-home'
+import PublicationsAndReports from './pages/publications-and-reports'
+import Spending from './pages/spending'
+import Publications from './pages/publications'
+import RecentFindings from './pages/recent-findings'
+import News from './pages/news'
 
 export default function App() {
   return (
@@ -12,11 +12,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Add rest of the routes here */}
-        <Route path="/PublicationsAndReports" element={<PublicationsAndReports />} />
-        <Route path="/Spending" element={<Spending />} />
-        <Route path="/News" element={<News />} />
-        <Route path="/RecentFindings" element={<RecentFindings />} />
-        <Route path="/Publications" element={<Publications />} />
+        <Route path="/publications-and-reports" element={<PublicationsAndReports />} />
+        <Route path="/spending" element={<Spending />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/recent-findings" element={<RecentFindings />} />
+        <Route path="/publications" element={<Publications />} />
 
       </Routes>
     </Router>

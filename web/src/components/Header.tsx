@@ -5,7 +5,7 @@ const Header = () => {
   const navLinks = [
     //need to change these later o match the page names 
     { name: 'About', href: '/about' },
-    { name: 'Publications and Reports', href: '/PublicationsAndReports' },
+    { name: 'Publications and Reports', href: '/publications-and-reports' },
     { name: 'Interactive Data', href: '/interactive-data' },
     { name: 'Employment Opportunities', href: '/employment-opportunities' },
     { name: 'Resources', href: '/resources' },
