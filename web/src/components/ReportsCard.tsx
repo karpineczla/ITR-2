@@ -119,10 +119,14 @@ export default function ReportsCard() {
                                         Show less
                                     </button>
                                 </div>
-                                <p className="report-abstract">
-                                    {report.abstract || 'No abstract available.'}
-                                </p>
-                                {report.citation && <p className="report-citation">{report.citation}</p>}
+                                <div className="report-back-body">
+                                    <p className="report-abstract">
+                                        {report.abstract || 'No abstract available.'}
+                                    </p>
+                                    {report.citation && (
+                                        <p className="report-citation">{report.citation}</p>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </article>
