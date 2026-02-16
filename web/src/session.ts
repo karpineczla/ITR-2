@@ -1,5 +1,6 @@
 import { createCookieSessionStorage } from "react-router";
 import type { loadQuery } from "@sanity/react-loader"
+import cryptoRandomString from 'crypto-random-string';
 
 const { getSession, commitSession, destroySession } =
   createCookieSessionStorage({
@@ -9,7 +10,7 @@ const { getSession, commitSession, destroySession } =
       path: "/",
       sameSite: !import.meta.env.DEV ? "none" : "lax",
       // FIXME: Replace with hex generator not node.crypto
-      secrets: ['crypto.randomBytes(16).toString("hex")'],
+      secrets: [cryptoRandomString({length: 32})],
       secure: !import.meta.env.DEV,
     },
   });
