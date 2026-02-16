@@ -1,24 +1,20 @@
 import { useEffect, useState } from 'react'
 import { client } from '../sanityClient'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
-import '../styles/ReportsCard.css'
 import '../styles/NewsCards.css'
-import '../styles/RecentFindings.css'
 
-interface NewsItem {
+interface RecentFindingsItem {
     _key: string
     title?: string
     pdf?: {
-        asset?: {
-            url?: string
-        }
+    asset?: {
+        url?: string
     }
+}
 }
 
 export default function RecentFindingsCards() {
     const [loading, setLoading] = useState(true)
-    const [newsData, setNewsData] = useState<NewsItem[]>([])
+    const [recentFindingsData, setRecentFindingsData] = useState<RecentFindingsItem[]>([])
 
     useEffect(() => {
                 const fetchRecentFindings = async () => {
@@ -27,14 +23,14 @@ export default function RecentFindingsCards() {
                             cards[]{
                                 _key,
                                 title,
-                                pdf{asset->{url}}
+                                pdf
                             }
                         }`
                         const result = await client.fetch(query)
-                        const cards = (result || []).flatMap((doc: { cards?: NewsItem[] }) =>
+                        const cards = (result || []).flatMap((doc: { cards?: RecentFindingsItem[] }) =>
                             doc.cards || []
                         )
-                        setNewsData(cards)
+                        setRecentFindingsData(cards)
             } catch (error) {
                 console.error('Failed to fetch recent findings data:', error)
             } finally {
@@ -46,30 +42,29 @@ export default function RecentFindingsCards() {
     }, [])
 
     if (loading) return <section className="reports-grid news-cards-grid">Loading...</section>
-    if (!newsData.length)
+    if (!recentFindingsData.length)
         return <section className="reports-grid news-cards-grid">No recent findings items found.</section>
 
     return (
         <section className="reports-grid news-cards-grid">
-            {newsData.map((newsItem, index) => (
+            {recentFindingsData.map((newsItem, index) => (
                 <article key={newsItem._key || `news-${index}`} className="report-card">
                     <div className="report-card-inner">
-                        <div className="report-card-face report-card-front news-card-face recent-findings-card-face">
-                            <div className="recent-findings-header">
-                                <h3 className="report-title recent-findings-title">
-                                    {newsItem.title || 'Untitled Recent Findings Item'}
-                                </h3>
-                                {newsItem.pdf?.asset?.url && (
+                        <div className="report-card-face report-card-front news-card-face">
+                            <h3 className="report-title">
+                                {newsItem.pdf?.asset?.url ? (
                                     <a
-                                        className="recent-findings-pdf"
+                                        className="news-title-link"
                                         href={newsItem.pdf.asset.url}
-                                        download
-                                        aria-label="Download PDF"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
-                                        <FontAwesomeIcon icon={faFilePdf} />
+                                        {newsItem.title || 'Untitled Recent Findings Item'}
                                     </a>
+                                ) : (
+                                    newsItem.title || 'Untitled Recent Findings Item'
                                 )}
-                            </div>
+                            </h3>
                         </div>
                     </div>
                 </article>
