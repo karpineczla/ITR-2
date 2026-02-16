@@ -1,11 +1,11 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function Subscribe() {
+export default function EmploymentOpportunities() {
     return (
-        <main className="subscribe-page">
+        <main className="employment-opportunities-page">
             <Header />
-            <h1>Subscribe Page</h1>
+            <h1>Employment Opportunities Page</h1>
             <Footer />
         </main>
     )
