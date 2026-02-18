@@ -1,0 +1,96 @@
+.resources-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  background-color: #d7d9d8;
+  border-radius: 15px;
+  margin-bottom: 5vh;
+}
+
+.resource-card {
+  width: 100%;
+  background-color: #862141;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.resource-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.resource-card p {
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  margin: 0;
+}
+
+.resource-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.resource-icon {
+  font-size: 2.5rem;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.resource-icon-link:hover .resource-icon {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .resources-grid {
+    width: 90vw;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .resource-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .resource-icon-link {
+    align-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .resources-grid {
+    max-width: 1200px;
+  }
+}
