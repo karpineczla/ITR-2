@@ -1,8 +1,8 @@
-import Hero from '../components/Hero'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import HomeGrid from '../components/HomeGrid'
-import HomeButtonCards from '../components/HomeButtonCards'
+import Hero from '../components/homePage/Hero'
+import Header from '../components/general/Header'
+import Footer from '../components/general/Footer'
+import HomeGrid from '../components/homePage/HomeGrid'
+import HomeButtonCards from '../components/homePage/HomeButtonCards'
 import '../styles/Home.css'
 
 export default function Home() {

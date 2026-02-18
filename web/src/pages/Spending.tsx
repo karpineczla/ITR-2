@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import ReportsCard from "../components/ReportsCard";
-import TitleAndText from "../components/TitleAndText";
-import BackButton from "../components/BackButton";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import ReportsCard from "../components/spendingPage/ReportsCard";
+import TitleAndText from "../components/general/TitleAndText";
+import BackButton from "../components/general/BackButton";
 import '../styles/Spending.css'
 
 export default function Spending() {

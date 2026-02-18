@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import TitleAndText from "../components/TitleAndText";
-import NewsCards from "../components/NewsCards";
-import BackButton from "../components/BackButton";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import TitleAndText from "../components/general/TitleAndText";
+import NewsCards from "../components/newsPage/NewsCards";
+import BackButton from "../components/general/BackButton";
 
 export default function News() {
     return (

@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import RecentFindingsCards from "../components/RecentFindingsCards";
-import TitleAndText from "../components/TitleAndText";
-import BackButton from "../components/BackButton";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import RecentFindingsCards from "../components/recentFindingsPage/RecentFindingsCards";
+import TitleAndText from "../components/general/TitleAndText";
+import BackButton from "../components/general/BackButton";
 import '../styles/RecentFindings.css'
 
 export default function RecentFindings() {

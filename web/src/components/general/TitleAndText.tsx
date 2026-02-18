@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { client } from '../sanityClient'
-import '../styles/TitleAndText.css'
+import { client } from '../../sanityClient'
+import '../../styles/TitleAndText.css'
 
 interface TitleTextData {
   _id: string

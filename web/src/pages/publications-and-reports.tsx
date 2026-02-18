@@ -1,7 +1,7 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import PublicationsButtonCards from "../components/PublicationsButtonCards";
-import TitleAndText from "../components/TitleAndText";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import PublicationsButtonCards from "../components/publicationsAndReportsPage/PublicationsButtonCards";
+import TitleAndText from "../components/general/TitleAndText";
 
 export default function PublicationsAndReports() {
     return (

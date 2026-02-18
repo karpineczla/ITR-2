@@ -1,68 +1,65 @@
 import { useEffect, useState } from 'react'
-import { client } from '../sanityClient'
-import '../styles/NewsCards.css'
+import { client } from '../../sanityClient'
+import '../../styles/ReportsCard.css'
+import '../../styles/NewsCards.css'
 
-interface RecentFindingsItem {
+interface NewsItem {
     _key: string
     title?: string
-    pdf?: {
-    asset?: {
-        url?: string
-    }
-}
+    link?: string
 }
 
-export default function RecentFindingsCards() {
+export default function NewsCards() {
     const [loading, setLoading] = useState(true)
-    const [recentFindingsData, setRecentFindingsData] = useState<RecentFindingsItem[]>([])
+    const [newsData, setNewsData] = useState<NewsItem[]>([])
 
     useEffect(() => {
-                const fetchRecentFindings = async () => {
+                const fetchNews = async () => {
             try {
-                        const query = `*[_type == "recentFindingsCards"]{
+                        const query = `*[_type == "newsCards"]{
                             cards[]{
                                 _key,
                                 title,
-                                pdf
+                                link
                             }
                         }`
                         const result = await client.fetch(query)
-                        const cards = (result || []).flatMap((doc: { cards?: RecentFindingsItem[] }) =>
+                        const cards = (result || []).flatMap((doc: { cards?: NewsItem[] }) =>
                             doc.cards || []
                         )
-                        setRecentFindingsData(cards)
+                        setNewsData(cards)
             } catch (error) {
-                console.error('Failed to fetch recent findings data:', error)
+                console.error('Failed to fetch news data:', error)
             } finally {
                 setLoading(false)
             }
         }
 
-        fetchRecentFindings()
+        fetchNews()
     }, [])
 
     if (loading) return <section className="reports-grid news-cards-grid">Loading...</section>
-    if (!recentFindingsData.length)
-        return <section className="reports-grid news-cards-grid">No recent findings items found.</section>
+    if (!newsData.length)
+        return <section className="reports-grid news-cards-grid">No news items found.</section>
 
     return (
         <section className="reports-grid news-cards-grid">
-            {recentFindingsData.map((newsItem, index) => (
+            {newsData.map((newsItem, index) => (
                 <article key={newsItem._key || `news-${index}`} className="report-card">
                     <div className="report-card-inner">
                         <div className="report-card-face report-card-front news-card-face">
                             <h3 className="report-title">
-                                {newsItem.pdf?.asset?.url ? (
+                                {newsItem.link ? (
                                     <a
                                         className="news-title-link"
-                                        href={newsItem.pdf.asset.url}
+                                        href={newsItem.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {newsItem.title || 'Untitled Recent Findings Item'}
+                                        {newsItem.title || 'Untitled News Item'}
                                     </a>
                                 ) : (
-                                    newsItem.title || 'Untitled Recent Findings Item'
+                                    newsItem.title || 'Untitled News Item'
                                 )}
                             </h3>
                         </div>

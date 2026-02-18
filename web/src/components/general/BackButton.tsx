@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../styles/BackButton.css'
+import '../../styles/BackButton.css'
 
 type BackButtonProps = {
     to: string

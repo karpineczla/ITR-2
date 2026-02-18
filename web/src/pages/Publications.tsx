@@ -1,7 +1,7 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import TitleAndText from "../components/TitleAndText";
-import BackButton from "../components/BackButton";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import TitleAndText from "../components/general/TitleAndText";
+import BackButton from "../components/general/BackButton";
 import '../styles/Publications.css'
 
 export default function Publications() {

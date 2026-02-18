@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
-import { client } from '../sanityClient'
-import '../styles/ReportsCard.css'
+import { client } from '../../sanityClient'
+import '../../styles/ReportsCard.css'
 
 interface ReportItem {
     _id: string
