@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { client } from '../sanityClient'
+import { client } from '../../sanityClient'
 import HomeGridCard from './HomeGridCard'
-import '../styles/HomeGridCard.css'
+import '../../styles/HomeGridCard.css'
 
 interface GridCard {
   _key: string

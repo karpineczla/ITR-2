@@ -1,11 +1,12 @@
-import '../styles/Header.css';
-import logo from '../assets/ItrrLogo.png';
+import '../../styles/Header.css';
+import logo from '../../assets/ItrrLogo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const navLinks = [
     //need to change these later o match the page names 
     { name: 'About', href: '/about' },
-    { name: 'Publications and Reports', href: '/PublicationsAndReports' },
+    { name: 'Publications and Reports', href: '/publications-and-reports' },
     { name: 'Interactive Data', href: '/interactive-data' },
     { name: 'Employment Opportunities', href: '/employment-opportunities' },
     { name: 'Resources', href: '/resources' },
@@ -18,9 +19,9 @@ const Header = () => {
   return (
     <header className="headerContainer">
       <div className="topSection">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="ITRR Logo" className="logoImg" />
-        </a>
+        </Link>
 
         <div className="searchContainer">
           <svg className="searchIcon" viewBox="0 0 24 24" fill="none" stroke="black">
@@ -35,7 +36,7 @@ const Header = () => {
         <ul className="navList">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a href={link.href} className="navLink">{link.name}</a>
+              <Link to={link.href} className="navLink">{link.name}</Link>
             </li>
           ))}
         </ul>
