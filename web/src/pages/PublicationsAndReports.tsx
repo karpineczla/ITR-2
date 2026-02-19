@@ -7,7 +7,7 @@ export default function PublicationsAndReports() {
     return (
         <main className="publications-and-reports-page">
             <Header />
-            <TitleAndText />
+            <TitleAndText title="Publications and Reports" />
             <PublicationsButtonCards />
             <Footer />
         </main>

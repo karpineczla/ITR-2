@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
 import { client } from '../sanityClient'
 import '../styles/ReportsCard.css'
 
@@ -20,7 +22,7 @@ interface ReportItem {
 export default function ReportsCard() {
     const [loading, setLoading] = useState(true)
     const [reportData, setReportData] = useState<ReportItem[]>([])
-    const [flippedId, setFlippedId] = useState<string | null>(null)
+    const [flippedMap, setFlippedMap] = useState<Record<string, boolean>>({})
 
     useEffect(() => {
         const fetchReports = async () => {
@@ -37,6 +39,7 @@ export default function ReportsCard() {
                 }`
                 const result = await client.fetch(query)
                 setReportData(result || [])
+                setFlippedMap({})
             } catch (error) {
                 console.error('Failed to fetch report data:', error)
             } finally {
@@ -47,8 +50,12 @@ export default function ReportsCard() {
         fetchReports()
     }, [])
 
+    //each card has a state map so that only that card changes when clicked
     const handleFlip = (id: string) => {
-        setFlippedId((current) => (current === id ? null : id))
+        setFlippedMap((current) => ({
+            ...current,
+            [id]: !current[id],
+        }))
     }
 
     if (loading) return <div className="reports-grid">Loading...</div>
@@ -56,8 +63,9 @@ export default function ReportsCard() {
 
     return (
         <section className="reports-grid">
-            {reportData.map((report) => {
-                const isFlipped = flippedId === report._id
+            {reportData.map((report, index) => {
+                const flipKey = `${report._id}-${index}`
+                const isFlipped = !!flippedMap[flipKey]
                 const reportDate = report.date ? new Date(report.date) : null
                 const formattedDate = reportDate
                     ? reportDate.toLocaleDateString(undefined, {
@@ -69,63 +77,52 @@ export default function ReportsCard() {
 
                 return (
                     <article
-                        key={report._id}
+                        key={flipKey}
                         className={`report-card ${isFlipped ? 'is-flipped' : ''}`}
                     >
                         <div className="report-card-inner">
                             <div className="report-card-face report-card-front">
-                                <h3 className="report-title">{report.title || 'Untitled Report'}</h3>
-                                {report.author && (
-                                    <p className="report-meta">By {report.author}</p>
-                                )}
-                                {formattedDate && (
-                                    <p className="report-meta">{formattedDate}</p>
-                                )}
-                                {!!report.tags?.length && (
-                                    <div className="report-tags">
-                                        {report.tags.map((tag) => (
-                                            <span key={tag} className="report-tag">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                )}
-                                <div className="report-actions">
-                                    {report.content?.asset?.url && (
-                                        <a
-                                            className="report-link"
-                                            href={report.content.asset.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            View PDF
-                                        </a>
-                                    )}
+                                <div className="report-header">
+                                    <h3 className="report-title">{report.title || 'Untitled Report'}</h3>
                                     <button
                                         type="button"
                                         className="report-button"
-                                        onClick={() => handleFlip(report._id)}
+                                        onClick={() => handleFlip(flipKey)}
                                     >
                                         Show more
                                     </button>
                                 </div>
+                                {report.author && <p className="report-meta">By {report.author}</p>}
+                                {formattedDate && <p className="report-meta">{formattedDate}</p>}
+                                <div className="report-actions">
+                                    {report.content?.asset?.url && (
+                                        <a
+                                            className="report-icon-pdf"
+                                            href={report.content.asset.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <FontAwesomeIcon icon={faFilePdf} />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="report-card-face report-card-back">
-                                <h4 className="report-title">Abstract</h4>
+                                <div className="report-header">
+                                    <h4 className="report-title">Abstract</h4>
+                                    <button
+                                        type="button"
+                                        className="report-button"
+                                        onClick={() => handleFlip(flipKey)}
+                                    >
+                                        Show less
+                                    </button>
+                                </div>
                                 <p className="report-abstract">
                                     {report.abstract || 'No abstract available.'}
                                 </p>
-                                {report.citation && (
-                                    <p className="report-citation">{report.citation}</p>
-                                )}
-                                <button
-                                    type="button"
-                                    className="report-button"
-                                    onClick={() => handleFlip(report._id)}
-                                >
-                                    Show less
-                                </button>
+                                {report.citation && <p className="report-citation">{report.citation}</p>}
                             </div>
                         </div>
                     </article>

@@ -1,0 +1,11 @@
+
+.publications-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.publications-page > :last-child {
+  margin-top: auto;
+}
+
