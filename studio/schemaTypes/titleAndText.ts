@@ -14,7 +14,6 @@ export const titleAndText = defineType ({
             name: 'title',
             title: 'Title',
             type: 'string',
-            validation: Rule => Rule.required(),
         }),
         defineField ({
             name: 'titleAlignment',

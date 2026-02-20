@@ -9,6 +9,7 @@ export default function PilotCommunity() {
             <Header />
             <BackButton to="/resources" />
             <TitleAndText title="The Pilot Community Tourism Grant Program (Office of Tourism - Montana Department of Commerce)" />
+            <TitleAndText subtitle="How ITRR is Supporting Communities" />
             <Footer />
         </main>
     )

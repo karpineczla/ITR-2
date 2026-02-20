@@ -4,7 +4,7 @@ import '../../styles/TitleAndText.css'
 
 interface TitleTextData {
   _id: string
-  title: string
+  title?: string
   subtitle?: string
   text: string
   titleAlignment?: 'left' | 'center'
@@ -14,9 +14,10 @@ interface TitleTextData {
 
 interface TitleAndTextProps {
   title?: string
+  subtitle?: string
 }
 
-export default function TitleAndText({ title }: TitleAndTextProps) {
+export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
   const [loading, setLoading] = useState(true)
   const [blockData, setBlockData] = useState<TitleTextData | null>(null)
 
@@ -25,6 +26,16 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
       try {
         const query = title
           ? `*[_type == "titleAndText" && title == $title][0]{
+              _id,
+              title,
+              subtitle,
+              titleAlignment,
+              subtitleAlignment,
+              textAlignment,
+              text
+            }`
+          : subtitle
+            ? `*[_type == "titleAndText" && subtitle == $subtitle][0]{
               _id,
               title,
               subtitle,
@@ -42,7 +53,8 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
               textAlignment,
               text
             }`
-        const result = await client.fetch(query, title ? { title } : undefined)
+        const params = title ? { title } : subtitle ? { subtitle } : undefined
+        const result = await client.fetch(query, params)
         setBlockData(result)
         //console.log('Title & Text data:)', result)
       } catch (error) {
@@ -52,7 +64,7 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
       }
     }
     fetchData()
-  }, [title])
+  }, [title, subtitle])
 
   if (loading) return <div className="title-text-container">Loading...</div>
   if (!blockData)
@@ -71,7 +83,7 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
 
   return (
     <div className="title-text-container">
-      <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>
+      {blockData.title && <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>}
       {blockData.subtitle && (
         <h3 className={`title-text-subtitle ${subtitleAlignmentClass}`}>{blockData.subtitle}</h3>
       )}
