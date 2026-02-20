@@ -8,7 +8,6 @@ import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
-import { centeredTitleAndText } from './centeredTitleAndText'
 import { learnMoreButton } from './learnMoreButton'
 
 export const schemaTypes = [
@@ -22,6 +21,5 @@ export const schemaTypes = [
     newsCards,
     recentFindingsCards,
     resourcesCards,
-    centeredTitleAndText,
     learnMoreButton,
 ]

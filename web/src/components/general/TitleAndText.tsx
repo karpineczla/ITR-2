@@ -5,7 +5,11 @@ import '../../styles/TitleAndText.css'
 interface TitleTextData {
   _id: string
   title: string
+  subtitle?: string
   text: string
+  titleAlignment?: 'left' | 'center'
+  subtitleAlignment?: 'left' | 'center'
+  textAlignment?: 'left' | 'center'
 }
 
 interface TitleAndTextProps {
@@ -23,11 +27,19 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
           ? `*[_type == "titleAndText" && title == $title][0]{
               _id,
               title,
+              subtitle,
+              titleAlignment,
+              subtitleAlignment,
+              textAlignment,
               text
             }`
           : `*[_type == "titleAndText"][0]{
               _id,
               title,
+              subtitle,
+              titleAlignment,
+              subtitleAlignment,
+              textAlignment,
               text
             }`
         const result = await client.fetch(query, title ? { title } : undefined)
@@ -50,10 +62,20 @@ export default function TitleAndText({ title }: TitleAndTextProps) {
       </div>
     )
 
+  const titleAlignmentClass =
+    blockData.titleAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
+  const subtitleAlignmentClass =
+    blockData.subtitleAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
+  const textAlignmentClass =
+    blockData.textAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
+
   return (
     <div className="title-text-container">
-      <h2 className="title-text-title">{blockData.title}</h2>
-      <p className="title-text-body">{blockData.text}</p>
+      <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>
+      {blockData.subtitle && (
+        <h3 className={`title-text-subtitle ${subtitleAlignmentClass}`}>{blockData.subtitle}</h3>
+      )}
+      <p className={`title-text-body ${textAlignmentClass}`}>{blockData.text}</p>
     </div>
   )
 }

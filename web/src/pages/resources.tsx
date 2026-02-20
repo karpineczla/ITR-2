@@ -1,4 +1,3 @@
-import CenteredTitleAndText from "../components/general/CenteredTitleAndText";
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
 import LearnMoreButton from "../components/general/LearnMoreButton";
@@ -13,8 +12,8 @@ export default function Resources() {
             <ResourceCard />
             <TitleAndText title="Outdoor Recreation in the United States"/>
             <ResourceCard />
-            <CenteredTitleAndText />
-            <LearnMoreButton buttonKey="test" />
+            <TitleAndText title="Community Resources" />
+            <LearnMoreButton buttonKey="pilot-community" />
             <Footer />
         </main>
     )
