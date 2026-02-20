@@ -89,6 +89,5 @@
   .publications-cards-container {
     gap: 1rem;
     justify-content: center;
-    max-width: 1200px;
   }
 }
