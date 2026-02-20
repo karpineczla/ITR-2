@@ -8,8 +8,8 @@
   box-sizing: border-box;
   background-color: #d7d9d8;
   border-radius: 15px;
-  margin-bottom: 5vh;
-  border: solid blue 2px;
+  margin-bottom: 8vh;
+  margin-top: 5vh;
 }
 
 .resource-card {
