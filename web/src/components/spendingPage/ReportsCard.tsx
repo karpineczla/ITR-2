@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
-import { client } from '../sanityClient'
-import '../styles/ReportsCard.css'
+import { client } from '../../sanityClient'
+import '../../styles/ReportsCard.css'
 
 interface ReportItem {
     _id: string
@@ -84,33 +84,33 @@ export default function ReportsCard() {
                             <div className="report-card-face report-card-front">
                                 <div className="report-header">
                                     <h3 className="report-title">{report.title || 'Untitled Report'}</h3>
-                                    <button
-                                        type="button"
-                                        className="report-button"
-                                        onClick={() => handleFlip(flipKey)}
-                                    >
-                                        Show more
-                                    </button>
+                                    <div className="report-header-actions">
+                                        <button
+                                            type="button"
+                                            className="report-button"
+                                            onClick={() => handleFlip(flipKey)}
+                                        >
+                                            Show more
+                                        </button>
+                                        {report.content?.asset?.url && (
+                                            <a
+                                                className="report-icon-pdf"
+                                                href={report.content.asset.url}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                            >
+                                                <FontAwesomeIcon icon={faFilePdf} />
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                                 {report.author && <p className="report-meta">By {report.author}</p>}
                                 {formattedDate && <p className="report-meta">{formattedDate}</p>}
-                                <div className="report-actions">
-                                    {report.content?.asset?.url && (
-                                        <a
-                                            className="report-icon-pdf"
-                                            href={report.content.asset.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            <FontAwesomeIcon icon={faFilePdf} />
-                                        </a>
-                                    )}
-                                </div>
                             </div>
 
                             <div className="report-card-face report-card-back">
                                 <div className="report-header">
-                                    <h4 className="report-title">Abstract</h4>
+                                    <h3 className="report-title">{report.title || 'Untitled Report'}</h3>
                                     <button
                                         type="button"
                                         className="report-button"
@@ -119,10 +119,14 @@ export default function ReportsCard() {
                                         Show less
                                     </button>
                                 </div>
-                                <p className="report-abstract">
-                                    {report.abstract || 'No abstract available.'}
-                                </p>
-                                {report.citation && <p className="report-citation">{report.citation}</p>}
+                                <div className="report-back-body">
+                                    <p className="report-abstract">
+                                        {report.abstract || 'No abstract available.'}
+                                    </p>
+                                    {report.citation && (
+                                        <p className="report-citation">{report.citation}</p>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </article>

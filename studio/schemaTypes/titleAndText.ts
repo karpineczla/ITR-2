@@ -20,7 +20,6 @@ export const titleAndText = defineType ({
             title: 'Text',
             type: 'text',
             rows: 20,
-            validation: Rule => Rule.required(),
         })
     ],
 });

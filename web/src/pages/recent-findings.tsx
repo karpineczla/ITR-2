@@ -1,17 +1,17 @@
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
-import ReportsCard from "../components/spendingPage/ReportsCard";
+import RecentFindingsCards from "../components/recentFindingsPage/RecentFindingsCards";
 import TitleAndText from "../components/general/TitleAndText";
 import BackButton from "../components/general/BackButton";
-import '../styles/Spending.css'
+import '../styles/RecentFindings.css'
 
-export default function Spending() {
+export default function RecentFindings() {
     return (
-        <main className="spending-page">
+        <main className="recent-findings-page">
             <Header />
             <BackButton to="/publications-and-reports" />
-            <TitleAndText title="Spending and Economics" />
-            <ReportsCard />
+            <TitleAndText title="Recent Findings"></TitleAndText>
+            <RecentFindingsCards />
             <Footer />
         </main>
     )
