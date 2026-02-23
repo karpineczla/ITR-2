@@ -1,0 +1,268 @@
+/* Page background */
+body {
+  background: #ffffff;
+}
+
+/* Shared container sizing */
+.links-box,
+.quarter-tabs {
+  margin: 24px auto;
+  max-width: 1100px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+}
+
+/* Links box: stacked links create a single grey box (no gaps) */
+.links-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0;               /* no spacing between links */
+  border-radius: 8px;
+  overflow: hidden;     /* makes the links visually join into one box */
+  background: #e9ecef;  /* outer grey container */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.links-box__link {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+  transition: filter 120ms ease;
+}
+
+/* Alternate backgrounds for each link */
+.links-box > a:nth-child(odd)  { background: #f3f4f6; }
+.links-box > a:nth-child(even) { background: #eceef0; }
+
+.links-box__link:hover,
+.links-box__link:focus { filter: brightness(0.98); outline: none; }
+
+/* Quarter tabs — equal width, no gap, connected to panel */
+.quarter-tabs__list {
+  display: flex;
+  gap: 0;               /* no gap between tabs */
+  margin: 0 0 -1px 0;   /* pull down to meet panel */
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.quarter-tabs__tab {
+  flex: 1 1 0;          /* equal-width tabs across the full container */
+  padding: 10px 0;
+  text-align: center;
+  margin: 0;
+  border: 1px solid #bfbfbf;
+  border-bottom: 1px solid transparent; /* hide bottom so it appears merged */
+  background: #D9D9D9;  /* tab color (matches panel) */
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* keep single border between tabs from doubling */
+.quarter-tabs__tab + .quarter-tabs__tab { border-left: none; }
+
+/* Outer rounded corners */
+.quarter-tabs__tab:first-child  { border-top-left-radius: 6px; border-left: 1px solid #bfbfbf; }
+.quarter-tabs__tab:last-child   { border-top-right-radius: 6px; }
+
+/* Active tab sits flush with panel */
+.quarter-tabs__tab.is-active {
+  position: relative;
+  top: 1px;
+  z-index: 3;
+  border-color: #bfbfbf;
+}
+
+/* Panel under tabs — same width as links box */
+.quarter-tabs__panel {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  border: 1px solid #bfbfbf;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 14px;
+  background: #D9D9D9;  /* panel color (matches tabs) */
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduce radius slightly when active tab overlaps for a cleaner join */
+.quarter-tabs__panel--flat-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Links inside panel */
+.quarter-tabs__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quarter-tabs__links a {
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0b69ff;
+  text-decoration: none;
+}
+
+/* Accessibility focus ring */
+.quarter-tabs__tab:focus,
+.links-box__link:focus,
+.quarter-tabs__links a:focus {
+  outline: 3px solid rgba(11,105,255,0.18);
+  outline-offset: 2px;
+}
+
+/* Report box under quarterly tabs */
+.report-box {
+  margin: 24px auto;
+  max-width: 1100px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  flex-wrap: wrap;
+}
+
+/* Text area */
+.report-box__content { flex: 1 1 0; min-width: 200px; }
+.report-box__text { margin: 0; color: #111; font-weight: 600; }
+
+/* Actions */
+.report-box__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  align-items: flex-end;
+}
+
+.report-box__actions .btn {
+  width: 180px;
+}
+
+/* Buttons */
+.btn { display: inline-block; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-weight: 700; text-align: center; }
+.btn--red { background: #70002E; color: #fff; border: 1px solid #70002E; }
+.btn--red:hover, .btn--red:focus { background: #b82828; outline: none; }
+
+/* Responsive: stack actions under text on narrow screens */
+@media (max-width: 520px) {
+  .report-box { flex-direction: column; align-items: stretch; }
+  .report-box__actions { align-items: stretch; }
+  .report-box__actions .btn { width: 100%; }
+}
+
+/* Visitor Trends carousel */
+.visitor-trends {
+  margin: 24px auto;
+  max-width: 1100px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.visitor-trends__title {
+  margin: 0 0 12px 0;
+}
+
+.visitor-trends__carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.visitor-trends__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid #70002E;
+  background: #70002E;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visitor-trends__card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 18px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.visitor-trends__card-title {
+  margin: 0 0 8px 0;
+}
+
+.visitor-trends__card-text {
+  margin: 0 0 12px 0;
+  max-width: 70ch;
+}
+
+.visitor-trends__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #70002E;
+  font-weight: 700;
+}
+
+.visitor-trends__dots {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.visitor-trends__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: #cbd5e1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.visitor-trends__dot.is-active {
+  background: #70002E;
+}
+
+@media (max-width: 700px) {
+  .visitor-trends__carousel {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .visitor-trends__arrow {
+    justify-self: center;
+  }
+}
