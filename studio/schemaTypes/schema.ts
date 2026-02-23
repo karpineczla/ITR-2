@@ -10,6 +10,8 @@ import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
 import { learnMoreButton } from './learnMoreButton'
 import { twoBlockRow } from './twoBlockRow'
+import { bulletsWithImg } from './bulletsWithImg'
+
 
 export const schemaTypes = [
     test,
@@ -23,5 +25,6 @@ export const schemaTypes = [
     recentFindingsCards,
     resourcesCards,
     learnMoreButton,
-    twoBlockRow
+    twoBlockRow,
+    bulletsWithImg,
 ]
