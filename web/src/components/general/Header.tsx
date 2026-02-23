@@ -18,6 +18,20 @@ const Header = () => {
 
   return (
     <header className="headerContainer">
+      {/*  announcemnets */}
+      <div className="announcementBar">
+      <div className="tickerWrapper">
+        <div className="tickerText">
+          <span>✨ New Publication: 2024 Tourism Economic Impact Report is now available!</span>
+          <span>🚀 Check out our new Interactive Data dashboard!</span>
+          <span>👋 Welcome to the ITRR Portal.</span>
+      {/* duplicate the text so its seamless loop  */}
+          <span>✨ New Publication: 2024 Tourism Economic Impact Report is now available!</span>
+          <span>🚀 Check out our new Interactive Data dashboard!</span>
+          <span>👋 Welcome to the ITRR Portal.</span>
+        </div>
+      </div>
+    </div>
       <div className="topSection">
         <Link to="/">
           <img src={logo} alt="ITRR Logo" className="logoImg" />

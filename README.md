@@ -1,4 +1,4 @@
-## 2026 Capstone - ITRR 
+## ✨2026 Capstone - ITRR✨ 
 
 **Summary**
 
