@@ -5,11 +5,11 @@ import '../styles/aboutPage.css'
 
 
 export default function About() {
-  return (
+    return (
         <main className="about-page">
             <Header />
-    <div className="aboutContainer">
-      
+            <div className="aboutContainer">
+
       {/* 2. hero video part */}
       <section className="videoSection">
         <div className="videoWrapper">
