@@ -159,17 +159,17 @@ export default function InteractiveData() {
             <TitleAndText title="Interactive Data" />
 
             <div className="links-box" role="navigation" aria-label="Interactive data links">
-                <a href="/interactive-data/overview" className="links-box__link">
-                    Survey 1
+                <a href="https://tableau.mus.edu/t/missoula/views/ResidentAttitudes/DashboardLine?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" className="links-box__link">
+                    Residend Survey - Resident Attitude Trends
                 </a>
                 <a href="/interactive-data/map" className="links-box__link">
-                    Survey 2
+                    Resident Survey - Travel Behavior Q2 2024
                 </a>
                 <a href="/interactive-data/time-series" className="links-box__link">
-                    Survey 3
+                    Nonresident Travel Survey and Visitation Data
                 </a>
                 <a href="/interactive-data/downloads" className="links-box__link">
-                    Survey 4
+                    Nonresident Travel Expenditures
                 </a>
             </div>
 
