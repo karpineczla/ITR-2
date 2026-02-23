@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;700&display=swap');
+
+
+
 .aboutContainer {
-  font-family: 'Arial', sans-serif;
+
+  font-family: 'Montserrat', sans-serif; 
   color: #333;
   line-height: 1.6;
+ 
+}
+
+.sectionTitle {
+
+  font-family: 'Anton', sans-serif;
+  font-size: 3.5rem; 
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.historyGrid {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
+
+.imageCol {
+  width: 100%;
+  max-width: 600px; 
+}
+
+.historyImg {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.textCol p, 
+.historyFullWidth p, 
+.centeredText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; 
+}
+
+.missionSection {
+  margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 

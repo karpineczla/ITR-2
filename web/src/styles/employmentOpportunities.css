@@ -1,0 +1,100 @@
+.employmentContainer {
+  font-family: 'Montserrat', sans-serif;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.hiringHeader {
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.instructionText {
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Tabs UI */
+.tabsContainer {
+  
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.tabHeader {
+  display: flex;
+  background-color: white;
+  padding: 10px 10px 0 10px;
+  gap: 5px;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #999;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+}
+
+.tabButton.active {
+  background-color: #d1d1d1;
+  border: 3px solid #6e0d2a; /* Maroon active border */
+}
+
+.tabContent {
+  background-color: #d1d1d1; /* Light grey box */
+  padding: 40px;
+  text-align: left;
+  min-height: 300px;
+}
+
+.contentTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.jobTitle {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  max-width: 70%;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.learnMoreBtn {
+  background-color: #6e0d2a; /* Maroon button */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.jobDescription {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Bottom Text Styling */
+.footerText {
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+}
+
+.footerText p {
+  margin-bottom: 15px;
+}
