@@ -1,23 +1,26 @@
-import React from 'react';
-import './About.css';
-import historyImage from '../dist/assets/vite.svg'; 
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import historyImage from "../assets/historyImage.png";
+import '../styles/aboutPage.css'
 
-const About = () => {
+
+export default function About() {
   return (
+        <main className="about-page">
+            <Header />
     <div className="aboutContainer">
       
-
-      {/* 2. Hero Video Section */}
+      {/* 2. hero video part */}
       <section className="videoSection">
         <div className="videoWrapper">
-          {/* Replace with your actual video or iframe */}
+          {/* Replace with teh real video */}
           <div className="videoPlaceholder">
             <div className="playButton">▶</div>
           </div>
         </div>
       </section>
 
-      {/* 3. History Section */}
+      {/* history  */}
       <section className="contentSection">
         <h2 className="sectionTitle">HISTORY</h2>
         <div className="historyGrid">
@@ -46,7 +49,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* 4. Mission Section */}
+      {/*  Mission */}
       <section className="contentSection missionSection">
         <h2 className="sectionTitle">OUR MISSION</h2>
         <p className="centeredText">
@@ -58,7 +61,7 @@ const About = () => {
         </p>
       </section>
     </div>
-  );
-};
-
-export default About;
+            <Footer />
+        </main>
+    )
+}
