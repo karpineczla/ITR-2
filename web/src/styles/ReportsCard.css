@@ -88,7 +88,7 @@
   font-size: 0.95rem;
 }
 
-.report-icon-pdf {
+.report-icon-link {
   color: white;
   font-weight: 600;
   font-size: 2.5rem;
@@ -98,7 +98,7 @@
   transition: transform 0.3s ease;
 }
 
-.report-icon-pdf:hover {
+.report-icon-link:hover {
   transform: scale(1.2);
 }
 

@@ -1,11 +1,12 @@
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
+import TitleAndText from "../components/general/TitleAndText";
 
 export default function Events() {
     return (
         <main className="events-page">
             <Header />
-            <h1>Events Page</h1>
+            <TitleAndText title="Events" />
             <Footer />
         </main>
     )
