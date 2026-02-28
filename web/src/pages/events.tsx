@@ -8,7 +8,8 @@ export default function Events() {
         <main className="events-page">
             <Header />
             <TitleAndText title="Events" />
-            <EventRow />
+            <EventRow rowKey="education" />
+            <EventRow rowKey="sessions" />
             <Footer />
         </main>
     )

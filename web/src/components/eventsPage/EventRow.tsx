@@ -10,6 +10,8 @@ interface EventRowData {
   _id: string
   title?: string
   text?: string
+  buttonKey?: string
+  rowKey?: string
   image?: {
     asset?: {
       _ref?: string
@@ -17,24 +19,33 @@ interface EventRowData {
   }
 }
 
-export default function EventRow() {
+interface EventRowProps {
+  rowKey?: string
+  title?: string
+}
+
+//can use the rowkey or title to say which row you want 
+export default function EventRow({ rowKey, title }: EventRowProps) {
   const [loading, setLoading] = useState(true)
   const [eventRowData, setEventRowData] = useState<EventRowData[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = `*[_type == "eventsRow"]|order(_createdAt desc){
+        const query = `*[_type == "eventsRow" ${rowKey ? '&& rowKey == $rowKey' : title ? '&& title == $title' : ''}]|order(_createdAt desc){
           _id,
           title,
           text,
+          buttonKey,
+          rowKey,
           image{
             asset{
               _ref
             }
           }
         }`
-        const result = await client.fetch(query)
+        const params = rowKey ? { rowKey } : title ? { title } : {}
+        const result = await client.fetch(query, params)
         setEventRowData(result || [])
       } catch (error) {
         console.error('Failed to fetch events row data:', error)
@@ -44,7 +55,7 @@ export default function EventRow() {
     }
 
     fetchData()
-  }, [])
+  }, [rowKey, title])
 
   if (loading) return <div className="events-rows">Loading...</div>
   if (!eventRowData.length) return <div className="events-rows">No events found.</div>
@@ -58,22 +69,22 @@ export default function EventRow() {
 
         return (
           <article key={item._id} className="event-row">
-            <div className="event-row-image-wrap">
-              {imageUrl && (
+            {imageUrl && (
+              <div className="event-row-image-wrap">
                 <img
                   src={imageUrl}
                   alt={item.title || 'Event image'}
                   className="event-row-image"
                 />
-              )}
-            </div>
+              </div>
+            )}
 
-            <div className="event-row-content">
+            <div className={`event-row-content ${!imageUrl ? 'event-row-content-no-image' : ''}`.trim()}>
               <div className="event-row-header">
                 <h3 className="event-row-title">{item.title || 'Untitled event'}</h3>
                 <div className="event-row-actions">
                   <LearnMoreButton
-                    buttonKey="events-row-learn-more"
+                    buttonKey={item.buttonKey || ''}
                     fallbackDestination="/events"
                   />
                 </div>

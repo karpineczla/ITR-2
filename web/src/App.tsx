@@ -14,6 +14,9 @@ import Contact from './pages/contact'
 import EmploymentOpportunities from './pages/employment-opportunities'
 import SurveyKit from './pages/survey-kit'
 import PilotCommunity from './pages/pilot-community'
+import Sessions from './pages/sessions'
+import EducationAndWorkshops from './pages/education-and-workshops'
+
 
 export default function App() {
   return (
@@ -34,6 +37,8 @@ export default function App() {
         <Route path="/employment-opportunities" element={<EmploymentOpportunities />} />
         <Route path="/survey-kit" element={<SurveyKit />} />
         <Route path="/pilot-community" element={<PilotCommunity />} />
+        <Route path="/sessions" element={<Sessions />} />
+        <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
       </Routes>
     </Router>
   )
