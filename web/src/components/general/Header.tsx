@@ -1,54 +1,64 @@
-import '../../styles/Header.css';
-import logo from '../../assets/ItrrLogo.png';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/Header.css';
 
 const Header = () => {
-  const navLinks = [
-    //need to change these later o match the page names 
-    { name: 'About', href: '/about' },
-    { name: 'Publications and Reports', href: '/publications-and-reports' },
-    { name: 'Interactive Data', href: '/interactive-data' },
-    { name: 'Employment Opportunities', href: '/employment-opportunities' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Events', href: '/events' },
-    { name: 'Survey Kit', href: '/survey-kit' },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Subscribe', href: '/subscribe' },
-  ]
+  const [data, setData] = useState<any>(null);
+
+  const PROJECT_ID = "a9qy1267"; 
+  const DATASET = "production";
+
+  useEffect(() => {
+    const query = encodeURIComponent(`*[_type == "header"][0]{
+      "logoUrl": logo.asset->url,
+      announcements,
+      navLinks
+    }`);
+    const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => setData(json.result));
+  }, []);
+
+  // Use your hardcoded links as a fallback if Sanity is empty
+  const links = data?.navLinks || [
+    { name: 'About1', href: '/about' },
+    { name: 'Contact Us1', href: '/contact' }
+  ];
 
   return (
     <header className="headerContainer">
-      {/*  announcemnets */}
+      {/* Announcement Bar */}
       <div className="announcementBar">
-      <div className="tickerWrapper">
-        <div className="tickerText">
-          <span>✨ New Publication: 2024 Tourism Economic Impact Report is now available!</span>
-          <span>🚀 Check out our new Interactive Data dashboard!</span>
-          <span>👋 Welcome to the ITRR Portal.</span>
-      {/* duplicate the text so its seamless loop  */}
-          <span>✨ New Publication: 2024 Tourism Economic Impact Report is now available!</span>
-          <span>🚀 Check out our new Interactive Data dashboard!</span>
-          <span>👋 Welcome to the ITRR Portal.</span>
+        <div className="tickerWrapper">
+          <div className="tickerText">
+            {/* Map through announcements from Sanity */}
+            {data?.announcements?.map((text: string, i: number) => (
+              <span key={i}>{text}</span>
+            ))}
+            {/* Repeat once for seamless loop through CSS animation */}
+            {data?.announcements?.map((text: string, i: number) => (
+              <span key={`dup-${i}`}>{text}</span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
       <div className="topSection">
         <Link to="/">
-          <img src={logo} alt="ITRR Logo" className="logoImg" />
+          {/* Logo from Sanity or fallback to a local asset if you prefer */}
+          <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Logo" className="logoImg" />
         </Link>
 
         <div className="searchContainer">
-          <svg className="searchIcon" viewBox="0 0 24 24" fill="none" stroke="black">
-            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2"></line>
-          </svg>
-          <input type="text" placeholder="Search" style={{ border: 'none', outline: 'none', marginLeft: '10px' }} />
+          <input type="text" placeholder="Search" className="searchInput" />
         </div>
       </div>
 
       <nav className="navBar">
         <ul className="navList">
-          {navLinks.map((link) => (
+          {links.map((link: any) => (
             <li key={link.name}>
               <Link to={link.href} className="navLink">{link.name}</Link>
             </li>
@@ -56,7 +66,7 @@ const Header = () => {
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

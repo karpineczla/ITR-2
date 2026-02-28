@@ -9,6 +9,7 @@ import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
 import { aboutPage } from './aboutPage'
+import { header } from './header'
 
 export const schemaTypes = [
     test,
@@ -22,4 +23,5 @@ export const schemaTypes = [
     recentFindingsCards,
     resourcesCards,
     aboutPage,
+    header,
 ]
