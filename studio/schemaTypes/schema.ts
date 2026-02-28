@@ -11,6 +11,7 @@ import resourcesCards from './resourcesCards'
 import { learnMoreButton } from './learnMoreButton'
 import { twoBlockRow } from './twoBlockRow'
 import { bulletsWithImg } from './bulletsWithImg'
+import { eventsRow } from './eventsRow'
 
 
 export const schemaTypes = [
@@ -27,4 +28,5 @@ export const schemaTypes = [
     learnMoreButton,
     twoBlockRow,
     bulletsWithImg,
+    eventsRow,
 ]
