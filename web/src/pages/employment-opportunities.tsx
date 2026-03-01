@@ -1,80 +1,99 @@
-import Footer from "../components/general/Footer";
+import { useState, useEffect } from "react";
+import { client } from '../sanityClient';
+import { PortableText } from '@portabletext/react'; // Install this: npm install @portabletext/react
 import Header from "../components/general/Header";
-import { useState } from "react";
-import '../styles/employmentOpportunities.css'
+import Footer from "../components/general/Footer";
+import '../styles/employmentOpportunities.css';
 
-type JobTab = 'Student - NPS' | 'Student' | 'Public' | 'Public - NPS';
-
-interface JobDetails {
-  title: string;
+interface Job {
+  tabName: string;
+  jobTitle: string;
   description: string;
+  externalLink?: string;
+}
+
+interface EmploymentData {
+  pageHeader: string;
+  instructionText: string;
+  jobs: Job[];
+  footerText: any;
 }
 
 export default function EmploymentOpportunities() {
-/**/ 
-  const [activeTab, setActiveTab] = useState<JobTab>('Student - NPS');
+  const [data, setData] = useState<EmploymentData | null>(null);
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const jobs: Record<JobTab, JobDetails> = {
-    'Student - NPS': {
-      title: 'Student Opportunities - National Park Service Surveying, Temporary Work',
-      description: 'ITRR and its research partners (RRC Associates and OTAK) have a contract with the National Park Service to study visitor use and social issues to help improve park planning and management. This job would involve work for ITRR and/or one of our partners and traveling to National Parks and surveying visitors. Travel, lodging, and per diem meals are included. Pay is up to $20/hour. Work is typically a 7-12 day time commitment per park, including travel. Multiple parks may be available. Contact us for more information about dates!'
-    },
-    'Student': {
-      title: 'General Student Research Assistant',
-      description: 'Assist with data entry, literature reviews, and basic analysis for ongoing tourism studies in Montana.'
-    },
-    'Public': {
-      title: 'Field Researcher',
-      description: 'Conducting in-person surveys at various Montana recreation sites and events.'
-    },
-    'Public - NPS': {
-      title: 'NPS Professional Consultant',
-      description: 'Expert-level analysis for National Park Service infrastructure and social impact projects.'
-    }
-  };
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const query = `*[_type == "employmentOpportunities"][0]{
+          pageHeader,
+          instructionText,
+          jobs,
+          footerText
+        }`;
+        const result = await client.fetch(query);
+        if (result) setData(result);
+      } catch (error) {
+        console.error("Sanity fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
+
+  if (loading) return <div className="loading">Loading Opportunities...</div>;
+  if (!data || !data.jobs.length) return <div>No positions currently available.</div>;
+
+  const activeJob = data.jobs[activeTabIndex];
 
   return (
     <main className="employment-opportunities-page">
       <Header />
       <div className="employmentContainer">
-        <h1 className="hiringHeader">WE ARE HIRING</h1>
-        <p className="instructionText">Click through the tabs to see more</p>
+        <h1 className="hiringHeader">{data.pageHeader}</h1>
+        <p className="instructionText">{data.instructionText}</p>
 
         <div className="tabsContainer">
+          {/* Tab Navigation */}
           <div className="tabHeader">
-            {(Object.keys(jobs) as JobTab[]).map((tabName) => (
+            {data.jobs.map((job, index) => (
               <button
-                key={tabName}
-                className={`tabButton ${activeTab === tabName ? 'active' : ''}`}
-                onClick={() => setActiveTab(tabName)}
+                key={index}
+                className={`tabButton ${activeTabIndex === index ? 'active' : ''}`}
+                onClick={() => setActiveTabIndex(index)}
               >
-                {tabName}
+                {job.tabName}
               </button>
             ))}
           </div>
 
+          {/* Tab Content */}
           <div className="tabContent">
             <div className="contentTop">
-              <h2 className="jobTitle">{jobs[activeTab].title}</h2>
-              <button className="learnMoreBtn">Learn More</button>
+              <h2 className="jobTitle">{activeJob.jobTitle}</h2>
+              {activeJob.externalLink && (
+                <a 
+                  href={activeJob.externalLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="learnMoreBtn"
+                >
+                  Learn More
+                </a>
+              )}
             </div>
-            <p className="jobDescription">{jobs[activeTab].description}</p>
+            <p className="jobDescription">{activeJob.description}</p>
           </div>
         </div>
 
         <div className="footerText">
-          <p>
-            The Institute for Tourism and Recreation Research is hiring for several different positions! 
-            We conduct travel and recreation research in Montana and beyond and have a few different available positions.
-          </p>
-          <p>
-            To apply, please send a letter of interest, resume, and 3 professional references to the contact listed 
-            for the job opportunity you are interested in.
-          </p>
-          <p>View the opportunities listed below for more information!</p>
+          <PortableText value={data.footerText} />
         </div>
       </div>
       <Footer />
     </main>
   );
-} 
+}

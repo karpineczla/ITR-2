@@ -12,6 +12,7 @@ import { aboutPage } from './aboutPage'
 import { header } from './header'
 import { subscribe } from './subscribe'
 import contactCards from './contactCards'
+import employment from './employment'
 
 export const schemaTypes = [
     test,
@@ -27,5 +28,6 @@ export const schemaTypes = [
     aboutPage,
     header,
     subscribe,
-    contactCards
+    contactCards,
+    employment
 ]
