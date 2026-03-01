@@ -57,10 +57,16 @@ export const publicationsButtonCards = {
     select: {
       title: 'title'
     },
-    prepare({title}: {title: string}) {
-      return {
-        title: title || 'Publications Button Cards'
-      }
+    preview: {
+    select: {
+      title: 'title', // or whatever field you use for the document title
     },
+    prepare(selection: Record<string, any>) {
+      const { title } = selection;
+      return {
+        title: title || 'Publications Button Cards',
+      };
+    },
+  },
   },
 }
