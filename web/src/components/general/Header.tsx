@@ -21,7 +21,7 @@ const Header = () => {
       .then((json) => setData(json.result));
   }, []);
 
-  // Use your hardcoded links as a fallback if Sanity is empty
+  // Use hardcoded links as a fallback if Sanity is empty
   const links = data?.navLinks || [
     { name: 'About1', href: '/about' },
     { name: 'Contact Us1', href: '/contact' }
@@ -47,8 +47,8 @@ const Header = () => {
 
       <div className="topSection">
         <Link to="/">
-          {/* Logo from Sanity or fallback to a local asset if you prefer */}
-          <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Logo" className="logoImg" />
+          {/* Logo from Sanity */}
+          <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Itrr-Logo" className="logoImg" />
         </Link>
 
         <div className="searchContainer">
@@ -60,7 +60,11 @@ const Header = () => {
         <ul className="navList">
           {links.map((link: any) => (
             <li key={link.name}>
-              <Link to={link.href} className="navLink">{link.name}</Link>
+              {/* This template literal forces the path to be absolute. it was being a pain and 
+              just adding the /"pagename" to the end of the links and breaking everything. */}
+              <Link to={`/${link.href.replace(/^\//, '')}`} className="navLink">
+                {link.name}
+              </Link>
             </li>
           ))}
         </ul>

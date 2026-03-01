@@ -10,6 +10,7 @@ import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
 import { aboutPage } from './aboutPage'
 import { header } from './header'
+import { subscribe } from './subscribe'
 
 export const schemaTypes = [
     test,
@@ -24,4 +25,5 @@ export const schemaTypes = [
     resourcesCards,
     aboutPage,
     header,
+    subscribe
 ]
