@@ -13,9 +13,9 @@ import { header } from './header'
 import { subscribe } from './subscribe'
 import contactCards from './contactCards'
 import employment from './employment'
-import contactCards from './contactCards'
-import employment from './employment'
-import { header } from './header'
+
+
+
 
 export const schemaTypes = [
     test,
@@ -32,9 +32,8 @@ export const schemaTypes = [
     header,
     subscribe,
     contactCards,
-    employment
-    contactCards,
     employment,
-    header
+    
+    
 
 ]
