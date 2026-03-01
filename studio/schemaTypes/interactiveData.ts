@@ -6,8 +6,38 @@ export const interactiveData = {
   type: 'document',
   fields: [
     defineField({
+      name: 'links',
+      title: 'Links Box Items',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Link Label',
+              type: 'string',
+              validation: (Rule: any) => Rule.required()
+            }),
+            defineField({
+              name: 'href',
+              title: 'Link URL',
+              type: 'string',
+              validation: (Rule: any) => Rule.required()
+            })
+          ],
+          preview: {
+            select: {
+              title: 'label',
+              subtitle: 'href'
+            }
+          }
+        }
+      ]
+    }),
+    defineField({
       name: 'cards',
-      title: 'Cards',
+      title: 'Carousel Cards',
       type: 'array',
       of: [
         {
@@ -50,7 +80,7 @@ export const interactiveData = {
         const count = cards?.length || 0
         const firstTitle = cards?.[0]?.title
       return {
-          title: 'Interactive Data (Carousel)',
+          title: 'Interactive Data',
           subtitle: count > 0 ? `${count} card${count === 1 ? '' : 's'}${firstTitle ? ` • First: ${firstTitle}` : ''}` : 'No cards yet'
       }
     },

@@ -2,7 +2,8 @@ import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
 import TitleAndText from "../components/general/TitleAndText";
 import { useState } from "react";
-import VisitorTrendsCarousel from "../components/interactiveDataPage/VisitorTrendsCarousel";
+import Carousel from "../components/interactiveDataPage/Carousel";
+import InteractiveDataLinksBox from "../components/interactiveDataPage/InteractiveDataLinksBox";
 import "../styles/interactiveData.css";
 
 const QuarterlyTabs: React.FC = () => {
@@ -87,20 +88,7 @@ export default function InteractiveData() {
             <Header />
             <TitleAndText title="Interactive Data" />
 
-            <div className="links-box" role="navigation" aria-label="Interactive data links">
-                <a href="https://tableau.mus.edu/t/missoula/views/ResidentAttitudes/DashboardLine?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" className="links-box__link">
-                    Residend Survey - Resident Attitude Trends
-                </a>
-                <a href="/interactive-data/map" className="links-box__link">
-                    Resident Survey - Travel Behavior Q2 2024
-                </a>
-                <a href="/interactive-data/time-series" className="links-box__link">
-                    Nonresident Travel Survey and Visitation Data
-                </a>
-                <a href="/interactive-data/downloads" className="links-box__link">
-                    Nonresident Travel Expenditures
-                </a>
-            </div>
+            <InteractiveDataLinksBox />
 
             <QuarterlyTabs />
 
@@ -125,7 +113,7 @@ export default function InteractiveData() {
                 </div>
             </div>
 
-            <VisitorTrendsCarousel />
+            <Carousel />
 
             <Footer />
         </main>

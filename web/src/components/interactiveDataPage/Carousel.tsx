@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
+import "../../styles/Carousel.css";
 
 interface Report {
     _key: string;
@@ -8,7 +9,7 @@ interface Report {
     href: string;
 }
 
-export default function VisitorTrendsCarousel() {
+export default function Carousel() {
     const [reports, setReports] = useState<Report[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeIndex, setActiveIndex] = useState(0);
