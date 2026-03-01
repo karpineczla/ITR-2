@@ -2,12 +2,16 @@ import test from './test'
 import reports from './reports'
 import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
-import { homeGridCards } from './homeGridCards'
+import { homeGridCards } from './HomeGridCards'
 import { titleAndText } from './titleAndText'
 import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
+import { aboutPage } from './aboutPage'
+import contactCards from './contactCards'
+import employment from './employment'
+import { header } from './header'
 
 export const schemaTypes = [
     test,
@@ -20,4 +24,9 @@ export const schemaTypes = [
     newsCards,
     recentFindingsCards,
     resourcesCards,
+    aboutPage,
+    contactCards,
+    employment,
+    header
+
 ]
