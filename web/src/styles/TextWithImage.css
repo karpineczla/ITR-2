@@ -1,0 +1,94 @@
+.text-with-image-row {
+  width: 80vw;
+  margin: 4rem auto;
+}
+
+.text-with-image-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.text-with-image-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 30vw;
+  align-items: center;
+  gap: 4rem;
+}
+
+.text-with-image-content.image-left {
+  grid-template-columns: 30vw minmax(0, 1fr);
+}
+
+.text-with-image-content.image-right .text-with-image-text {
+  order: 1;
+}
+
+.text-with-image-content.image-right .text-with-image-image {
+  order: 2;
+}
+
+.text-with-image-content.image-left .text-with-image-text {
+  order: 2;
+}
+
+.text-with-image-content.image-left .text-with-image-image {
+  order: 1;
+}
+
+.text-with-image-text {
+  font-size: 1.3rem;
+  color: #000;
+  line-height: 1.6;
+}
+
+.text-with-image-text p {
+  margin: 0;
+}
+
+.text-with-image-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.text-with-image-image {
+  display: flex;
+  width: 100%;
+  height: 30vh;
+}
+
+.text-with-image-content.image-right .text-with-image-image {
+  justify-content: flex-end;
+}
+
+.text-with-image-content.image-left .text-with-image-image {
+  justify-content: flex-start;
+}
+
+.text-with-image-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .text-with-image-content {
+    grid-template-columns: 1fr;
+  }
+
+  .text-with-image-content.image-right .text-with-image-text,
+  .text-with-image-content.image-left .text-with-image-text,
+  .text-with-image-content.image-right .text-with-image-image,
+  .text-with-image-content.image-left .text-with-image-image {
+    order: initial;
+  }
+}

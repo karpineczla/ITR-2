@@ -11,6 +11,13 @@ export const titleAndText = defineType ({
     description: 'Title, subtitle, and text block with selectable alignment',
     fields: [
         defineField ({
+            //can use a key to identify when a title isnt present
+            name: 'sectionKey',
+            title: 'Section Key',
+            type: 'string',
+            description: 'Unique key used by frontend queries (optional)',
+        }),
+        defineField ({
             name: 'title',
             title: 'Title',
             type: 'string',

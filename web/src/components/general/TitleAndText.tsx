@@ -4,6 +4,7 @@ import '../../styles/TitleAndText.css'
 
 interface TitleTextData {
   _id: string
+  sectionKey?: string
   title?: string
   subtitle?: string
   text: string
@@ -13,20 +14,33 @@ interface TitleTextData {
 }
 
 interface TitleAndTextProps {
+  sectionKey?: string
   title?: string
   subtitle?: string
 }
 
-export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
+export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTextProps) {
   const [loading, setLoading] = useState(true)
   const [blockData, setBlockData] = useState<TitleTextData | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = title
+        const query = sectionKey
+          ? `*[_type == "titleAndText" && sectionKey == $sectionKey][0]{
+              _id,
+              sectionKey,
+              title,
+              subtitle,
+              titleAlignment,
+              subtitleAlignment,
+              textAlignment,
+              text
+            }`
+          : title
           ? `*[_type == "titleAndText" && title == $title][0]{
               _id,
+              sectionKey,
               title,
               subtitle,
               titleAlignment,
@@ -37,6 +51,7 @@ export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
           : subtitle
             ? `*[_type == "titleAndText" && subtitle == $subtitle][0]{
               _id,
+              sectionKey,
               title,
               subtitle,
               titleAlignment,
@@ -46,6 +61,7 @@ export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
             }`
           : `*[_type == "titleAndText"][0]{
               _id,
+              sectionKey,
               title,
               subtitle,
               titleAlignment,
@@ -53,7 +69,7 @@ export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
               textAlignment,
               text
             }`
-        const params = title ? { title } : subtitle ? { subtitle } : undefined
+        const params = sectionKey ? { sectionKey } : title ? { title } : subtitle ? { subtitle } : undefined
         const result = await client.fetch(query, params)
         setBlockData(result)
         //console.log('Title & Text data:)', result)
@@ -64,7 +80,7 @@ export default function TitleAndText({ title, subtitle }: TitleAndTextProps) {
       }
     }
     fetchData()
-  }, [title, subtitle])
+  }, [sectionKey, title, subtitle])
 
   if (loading) return <div className="title-text-container">Loading...</div>
   if (!blockData)

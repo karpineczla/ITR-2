@@ -12,12 +12,12 @@ import { learnMoreButton } from './learnMoreButton'
 import { twoBlockRow } from './twoBlockRow'
 import { bulletsWithImg } from './bulletsWithImg'
 import { eventsRow } from './eventsRow'
-
-import { aboutPage } from './aboutPage'
 import { header } from './header'
 import { subscribe } from './subscribe'
 import contactCards from './contactCards'
 import employment from './employment'
+import { videoSection } from './videoSection'
+import { textWithImage } from './textWithImage'
 
 export const schemaTypes = [
     test,
@@ -34,10 +34,11 @@ export const schemaTypes = [
     twoBlockRow,
     bulletsWithImg,
     eventsRow,
-    aboutPage,
     subscribe,
     contactCards,
     employment,
-    header
+    header,
+    videoSection,
+    textWithImage
 
 ]
