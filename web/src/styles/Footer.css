@@ -1,13 +1,11 @@
 /* Footer.module.css */
 .footerContainer {
-    all: initial;
     display: block;
     width: 100%;
     background-color: #D1D1D1; 
     padding: 2rem 4rem;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
-    margin-top: 5vh;
 }
 
 .footerContent {

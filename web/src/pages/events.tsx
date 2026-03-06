@@ -1,7 +1,7 @@
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
 import TitleAndText from "../components/general/TitleAndText";
-import EventRow from "../components/eventsPage/eventRow";
+import EventRow from "../components/eventsPage/EventRow";
 
 export default function Events() {
     return (

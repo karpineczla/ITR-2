@@ -1,16 +1,23 @@
+
+.events-page {
+  border: solid red 2px;
+  width: 100vw;
+}
 .events-rows {
   width: 80vw;
   margin: 0 auto 8vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4rem;
 }
 
 .event-row {
   width: 100%;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   overflow: hidden;
+  
 }
 
 .event-row-image-wrap {
@@ -18,8 +25,8 @@
 }
 
 .event-row-image {
-  width: 20vw;
-  height: 30vh;
+  width: 25vw;
+  height: 35vh;
   object-fit: cover;
   display: block;
   border-radius: 15px;

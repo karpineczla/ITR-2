@@ -51,9 +51,7 @@ const Header = () => {
           <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Itrr-Logo" className="logoImg" />
         </Link>
 
-        <div className="searchContainer">
-          <input type="text" placeholder="Search" className="searchInput" />
-        </div>
+ 
       </div>
 
       <nav className="navBar">
