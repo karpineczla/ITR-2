@@ -1,0 +1,40 @@
+.survey-kit-buttons-grid {
+  width: min(1000px, 90vw);
+  margin: 2rem auto 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.survey-kit-buttons-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.survey-kit-column-title {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.survey-kit-buttons-grid .btn-cont {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.survey-kit-buttons-grid .learn-more-btn {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .survey-kit-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-kit-column-title {
+    text-align: left;
+  }
+}

@@ -6,6 +6,7 @@ import '../../styles/LearnMoreButton.css'
 interface LearnMoreButtonData {
 	label?: string
 	destination?: string
+	pdfUrl?: string
 	openInNewTab?: boolean
 }
 
@@ -35,6 +36,7 @@ export default function LearnMoreButton({ buttonKey, fallbackDestination }: Lear
 				const query = `*[_type == "learnMoreButton" && buttonKey == $buttonKey][0]{
 					label,
 					destination,
+					"pdfUrl": pdfFile.asset->url,
 					openInNewTab
 				}`
 				const result = await client.fetch(query, { buttonKey })
@@ -51,7 +53,7 @@ export default function LearnMoreButton({ buttonKey, fallbackDestination }: Lear
 
 	if (loading) return null
 
-	const destination = (buttonData?.destination || fallbackDestination || '').trim()
+	const destination = (buttonData?.destination || buttonData?.pdfUrl || fallbackDestination || '').trim()
 	if (!destination) return null
 
 	const label = (buttonData?.label || 'Learn More').trim() || 'Learn More'

@@ -1,6 +1,6 @@
 .text-with-image-row {
   width: 80vw;
-  margin: 4rem auto;
+  margin: 6rem auto;
 }
 
 .text-with-image-title {
@@ -48,6 +48,7 @@
 
 .text-with-image-text p {
   margin: 0;
+  white-space: pre-line;
 }
 
 .text-with-image-list {
