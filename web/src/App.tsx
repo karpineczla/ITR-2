@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Spending from './pages/Spending'
-import Publications from './pages/Publications'
+import Spending from './pages/spending'
+import Publications from './pages/publications'
 import RecentFindings from './pages/recent-findings'
-import News from './pages/News'
+import News from './pages/news'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import Resources from './pages/resources'
@@ -16,6 +16,7 @@ import SurveyKit from './pages/survey-kit'
 import PilotCommunity from './pages/pilot-community'
 import Sessions from './pages/sessions'
 import EducationAndWorkshops from './pages/education-and-workshops'
+import DashboardSurveyPage from './pages/dashboard-survey'
 
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/pilot-community" element={<PilotCommunity />} />
         <Route path="/sessions" element={<Sessions />} />
         <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
+        <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
       </Routes>
     </Router>
   )
