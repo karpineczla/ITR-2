@@ -83,8 +83,8 @@
 /* this is the part for announcments bar */
 
 .announcementBar {
-  background-color: #842241 !important;
-  color: white;
+  background-color: #decfba !important;
+  color: rgb(0, 0, 0);
   overflow: hidden;
   white-space: nowrap;
   padding: 8px 0;
