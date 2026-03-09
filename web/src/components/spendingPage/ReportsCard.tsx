@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
+import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { client } from '../../sanityClient'
 import '../../styles/ReportsCard.css'
 
@@ -12,11 +12,7 @@ interface ReportItem {
     citation?: string
     date?: string
     tags?: string[]
-    content?: {
-        asset?: {
-            url?: string
-        }
-    }
+    content?: string
 }
 
 export default function ReportsCard() {
@@ -35,7 +31,7 @@ export default function ReportsCard() {
                     citation,
                     date,
                     tags,
-                    content{asset->{url}}
+                    content
                 }`
                 const result = await client.fetch(query)
                 setReportData(result || [])
@@ -92,14 +88,14 @@ export default function ReportsCard() {
                                         >
                                             Show more
                                         </button>
-                                        {report.content?.asset?.url && (
+                                        {report.content && (
                                             <a
-                                                className="report-icon-pdf"
-                                                href={report.content.asset.url}
+                                                className="report-icon-link"
+                                                href={report.content}
                                                 target="_blank"
                                                 rel="noreferrer"
                                             >
-                                                <FontAwesomeIcon icon={faFilePdf} />
+                                                <FontAwesomeIcon icon={faUpRightFromSquare} />
                                             </a>
                                         )}
                                     </div>

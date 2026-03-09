@@ -19,6 +19,7 @@
   gap: 60px;
   max-width: 1000px;
   width: 100%;
+  min-width: 0;
 }
 
 
@@ -44,6 +45,7 @@
 
 .subscribe-text {
   flex: 1;
+  min-width: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -79,6 +81,8 @@
   font-weight: 800; 
   font-size: 22px;
   transition: all 0.2s ease-in-out;
+  max-width: 100%;
+  white-space: normal;
 }
 
 .subscribe-button:hover {
