@@ -1,8 +1,8 @@
 import { defineField } from "sanity"
 
 export default {
-  name: 'resource',
-  title: 'Resource',
+  name: 'resourceCards',
+  title: 'Resource Cards',
   type: 'document',
   fields: [
     defineField({

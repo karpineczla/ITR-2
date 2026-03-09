@@ -8,8 +8,6 @@ import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
-import { interactiveData } from './interactiveData'
-import { carousel } from './carousel'
 
 export const schemaTypes = [
     test,
@@ -22,6 +20,4 @@ export const schemaTypes = [
     newsCards,
     recentFindingsCards,
     resourcesCards,
-    interactiveData,
-    carousel
 ]

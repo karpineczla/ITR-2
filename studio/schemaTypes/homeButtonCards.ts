@@ -51,10 +51,16 @@ export const homeButtonCards = {
     select: {
       title: 'title'
     },
-    prepare({title}: {title: string}) {
-      return {
-        title: title || 'Home Button Cards'
+    preview: {
+  select: {
+    title: 'title',
+  },
+  prepare(selection: Record<string, any>) {
+    const { title } = selection
+    return {
+      title: title || 'Home Button Cards',
       }
     },
+  },
   },
 }

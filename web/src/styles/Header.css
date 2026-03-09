@@ -1,6 +1,5 @@
 /* Header.module.css */
 .headerContainer {
-    all: initial; 
     font-family: sans-serif;
     width: 100%;
     display: block;
@@ -77,4 +76,50 @@
 
 .navLink:hover {
     text-decoration: underline;
+}
+
+
+
+/* this is the part for announcments bar */
+
+.announcementBar {
+  background-color: #decfba !important;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+.tickerWrapper {
+  display: flex;
+  width: max-content; /* Ensures the container is as wide as the text */
+}
+
+
+.tickerText {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-move 50s linear infinite;
+}
+
+.tickerText span {
+  /* This controls the space between entries */
+  padding: 0 160px; 
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+@keyframes ticker-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    
+    transform: translateX(-50%);
+  }
+}
+
+.announcementBar:hover .tickerText {
+  animation-play-state: paused;
 }
