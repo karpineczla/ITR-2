@@ -1,0 +1,84 @@
+
+.events-page {
+  border: solid red 2px;
+  width: 100vw;
+}
+.events-rows {
+  width: 80vw;
+  margin: 0 auto 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.event-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  
+}
+
+.event-row-image-wrap {
+  flex-shrink: 0;
+}
+
+.event-row-image {
+  width: 25vw;
+  height: 35vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
+
+.event-row-content {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.event-row-content-no-image {
+  padding-left: 0;
+}
+
+.event-row-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.event-row-actions {
+  flex-shrink: 0;
+}
+
+.event-row-actions .btn-cont {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+.event-row-actions .learn-more-btn {
+  padding: 0.65rem 0.9rem;
+  font-size: 1.3rem;
+}
+
+.event-row-title {
+  margin: 0 0 0.6rem;
+  font-size: 2rem;
+  color:black;
+  margin-bottom: 1.5rem;
+}
+
+.event-row-text {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1.3rem;
+  color: black;
+}
+

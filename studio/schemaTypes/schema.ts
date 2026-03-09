@@ -8,14 +8,16 @@ import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
-import { aboutPage } from './aboutPage'
+import { learnMoreButton } from './learnMoreButton'
+import { twoBlockRow } from './twoBlockRow'
+import { bulletsWithImg } from './bulletsWithImg'
+import { eventsRow } from './eventsRow'
 import { header } from './header'
 import { subscribe } from './subscribe'
 import contactCards from './contactCards'
 import employment from './employment'
-
-
-
+import { videoSection } from './videoSection'
+import { textWithImage } from './textWithImage'
 
 export const schemaTypes = [
     test,
@@ -28,12 +30,15 @@ export const schemaTypes = [
     newsCards,
     recentFindingsCards,
     resourcesCards,
-    aboutPage,
-    header,
+    learnMoreButton,
+    twoBlockRow,
+    bulletsWithImg,
+    eventsRow,
     subscribe,
     contactCards,
     employment,
-    
-    
+    header,
+    videoSection,
+    textWithImage
 
 ]
