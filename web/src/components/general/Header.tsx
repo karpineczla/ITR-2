@@ -1,8 +1,12 @@
 import '../../styles/Header.css';
 import logo from '../../assets/ItrrLogo.png';
-import { Link } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const navigate = useNavigate()
+
   const navLinks = [
     //need to change these later o match the page names 
     { name: 'About', href: '/about' },
@@ -16,6 +20,16 @@ const Header = () => {
     { name: 'Subscribe', href: '/subscribe' },
   ]
 
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const trimmed = searchTerm.trim()
+    if (!trimmed) {
+      return
+    }
+
+    navigate(`/search?q=${encodeURIComponent(trimmed)}`)
+  }
+
   return (
     <header className="headerContainer">
       <div className="topSection">
@@ -23,13 +37,20 @@ const Header = () => {
           <img src={logo} alt="ITRR Logo" className="logoImg" />
         </Link>
 
-        <div className="searchContainer">
+        <form className="searchContainer" onSubmit={handleSearchSubmit} role="search">
           <svg className="searchIcon" viewBox="0 0 24 24" fill="none" stroke="black">
             <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2"></line>
           </svg>
-          <input type="text" placeholder="Search" style={{ border: 'none', outline: 'none', marginLeft: '10px' }} />
-        </div>
+          <input
+            className="searchInput"
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            aria-label="Search site content"
+          />
+        </form>
       </div>
 
       <nav className="navBar">

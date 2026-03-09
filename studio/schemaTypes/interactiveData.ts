@@ -69,8 +69,19 @@ export const interactiveData = {
           }
         }
       ]
-    }
-  )],
+    }),
+    defineField ({
+            name: 'title',
+            title: 'Title',
+            type: 'string',
+        }),
+        defineField ({
+            name: 'text',
+            title: 'Text',
+            type: 'text',
+            rows: 20,
+        })
+],
   //what the title is in studio for the document
     preview: {
     select: {

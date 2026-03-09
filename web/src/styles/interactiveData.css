@@ -36,8 +36,8 @@ body {
 }
 
 /* Alternate backgrounds for each link */
-.links-box > a:nth-child(odd)  { background: #f3f4f6; }
-.links-box > a:nth-child(even) { background: #eceef0; }
+.links-box > a:nth-child(odd)  { background: #DADADA; }
+.links-box > a:nth-child(even) { background: #B2B1B1; }
 
 .links-box__link:hover,
 .links-box__link:focus { filter: brightness(0.98); outline: none; }

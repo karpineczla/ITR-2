@@ -13,6 +13,7 @@ import Subscribe from './pages/subscribe'
 import Contact from './pages/contact'
 import EmploymentOpportunities from './pages/employment-opportunities'
 import SurveyKit from './pages/survey-kit'
+import Search from './pages/search'
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/employment-opportunities" element={<EmploymentOpportunities />} />
         <Route path="/survey-kit" element={<SurveyKit />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   )
