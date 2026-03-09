@@ -36,7 +36,6 @@
 
 .contact-card:hover {
   transform: translateY(-5px);
-  background-color: var(--maroon-dark);
 }
 
 .contact-card-inner {
