@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { client } from '../sanityClient'
+import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
-import '../styles/Hero.css'
+import '../../styles/Hero.css'
 
 const builder = createImageUrlBuilder(client)
 

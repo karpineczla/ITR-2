@@ -1,23 +1,46 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import PublicationsAndReports from './pages/PublicationsAndReports'
-import Spending from './pages/Spending'
-import Publications from './pages/Publications'
-import RecentFindings from './pages/RecentFindings'
-import News from './pages/News'
+import Home from './pages/itrr-home'
+import About from './pages/about'
+import PublicationsAndReports from './pages/publications-and-reports'
+import Spending from './pages/spending'
+import Publications from './pages/publications'
+import RecentFindings from './pages/recent-findings'
+import News from './pages/news'
+import Events from './pages/events'
+import InteractiveData from './pages/interactive-data'
+import Resources from './pages/resources'
+import Subscribe from './pages/subscribe'
+import Contact from './pages/contact'
+import EmploymentOpportunities from './pages/employment-opportunities'
+import SurveyKit from './pages/survey-kit'
+import PilotCommunity from './pages/pilot-community'
+import Sessions from './pages/sessions'
+import EducationAndWorkshops from './pages/education-and-workshops'
+import DashboardSurveyPage from './pages/dashboard-survey'
+
 
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Add rest of the routes here */}
-        <Route path="/PublicationsAndReports" element={<PublicationsAndReports />} />
-        <Route path="/Spending" element={<Spending />} />
-        <Route path="/News" element={<News />} />
-        <Route path="/RecentFindings" element={<RecentFindings />} />
-        <Route path="/Publications" element={<Publications />} />
-
+        <Route path="/about" element={<About />} />
+        <Route path="/publications-and-reports" element={<PublicationsAndReports />} />
+        <Route path="/spending" element={<Spending />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/recent-findings" element={<RecentFindings />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/interactive-data" element={<InteractiveData />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/employment-opportunities" element={<EmploymentOpportunities />} />
+        <Route path="/survey-kit" element={<SurveyKit />} />
+        <Route path="/pilot-community" element={<PilotCommunity />} />
+        <Route path="/sessions" element={<Sessions />} />
+        <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
+        <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
       </Routes>
     </Router>
   )

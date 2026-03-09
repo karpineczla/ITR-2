@@ -15,14 +15,12 @@ export default {
       title: 'Author',
       type: 'string',
     },
-    //The pdf for the Report itself
+    //A link for the report
     {
       name: 'content',
       title: 'Content',
-      type: 'file',
-      options: {
-        accept: 'application/pdf'
-      }
+      type: 'url',
+      description: 'Provide a URL for this report.',
     },
     // The abstract of the report, prompts user for a summary
     {

@@ -1,0 +1,25 @@
+.news-cards-grid {
+	gap: 0rem;
+}
+
+.news-cards-grid .report-card {
+	height: auto;
+}
+
+.news-card-face {
+	height: 70%;
+	justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.news-title-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.news-card-face:hover {
+    transform: scale(1.03);
+}
+
+

@@ -1,6 +1,5 @@
 /* Footer.module.css */
 .footerContainer {
-    all: initial;
     display: block;
     width: 100%;
     background-color: #D1D1D1; 
@@ -62,5 +61,5 @@
 }
 
 .socialIcon:hover {
-    color: #700028; /* maroon hover effect */
+    color: #842241; /* maroon hover effect */
 }
