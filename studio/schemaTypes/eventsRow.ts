@@ -19,6 +19,15 @@ export const eventsRow = defineType({
             name: 'image',
             title: 'Image',
             type: 'image',
+            fields: [
+                {
+                name: 'alt',
+                type: 'string',
+                title: 'Alternate text',
+                description: 'Important for SEO and accessibility. Describe the image content and function.',
+                validation: (Rule: any) => Rule.required()
+                }
+            ]
         }),
         defineField({
             name: 'buttonKey',

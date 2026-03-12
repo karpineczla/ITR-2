@@ -34,31 +34,46 @@
 }
 
 .visitor-trends__card {
-  background: #ffffff;
+  background: #d1d1d1;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 18px;
-  min-height: 180px;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .visitor-trends__card-title {
   margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-transform: uppercase;
+  font-size: 1.4rem;
 }
 
 .visitor-trends__card-text {
   margin: 0 0 12px 0;
-  max-width: 70ch;
+  max-width: 90%;
+  width: 90%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1.2rem;
 }
 
 .visitor-trends__link {
   display: inline-block;
   text-decoration: none;
-  color: #70002E;
+  color: white;
   font-weight: 700;
+  margin-top: auto;
+  background-color: #842241;
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
 .visitor-trends__dots {
