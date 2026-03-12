@@ -11,7 +11,8 @@ export default function Sessions() {
             <BackButton to="/events" />
             <TitleAndText title="Listening Sessions"/>
             <TitleAndText title="Research Roundup" />
-            <Carousel sectionKey="sessions" />
+            <Carousel sectionKey="sessions-upcoming" />
+            <Carousel sectionKey="sessions-previous" />
             <Footer />
         </main>
     )

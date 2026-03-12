@@ -3,14 +3,14 @@
   grid-template-columns: repeat(2, 1fr);
   gap: .5rem;
   padding: 4rem;
-  max-width: 70vw;
+  max-width: 90vw;
   margin: 0 auto;
 }
 
 .grid-card {
   background: #dadada;
   padding: 1rem 1rem 1rem 0;
-  height: 150px;
+  height: 200px;
   display: flex;
   border-radius: 10px;
   flex-direction: row;
@@ -21,6 +21,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 /*

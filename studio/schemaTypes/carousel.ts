@@ -50,6 +50,12 @@ export const carousel = {
               type: 'string',
               initialValue: 'View report',
               description: 'Text shown on the card link button.'
+            }),
+            defineField({
+              name: 'datetime',
+              title: 'Date/Time',
+              type: 'string',
+              description: 'Optional to add a date and time for a session.'
             })
           ],
           preview: {

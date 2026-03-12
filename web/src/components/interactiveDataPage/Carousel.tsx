@@ -8,6 +8,7 @@ interface Report {
     description: string;
     href: string;
     buttonText?: string;
+    datetime?: string;
 }
 
 interface CarouselData {
@@ -35,7 +36,8 @@ export default function Carousel({ sectionKey }: CarouselProps) {
                     title,
                     description,
                                         "href": link,
-                                        buttonText
+                                        buttonText,
+                                        datetime
                   }
                 }`;
 
@@ -97,6 +99,9 @@ export default function Carousel({ sectionKey }: CarouselProps) {
                 <div className="visitor-trends__card">
                     <h3 className="visitor-trends__card-title">{activeReport.title}</h3>
                     <p className="visitor-trends__card-text">{activeReport.description}</p>
+                    {activeReport.datetime && (
+                        <p className="visitor-trends__card-bold">{activeReport.datetime}</p>
+                    )}
                     <a className="visitor-trends__link" href={activeReport.href}>
                         {activeReport.buttonText || "View report"}
                     </a>
