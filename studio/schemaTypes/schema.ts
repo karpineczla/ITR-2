@@ -2,7 +2,7 @@ import test from './test'
 import {reports} from './reports'
 import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
-import { homeGridCards } from './HomeGridCards'
+import { homeGridCards } from './homeGridCards'
 import { titleAndText } from './titleAndText'
 import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
@@ -33,7 +33,7 @@ export const schemaTypes = [
     header,
     subscribe,
     contactCards,
-    employment
+    employment,
     videoType,
     portableTextEditor,
 ]
