@@ -17,6 +17,7 @@ import PilotCommunity from './pages/pilot-community'
 import Sessions from './pages/sessions'
 import EducationAndWorkshops from './pages/education-and-workshops'
 import DashboardSurveyPage from './pages/dashboard-survey'
+import ContinuingTheConversation from './pages/continuing-the-conversation'
 
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/sessions" element={<Sessions />} />
         <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
         <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
+        <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
       </Routes>
     </Router>
   )

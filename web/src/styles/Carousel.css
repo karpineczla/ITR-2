@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;700&display=swap');
+
 
 .visitor-trends {
   margin: 24px auto;
@@ -12,6 +14,7 @@
   margin: 0 0 12px 0;
   font-size: 1.8rem;
   text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
 }
 
 .visitor-trends__carousel {
@@ -55,6 +58,7 @@
   -webkit-box-orient: vertical;
   text-transform: uppercase;
   font-size: 1.4rem;
+  font-family: 'Anton', sans-serif;
 }
 
 .visitor-trends__card-text {
