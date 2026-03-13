@@ -113,7 +113,7 @@ export default function InteractiveData() {
                 </div>
             </div>
 
-            <Carousel />
+            <Carousel sectionKey="interactive-data" />
 
             <Footer />
         </main>
