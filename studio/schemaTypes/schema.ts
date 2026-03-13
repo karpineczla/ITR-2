@@ -16,7 +16,6 @@ import { header } from './header'
 import { learnMoreButton } from './learnMoreButton'
 import { subscribe } from './subscribe'
 import { textWithImage } from './textWithImage'
-import { titleSubtitleButtons } from './titleSubtitleButtons'
 import { twoBlockRow } from './twoBlockRow'
 import { videoSection } from './videoSection'
 
@@ -39,7 +38,6 @@ export const schemaTypes = [
     learnMoreButton,
     subscribe,
     textWithImage,
-    titleSubtitleButtons,
     twoBlockRow,
     videoSection
 
