@@ -108,8 +108,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background: white;
-  border: 1px solid #eee;
+  background: #842241;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   z-index: 1000;
   list-style: none;
@@ -121,15 +120,15 @@
 }
 
 .dropdownMenu li a {
+  color: white;
   display: block;
   padding: 12px 20px;
-  color: #333;
   text-decoration: none;
   transition: background 0.2s;
 }
 
 .dropdownMenu li a:hover {
-  background: #f5f5f5;
+  font-weight: 700;
 }
 
 
@@ -137,7 +136,7 @@
 /* this is the part for announcments bar */
 
 .announcementBar {
-  background-color: #decfba !important;
+  background-color: #decfba;
   color: rgb(0, 0, 0);
   overflow: hidden;
   white-space: nowrap;

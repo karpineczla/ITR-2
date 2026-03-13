@@ -1,6 +1,5 @@
 .publications-cards-container {
   display: flex;
-  padding-top: 1rem;
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -40,7 +39,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2vh;
 }
 
 .publications-card-image {
@@ -54,7 +52,7 @@
 }
 
 .publications-card-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: left;
   color: #ffffff;
   flex-grow: 1;
@@ -62,6 +60,8 @@
   justify-content: flex-start;
   width: 100%;
   font-family: 'Anton', sans-serif;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
 }
 
 .publications-card-description {
