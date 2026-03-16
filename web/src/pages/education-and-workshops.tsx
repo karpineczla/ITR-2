@@ -12,6 +12,7 @@ export default function EducationAndWorkshops() {
             <TitleAndText title="Education and Workshops"/>
             <EventRow rowKey="tourism-fundamentals"/>
             <EventRow rowKey="genai-montana-tourism" />
+            <EventRow rowKey="continuing-the-conversation" />
             <Footer />
         </main>
     )

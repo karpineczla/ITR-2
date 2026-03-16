@@ -9,6 +9,9 @@ export const header = defineType({
       name: 'logo',
       title: 'Site Logo',
       type: 'image',
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text', description: 'Describe the logo for accessibility and SEO.' }
+      ],
     }),
     defineField({
       name: 'announcements',
