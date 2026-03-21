@@ -1,0 +1,298 @@
+{
+  "cookies": [
+    {
+      "name": "rl_anonymous_id",
+      "value": "RS_ENC_v3_IjMzYWUyMjQ3LTNjNjAtNDU1NC05YmIyLTJiZGNhZjczOGQ4NSI%3D",
+      "domain": "www.sanity.io",
+      "path": "/",
+      "expires": 1805342471,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "rl_page_init_referrer",
+      "value": "RS_ENC_v3_IiRkaXJlY3Qi",
+      "domain": "www.sanity.io",
+      "path": "/",
+      "expires": 1805342471,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tempSession",
+      "value": "s%3ABrfmDRIW3_1OVkg-LtEvyEx0EA5wSn3L.pxhTT0%2F8bZniuD4T%2FPm6zoMGDkbNkBKGLz3XS9LKLH8",
+      "domain": "api.sanity.io",
+      "path": "/",
+      "expires": 1773806725.496592,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_octo",
+      "value": "GH1.1.607577760.1773806427",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1805342425.684899,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "cpu_bucket",
+      "value": "xlg",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "preferred_color_mode",
+      "value": "light",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tz",
+      "value": "America%2FDenver",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_device_id",
+      "value": "de342059eaa1565db787bc73d692693d",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1805342426.474891,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "saved_user_sessions",
+      "value": "144267396%3AMI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1781582466.721355,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "user_session",
+      "value": "MI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1775016066.721521,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__Host-user_session_same_site",
+      "value": "MI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1775016066.721593,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "tz",
+      "value": "America%2FDenver",
+      "domain": "github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "color_mode",
+      "value": "%7B%22color_mode%22%3A%22auto%22%2C%22light_theme%22%3A%7B%22name%22%3A%22light%22%2C%22color_mode%22%3A%22light%22%7D%2C%22dark_theme%22%3A%7B%22name%22%3A%22dark%22%2C%22color_mode%22%3A%22dark%22%7D%7D",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "logged_in",
+      "value": "yes",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1805342466.722209,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "dotcom_user",
+      "value": "madisonDavis7",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1805342466.722308,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "last_write_ms",
+      "value": "1773806468241",
+      "domain": "github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gh_sess",
+      "value": "bo5VvvP8bfnrHeyc4snjry2nimisyikI75rvljWIHx9I14v%2FDyEk0VfG1s3aQ9WPASQj8qsWXitlyLNwlkOTJhwmkbE6etrYTmca%2FxtuPvth%2FLe44hOOuscbqwYEP2YV8iedLieJNkGdi3IH7il5Xp%2FdCqn2x4F8Sajj6Z34JZRU1gSx1oScPtmcjM9tggb8U3UtAls1G6l8IT931O%2BEJLHXv%2F7UWlODpu1f%2BA9E9N3zYEpnfe46dNI3S1NTh2N1m3lYM20F1WE589fzjseGDtKgLfw1beiJUZ6geHjl2mdlriQv8OWWJfoLuIijABPSxb8ATfRVLRrzebEfQeQXnaTgsjsOCOVPH3Lbn3WQV8eo11jMZo8cRmaawTTT46Ol5M2dPzNsT1fX58XxxIBmyssoM2Myb6HInMcZPZ6ldeDk%2B6Wdx8n4mrnAbez6qefmi61NQ6%2F2qgz0pTOL133IQCwP%2BsQrmYY2BsAImcHtCq8NgAX5q23mfHG%2FZh%2FC6pL75EPFmcRWzreq9j0bnaQA2xoXN21PKZ%2F2%2F%2FYnYghjDk5Vs4okIZRCKlKZb2zkYJpEdEV9fRKRerYVZCbLzBUvvPDujetcD8H0R3CTYDvj4As6%2FAtFFJJs9TKsY%2BrM2ZAHbUQ0irZznL7rja3ISfI0d3ThGt%2BxV58BErKp4UE23%2BpiTgA2ob81Uon16GcvdmS8KwQVWWIx%2F%2FoIG5KhI0ctyfzGFZ8VSdYwvQ6N7g2I2NmBn0MWKezzuGKw2XD9OXRhvwXeuq5uF6pu1PTReQHwgX0iXN4jqtwF8qwR0VG9ZfeNynrnicQd2zQyTCN7T0Q4uIfxbVO1OVtUSVA%2BV8YoxI9Qb7AaaogNu9rTExUF2qRZxchd%2FMWcMLBLGknq4aRUIQOlBFPg%2BPz5JjRcZQKvawb7%2BaBBIytRIOnOthHnIzTW0v5NhGG0zRPAVZfQ%2F9K6Huoi8tQUlCZnjOAwZUqsyju7qnQv%2FvAzrhXmzXaPri4MfPMChNSXD7kl4qXeAuSTtkTj6OQgspUCAHVGPwi%2BJRlTfYCA%2Fqjrao3G2i5tlIWdeMXrT3kx8MXWd%2FG81LaHVOQgDSx1wJHN1G81X2u38W8DFG2rsgB1p5wCH1Ku3IdKMLdwHXyrDjoSq7pQXqQNlzlMCSr9mn6em3Yn21Tjsep6y6czuHK%2BeHxbimeoL7U%3D--1LxJnZwggRqpkcU7--NzpvOMFLkocdNaKctU8KCw%3D%3D",
+      "domain": "github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "sanitySession",
+      "value": "sk2GUZahM93K5uFwwAO8Fu886kvERg0vXRBWoq8TN7Z5oH1jNYiKL14EZ9pw6Sw7rlw1wHJboeyQbuvYn",
+      "domain": "api.sanity.io",
+      "path": "/",
+      "expires": 1805342469.390807,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "rl_user_id",
+      "value": "RS_ENC_v3_Imc2RXNxWDBWdSI%3D",
+      "domain": "www.sanity.io",
+      "path": "/",
+      "expires": 1805342472,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "rl_session",
+      "value": "RS_ENC_v3_eyJhdXRvVHJhY2siOnRydWUsInRpbWVvdXQiOjE4MDAwMDAsImV4cGlyZXNBdCI6MTc3MzgwODI3MjUwNCwiaWQiOjE3NzM4MDY0MjA5MzMsInNlc3Npb25TdGFydCI6ZmFsc2V9",
+      "domain": "www.sanity.io",
+      "path": "/",
+      "expires": 1805342472,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "m",
+      "value": "a3192f01-3a38-47d7-a633-151d291ced62a7f67d",
+      "domain": "m.stripe.com",
+      "path": "/",
+      "expires": 1808366497.913208,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__stripe_mid",
+      "value": "c810ec30-d511-40d7-ba41-7e88c6becc23f50ea3",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1805342476,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "__stripe_sid",
+      "value": "6ff1de5a-89c7-4834-a8b6-89de5f5f2c7ef9bad2",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1773808276,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.sanity.io",
+      "localStorage": [
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.queue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "sanity:last_used_provider",
+          "value": "github"
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.batchQueue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.inProgress",
+          "value": "\"{}\""
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.inProgress",
+          "value": "\"{}\""
+        },
+        {
+          "name": "osano_consentmanager_tattles",
+          "value": "{\"55\":{\"queue\":{},\"ignore\":{\"localStorage\":[\"_Is_Incognit\",\"nuqs-localStorage-test\",\"test_rudder_ls\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.inProgress\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.queue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.batchQueue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.ack\",\"gbFeaturesCache\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.inProgress\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.queue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.batchQueue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.ack\",\"_1773806422713\",\"sanity:last_used_provider\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.inProgress\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.queue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.batchQueue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.ack\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.reclaimStart\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.reclaimEnd\"]}}}"
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.batchQueue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.queue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.ack",
+          "value": "\"1773806500249\""
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.ack",
+          "value": "\"1773806425660\""
+        },
+        {
+          "name": "loglevel",
+          "value": "WARN"
+        },
+        {
+          "name": "gbFeaturesCache",
+          "value": "[[\"https://cdn.growthbook.io||sdk-4pAt27oKPwT5F4ko\",{\"data\":{\"status\":200,\"features\":{\"manage-log-downloads\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"projectId\":\"d45jg133\"},\"force\":true},{\"condition\":{\"projectId\":\"d2cl22fk\"},\"force\":true},{\"condition\":{\"projectId\":\"3do82whm\"},\"force\":true},{\"condition\":{\"organizationId\":\"oSyH1iET5\"},\"force\":true},{\"condition\":{\"organizationId\":\"oRO8LCn7v\"},\"force\":true},{\"condition\":{\"organizationId\":\"oGOZkklmt\"},\"force\":true},{\"condition\":{\"organizationId\":\"ohHpLl1fL\"},\"force\":true},{\"condition\":{\"organizationId\":\"oGPp6oWdw\"},\"force\":true},{\"condition\":{\"organizationId\":\"oz1C0bJLW\"},\"force\":true},{\"force\":true,\"coverage\":0.5,\"hashAttribute\":\"organizationId\"}]},\"manage-single-page-checkout-flow\":{\"defaultValue\":false},\"request-upgrade-dialog\":{\"defaultValue\":true},\"manage-downgrade-survey-flow\":{\"defaultValue\":true},\"request-access-to-project\":{\"defaultValue\":true},\"manage-centralized-access-management\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"manage-getting-started-xp\":{\"defaultValue\":false,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"userId\",\"seed\":\"4c8753e1-5b43-424d-b1df-51ea81f30ef7\",\"hashVersion\":2,\"force\":true}]},\"manage-dashboard-rollout\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"auto-update-channel-enabled\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"origin\":{\"$in\":[\"hygg.li\",\"bjoerge-aus-debug.sanity.studio\",\"test-studio.sanity.build\",\"test-studio-auto-updates.sanity.studio\",\"logo-test-again.sanity.studio\",\"test.sanity.studio\",\"mm-blog-test.sanity.studio\",\"karkort-app.sanity.studio\",\"geoff-playground.sanity.studio\",\"auto-updating-test.sanity.studio\"]}},\"force\":true},{\"condition\":{\"projectId\":{\"$in\":[\"m7rwbid8\",\"3do82whm\"]}},\"force\":true}]},\"llm-activation-xp-2025\":{\"defaultValue\":false},\"external-studio-auto-updating-enabled\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"origin\":{\"$in\":[\"oh-im-so-excited.sanity.build\",\"hygg.li\"]}},\"force\":true},{\"condition\":{\"projectId\":{\"$in\":[\"m7rwbid8\",\"y1n65957\",\"3do82whm\"]}},\"force\":true}]},\"manage-new-org-usage\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"organizationId\":{\"$in\":[]}},\"force\":false}]},\"manage-auth-provider-ui\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"$or\":[{\"emailDomain\":\"sanity.io\"},{\"emailDomain\":\"vercel.com\"}]},\"force\":true},{\"condition\":{\"userId\":\"g8V1ZhQcN\"},\"force\":true}]},\"session_management_org\":{\"defaultValue\":true},\"session_management_self\":{\"defaultValue\":true},\"manage-show-ai-usage\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"attribute-management\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"organizationId\":{\"$in\":[\"o8JRA5EQO\",\"oKikZZNXA\"]}},\"force\":true}]},\"manage-show-embeddings\":{\"defaultValue\":false}},\"dateUpdated\":\"2026-03-17T14:28:35.962Z\"},\"version\":\"2026-03-17T14:28:35.962Z\",\"staleAt\":\"2026-03-18T04:01:21.028Z\",\"sse\":true}],[\"https://cdn.growthbook.io||sdk-MMswHFL4XViuBx8\",{\"data\":{\"status\":200,\"features\":{\"use_oauth_org_prompt_flag\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g61omhurehg8\",\"force\":true,\"coverage\":1,\"hashAttribute\":\"userId\"}]},\"write_saml_attributes\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6smmupn3j3\",\"condition\":{\"organizationId\":{\"$in\":[\"oKikZZNXA\"]}},\"force\":true}]},\"schengen_ui_next\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6omls5a8p0\",\"coverage\":0.05,\"hashAttribute\":\"anonymousId\",\"bucketVersion\":1,\"seed\":\"599e002c-77e2-4ed0-bcc7-9b7d2bcdf8f2\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"login-signup-02-18-2026\",\"phase\":\"3\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}]}]},\"use_partitioned_cookies\":{\"defaultValue\":false}},\"experiments\":[],\"dateUpdated\":\"2026-03-17T20:55:17.154Z\"},\"version\":\"2026-03-17T20:55:17.154Z\",\"staleAt\":\"2026-03-18T04:01:22.491Z\",\"sse\":true}]]"
+        }
+      ]
+    },
+    {
+      "origin": "https://www.google.com",
+      "localStorage": [
+        {
+          "name": "rc::a",
+          "value": "MXl0eTduZTFjaTQybGo="
+        }
+      ]
+    }
+  ]
+}
