@@ -15,6 +15,7 @@
   font-size: 2.5rem;
   margin-bottom: 40px;
   text-transform: uppercase;
+  color: black;
 }
 
 /* Grid Layout */
@@ -56,6 +57,11 @@
   font-size: 1.2rem;
 }
 
+.contact-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
 .contact-card-info .role {
   font-size: 0.9rem;
   opacity: 0.9;
@@ -70,10 +76,15 @@
 
 .show-more {
   display: block;
-  text-align: right;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: lowercase;
+  width: 100%;
+  text-align: right;
+}
+
+.show-more:hover {
+  text-decoration: underline;
 }
 
 /* Overlay / Modal Styles */
