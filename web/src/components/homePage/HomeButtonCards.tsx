@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
-import '../../styles/homeButtonCards.css'
+import '../../styles/HomeButtonCards.css'
 const builder = createImageUrlBuilder(client)
 
 interface Card {
