@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
 import '../../styles/PublicationsButtonCards.css'
