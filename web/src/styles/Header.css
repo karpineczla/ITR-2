@@ -13,16 +13,42 @@
     color: #333;
     overflow: hidden;
     white-space: nowrap;
-    padding: 6px 0;
-    font-size: 0.85rem;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.tickerWrapper {
+    display: flex;
+    width: max-content; 
+}
+
+.tickerText {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker-move 50s linear infinite;
 }
 
 .tickerText span {
-    padding: 0 80px;
+    padding: 0 160px;
     font-weight: 500;
+    font-size: 1rem;
+}
+.tickerLink {
+    opacity: 0.7;
+    text-decoration: none !important;
+    color: black;
+    font: inherit;
+}
+.announcementBar:hover .tickerText {
+    animation-play-state: paused;
 }
 
+@keyframes ticker-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
+/* Main Header Navigation */
 .mainHeader {
     display: flex;
     flex-direction: row; 
@@ -39,7 +65,6 @@
     display: block;
 }
 
-/* Navigation Links */
 .navSection {
     display: flex;
     flex-grow: 1;
@@ -54,9 +79,13 @@
     padding: 0;
 }
 
-.navLink {
+/* Navigation / links */
+.navLink, 
+.navLink:link, 
+.navLink:visited, 
+.navLink:active {
     font-family: 'Montserrat', sans-serif !important;
-    color: black !important; 
+    color: #333 !important; 
     text-decoration: none !important; 
     font-size: 1.1rem;
     font-weight: 600;
@@ -64,9 +93,10 @@
     transition: opacity 0.2s;
 }
 
-.navLink:hover {
+.tickerLink:hover {
     opacity: 0.7;
     text-decoration: none !important;
+    color: #333 !important;
 }
 
 /* Search Bar */
@@ -89,7 +119,7 @@
     width: 130px;
 }
 
-/* Mobile view so it dont look like buns */
+/* Mobile Responsiveness */
 @media (max-width: 1024px) {
     .mainHeader {
         padding: 0 15px;
@@ -98,7 +128,7 @@
 
     .navList {
         gap: 15px;
-        overflow-x: auto; /* Allows swiping through links on mobile */
+        overflow-x: auto; 
         padding-bottom: 5px;
     }
 
@@ -109,53 +139,4 @@
     .searchContainer {
         display: none; 
     }
-}
-
-
-
-.announcementBar {
-  background-color: #decfba;
-  color: rgb(0, 0, 0);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 8px 0;
-  font-size: 0.9rem;
-}
-
-
-.tickerWrapper {
-  display: flex;
-  width: max-content; 
-}
-
-
-
-
-.tickerText {
-  display: flex;
-  white-space: nowrap;
-  animation: ticker-move 50s linear infinite;
-}
-
-
-.tickerText span {
-  padding: 0 160px;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-
-@keyframes ticker-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-   
-    transform: translateX(-50%);
-  }
-}
-
-
-.announcementBar:hover .tickerText {
-  animation-play-state: paused;
 }
