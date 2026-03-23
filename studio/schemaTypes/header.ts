@@ -14,12 +14,21 @@ export const header = defineType({
       ],
     }),
     defineField({
-      name: 'announcements',
-      title: 'Announcement Ticker',
-      description: 'The messages that scroll at the top',
-      type: 'array',
-      of: [{ type: 'string' }]
-    }),
+  name: 'announcements',
+  title: 'Announcement Ticker',
+  description: 'The messages that scroll at the top',
+  type: 'array',
+  of: [
+    {
+      type: 'object',
+      name: 'announcementItem',
+      fields: [
+        { name: 'text', title: 'Announcement Text', type: 'string' },
+        { name: 'link', title: 'Link (Optional)', type: 'string', description: 'e.g., /news or https://google.com' }
+      ]
+    }
+  ]
+}),
     defineField({
       name: 'navLinks',
       title: 'Navigation Links',
