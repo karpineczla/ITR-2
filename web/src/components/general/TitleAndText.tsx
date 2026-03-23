@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { client } from '../../sanityClient'
+import { PortableText } from '@portabletext/react'
 import '../../styles/TitleAndText.css'
 
 interface TitleTextData {
@@ -7,7 +8,7 @@ interface TitleTextData {
   sectionKey?: string
   title?: string
   subtitle?: string
-  text: string
+  text?: unknown
   titleAlignment?: 'left' | 'center'
   subtitleAlignment?: 'left' | 'center'
   textAlignment?: 'left' | 'center'
@@ -97,13 +98,34 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
   const textAlignmentClass =
     blockData.textAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
 
+  const portableTextComponents = {
+    marks: {
+      link: ({ children, value }: { children: React.ReactNode; value?: { href?: string } }) => {
+        const href = value?.href || '#'
+        return (
+          <a className="title-text-link" href={href}>
+            {children}
+          </a>
+        )
+      },
+    },
+  }
+
+  const isPortableText = Array.isArray(blockData.text)
+
   return (
     <div className="title-text-container">
       {blockData.title && <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>}
       {blockData.subtitle && (
         <h3 className={`title-text-subtitle ${subtitleAlignmentClass}`}>{blockData.subtitle}</h3>
       )}
-      <p className={`title-text-body ${textAlignmentClass}`}>{blockData.text}</p>
+      <div className={`title-text-body ${textAlignmentClass}`}>
+        {isPortableText ? (
+          <PortableText value={blockData.text as any[]} components={portableTextComponents} />
+        ) : (
+          <p>{(blockData.text as string) || ''}</p>
+        )}
+      </div>
     </div>
   )
 }

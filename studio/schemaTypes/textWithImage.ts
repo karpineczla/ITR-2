@@ -98,6 +98,7 @@ export const textWithImage = defineType({
 			name: 'altText',
 			title: 'Image Alt Text',
 			type: 'string',
+			validation: (Rule) => Rule.required().error('Alternate text is required for accessibility and SEO.'),
 		}),
 	],
 	preview: {

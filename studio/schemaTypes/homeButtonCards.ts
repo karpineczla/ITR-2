@@ -25,6 +25,15 @@ export const homeButtonCards = {
               name: 'image',
               title: 'Card Image',
               type: 'image',
+            fields: [
+                {
+                name: 'alt',
+                type: 'string',
+                title: 'Alternate text',
+                description: 'Important for SEO and accessibility. Describe the image content and function.',
+                validation: (Rule: any) => Rule.required()
+                }
+            ],
               options: {
                 hotspot: true
               },

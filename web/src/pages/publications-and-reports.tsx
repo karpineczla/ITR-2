@@ -1,6 +1,6 @@
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
-import PublicationsButtonCards from "../components/publicationsAndReportsPage/PublicationsButtonCards";
+import ButtonCards from "../components/general/ButtonCards";
 import TitleAndText from "../components/general/TitleAndText";
 
 export default function PublicationsAndReports() {
@@ -8,7 +8,7 @@ export default function PublicationsAndReports() {
         <main className="publications-and-reports-page">
             <Header />
             <TitleAndText title="Publications and Reports" />
-            <PublicationsButtonCards />
+            <ButtonCards sectionKey="publications-and-reports" />
             <Footer />
         </main>
     );

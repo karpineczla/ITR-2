@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
+import '../../styles/VideoSection.css'
+
 
 interface VideoSectionProps {
   videoUrl?: string;
   altText?: string;
+  className?: string;
 }
 
 const getEmbedUrl = (url: string) => {
@@ -33,7 +36,7 @@ const getEmbedUrl = (url: string) => {
 
 const isDirectVideoFile = (url: string) => /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
 
-export default function VideoSection({ videoUrl, altText }: VideoSectionProps) {
+export default function VideoSection({ videoUrl, altText, className }: VideoSectionProps) {
   const [fetchedVideo, setFetchedVideo] = useState<{ videoUrl?: string; altText?: string } | null>(null);
 
   useEffect(() => {
@@ -67,7 +70,7 @@ export default function VideoSection({ videoUrl, altText }: VideoSectionProps) {
   const embedUrl = getEmbedUrl(resolvedVideoUrl);
 
   return (
-    <section className="videoSection">
+    <section className={`videoSection${className ? ` ${className}` : ''}`}>
       <div className="videoWrapper">
         {isDirectVideoFile(resolvedVideoUrl) ? (
           <video

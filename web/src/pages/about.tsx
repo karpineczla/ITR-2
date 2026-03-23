@@ -1,19 +1,22 @@
 import Header from "../components/general/Header";
 import Footer from "../components/general/Footer";
-import VideoSection from "../components/general/VideoSection";
+import VideoWithTextRow from "../components/general/VideoWithTextRow";
 import TitleAndText from "../components/general/TitleAndText";
 import TextWithImage from "../components/general/TextWithImage";
-import '../styles/aboutPage.css';
+import ContactList from "../components/contactPage/ContactList";
+
 
 
 export default function About() {
+    const videoSide: 'left' | 'right' = 'left'
+
     return (
         <main className="about-page">
             <Header />
-            <VideoSection />
+            <VideoWithTextRow side={videoSide} sectionKey="about-mission" />
             <TextWithImage sectionKey="about-history-row" />
             <TitleAndText sectionKey="history-part-2" />
-            <TitleAndText sectionKey="about-mission" />
+            <ContactList />
             <Footer />
         </main>
     );

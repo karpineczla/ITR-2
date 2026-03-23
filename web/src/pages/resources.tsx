@@ -1,3 +1,4 @@
+import BackButton from "../components/general/BackButton";
 import Footer from "../components/general/Footer";
 import Header from "../components/general/Header";
 import LearnMoreButton from "../components/general/LearnMoreButton";
@@ -8,6 +9,7 @@ export default function Resources() {
     return (
         <main className="resources-page">
             <Header />
+            <BackButton to='/get-involved-and-resources' />
             <TitleAndText title="Montana and Outdoor Recreation"/>
             <ResourceCard />
             <TitleAndText title="Outdoor Recreation in the United States"/>
