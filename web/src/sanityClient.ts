@@ -10,7 +10,7 @@ declare global {
   }
 }
 // reads from .env file unless not existing
-const env = typeof document === "undefined" ? process.env : window.ENV;
+//const env = typeof document === "undefined" ? process.env : window.ENV;
 
 export const client = createClient({
     projectId: 'a9qy1267',
@@ -18,7 +18,7 @@ export const client = createClient({
     apiVersion: '2025-10-30',
     useCdn: true,
     stega: {
-    studioUrl: env.PUBLIC_SANITY_STUDIO_URL, 
+    studioUrl: 'http://localhost:3333', 
   },
 })
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
-import '../../styles/HomeButtonCards.css'
+import '../../styles/homeButtonCards.css'
 const builder = createImageUrlBuilder(client)
 
 interface Card {
@@ -14,7 +14,7 @@ interface Card {
       url?: string
     }
   }
-  link?: string
+  link?: string //make sure in sanity the link is an internal path
 }
 
 interface ButtonCardsData {
@@ -27,6 +27,7 @@ interface HomeButtonCardsProps {
 }
 
 export default function HomeButtonCards({ data }: HomeButtonCardsProps) {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(!data)
   const [cardsData, setCardsData] = useState<ButtonCardsData | null>(data || null)
 
@@ -65,8 +66,7 @@ export default function HomeButtonCards({ data }: HomeButtonCardsProps) {
         <button
           key={card._key}
           className="card-button"
-          onClick={() => card.link && window.open(card.link, '_blank')}
-          disabled={!card.link}
+          onClick={() => card.link && navigate(card.link)}
         >
           <div className="card-content">
             <h3 className="card-title">{card.title}</h3>
