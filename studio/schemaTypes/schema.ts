@@ -8,11 +8,16 @@ import { publicationsButtonCards } from './publicationsButtonCards'
 import { newsCards } from './newsCards'
 import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
-import { aboutPage } from './aboutPage'
-import { header } from './header'
-import { subscribe } from './subscribe'
+import { bulletsWithImg } from './bulletsWithImg'
 import contactCards from './contactCards'
-import employment from './employment'
+import { carousel } from './carousel'
+import { eventsRow } from './eventsRow'
+import { header } from './header'
+import { learnMoreButton } from './learnMoreButton'
+import { subscribe } from './subscribe'
+import { textWithImage } from './textWithImage'
+import { twoBlockRow } from './twoBlockRow'
+import { videoSection } from './videoSection'
 import {pageType} from './pageType'
 import {videoType} from './videoType'
 import portableTextEditor from './portableTextEditor'
@@ -29,11 +34,17 @@ export const schemaTypes = [
     newsCards,
     recentFindingsCards,
     resourcesCards,
-    aboutPage,
-    header,
-    subscribe,
+    bulletsWithImg,
+    carousel,
     contactCards,
-    employment,
+    eventsRow,
+    header,
+    learnMoreButton,
+    subscribe,
+    textWithImage,
+    twoBlockRow,
+    videoSection
+,
     videoType,
     portableTextEditor,
 ]

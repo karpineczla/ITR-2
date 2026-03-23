@@ -28,7 +28,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
       const fetchGridCards = async () => {
         //console.log('Starting fetchGridCards...')
         try {
-          const query = `*[_type == "HomeGridCards"][0]{
+          const query = `*[_type == "homeGridCards"] | order(_updatedAt desc)[0]{
             _id,
             title,
             cards[]{
@@ -65,4 +65,4 @@ export default function HomeGrid({ data }: HomeGridProps) {
     </div>
   )
 }
-  
+

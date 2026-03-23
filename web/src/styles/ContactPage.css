@@ -1,6 +1,5 @@
 :root {
-  --maroon: #630e2b;
-  --maroon-dark: #4a0a1f;
+  --maroon: #832241;
 }
 
 .contact-page-container {
@@ -36,7 +35,6 @@
 
 .contact-card:hover {
   transform: translateY(-5px);
-  background-color: var(--maroon-dark);
 }
 
 .contact-card-inner {

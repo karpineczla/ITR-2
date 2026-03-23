@@ -16,19 +16,14 @@ export const reports= defineType({
       name: 'author',
       title: 'Author',
       type: 'string',
-    }),
-    //The pdf for the Report itself
-    defineField({
+    },
+    //A link for the report
+    {
       name: 'content',
       title: 'Content',
-      type: 'file',
-      options: {
-        accept: 'application/pdf'
-      },
-      validation: (rule) => rule
-        .required()
-        .error(`Must upload a PDF document`),
-    }),
+      type: 'url',
+      description: 'Provide a URL for this report.',
+    },
     // The abstract of the report, prompts user for a summary
     defineField({
       name: 'abstract',

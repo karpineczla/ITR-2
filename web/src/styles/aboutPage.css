@@ -1,147 +1,167 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;700&display=swap');
 
-
-
 .aboutContainer {
-
   font-family: 'Montserrat', sans-serif; 
   color: #333;
-  line-height: 1.6;
- 
+  line-height: 1.8;
+  
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 .sectionTitle {
-
   font-family: 'Anton', sans-serif;
   font-size: 3.5rem; 
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
-.historyGrid {
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto 40px auto;
-}
 
-.imageCol {
+.contentSection {
+  display: block;      
   width: 100%;
-  max-width: 600px; 
+  position: relative;
+  overflow: visible;   
 }
 
-.historyImg {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-}
-
-.textCol p, 
-.historyFullWidth p, 
-.centeredText {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left; 
-}
-
-.missionSection {
-  margin-top: 80px;
-  margin-bottom: 100px;
-}
-
-
-/* Video Section */
 .videoSection {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
+  float: right;       
+  width: 45%;          
+  min-width: 350px;    
+  margin-left: 40px;  
+  margin-bottom: 20px;
 }
 
 .videoWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: #888; /* temp color */
+  background-color: #000;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.videoPlaceholder {
+.videoFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../assets/mountain-background.jpg');
-  background-size: cover;
+  border: 0;
 }
 
-.playButton {
-  font-size: 80px;
-  color: white;
-  opacity: 0.9;
-  cursor: pointer;
-}
-
-
-.contentSection {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-/* History Grid */
-.historyGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.historyImg {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
+.textCol {
+  display: block;     
+  width: 100%;         
 }
 
 .textCol p {
-  font-size: 1.1rem;
-  margin-top: 0;
-}
-
-.historyFullWidth {
-  margin-top: 20px;
-}
-
-/* Mission Section */
-.missionSection {
+  font-size: 1.15rem;
+  margin-bottom: 20px;
   text-align: left;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  max-width: none;     
 }
 
-.centeredText {
-  font-size: 1.1rem;
+
+.historyImg {
+  width: 100%;
+  max-width: 800px;    
+  display: block;
+  margin: 40px auto;
+  border-radius: 8px;
 }
 
-/* Underline  for links */
-u {
-  text-decoration: underline;
-  cursor: pointer;
+
+.contentSection::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* SHOULD MAKE MOBILE NOT LOOK LIKE A MESS */
+
+@media (max-width: 768px) {
+  .videoSection {
+    float: none;       
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+.history-wrap-container {
+    display: block !important;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+.history-wrap-container .videoSection {
+    float: right; 
+    width: 48%;          
+    min-width: 360px;
+    margin-left: 40px; 
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;          
+}
+
+
+.history-wrap-container .textWithImageSection,
+.history-wrap-container .historyGrid,
+.history-wrap-container .textCol,
+.history-wrap-container .titleAndTextContainer {
+    display: block !important; 
+    width: auto !important;   
+    max-width: none !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;  
+}
+
+.history-wrap-container p {
+    display: block;
+    width: auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    /* This ensures the text expands to fill the space left by the video */
+}
+
+/* this handle the image inside TextWithImage */
+.history-wrap-container .historyImg, 
+.history-wrap-container img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    clear: both; 
+    border-radius: 12px;
+}
+
+
+.history-wrap-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 7. Mobile View */
+@media (max-width: 850px) {
+    .history-wrap-container .videoSection {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
 }

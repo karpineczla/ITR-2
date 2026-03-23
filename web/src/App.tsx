@@ -13,6 +13,12 @@ import Subscribe from './pages/subscribe'
 import Contact from './pages/contact'
 import EmploymentOpportunities from './pages/employment-opportunities'
 import SurveyKit from './pages/survey-kit'
+import PilotCommunity from './pages/pilot-community'
+import Sessions from './pages/sessions'
+import EducationAndWorkshops from './pages/education-and-workshops'
+import DashboardSurveyPage from './pages/dashboard-survey'
+import ContinuingTheConversation from './pages/continuing-the-conversation'
+
 
 export default function App() {
   return (
@@ -32,6 +38,11 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/employment-opportunities" element={<EmploymentOpportunities />} />
         <Route path="/survey-kit" element={<SurveyKit />} />
+        <Route path="/pilot-community" element={<PilotCommunity />} />
+        <Route path="/sessions" element={<Sessions />} />
+        <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
+        <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
+        <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
       </Routes>
     </Router>
   )
