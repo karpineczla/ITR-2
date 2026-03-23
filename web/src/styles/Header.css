@@ -1,126 +1,142 @@
-/* Header.module.css */
+/* Core Layout */
 .headerContainer {
-    all: initial; 
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
-    display: block;
-    /*makes the header be at the very top of the page*/
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Announcement Ticker */
+.announcementBar {
+    background-color: #decfba;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
 
-/*  makes the links montserat*/
-.navLink {
-    font-family: 'Montserrat', sans-serif;
-    color: white !important;
-    text-decoration: none;
-    font-size: clamp(12px, 1.2vw, 16px);
+.tickerWrapper {
+    display: flex;
+    width: max-content; 
+}
+
+.tickerText {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker-move 50s linear infinite;
+}
+
+.tickerText span {
+    padding: 0 160px;
     font-weight: 500;
+    font-size: 1rem;
+}
+.tickerLink {
+    opacity: 0.7;
+    text-decoration: none !important;
+    color: black;
+    font: inherit;
+}
+.announcementBar:hover .tickerText {
+    animation-play-state: paused;
 }
 
-/* makes serarch montserrat font */
-.searchInput {
-    font-family: 'Montserrat', sans-serif;
-    border: none;
-    outline: none;
-    margin-left: 10px;
+@keyframes ticker-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-.topSection {
-    background-color: #D1D1D1 !important;
-    padding: 1rem 2rem;
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
+/* Main Header Navigation */
+.mainHeader {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 40px;
+    height: 65px;
+    background-color: #D1D1D1; 
 }
 
 .logoImg {
-    height: 60px;
+    height: 50px;
     width: auto;
+    display: block;
 }
 
-.searchContainer {
+.navSection {
     display: flex;
-    align-items: center;
-    background: white;
-    padding: 5px 15px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-}
-
-.searchIcon {
-    width: 20px !important;
-    height: 20px !important;
-}
-
-.navBar {
-    background-color: #842241 !important;
-    padding: 3vh;
+    flex-grow: 1;
+    justify-content: center; 
 }
 
 .navList {
-    display: flex !important;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4vw;
-    list-style: none !important;
+    display: flex;
+    list-style: none;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
-.navLink {
-    color: white !important;
-    text-decoration: none;
-    font-size: clamp(12px, 1.2vw, 16px);
-    font-weight: 500;
+/* Navigation / links */
+.navLink, 
+.navLink:link, 
+.navLink:visited, 
+.navLink:active {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #333 !important; 
+    text-decoration: none !important; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: opacity 0.2s;
 }
 
-.navLink:hover {
-    text-decoration: underline;
+.tickerLink:hover {
+    opacity: 0.7;
+    text-decoration: none !important;
+    color: #333 !important;
 }
 
-
-
-/* this is the part for announcments bar */
-
-.announcementBar {
-  background-color: #700028 !important;
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 8px 0;
-  font-size: 0.9rem;
+/* Search Bar */
+.searchContainer {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 4px 15px;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    height: 32px;
 }
 
-.tickerWrapper {
-  display: flex;
-  width: max-content; /* Ensures the container is as wide as the text */
+.searchInput {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    background: transparent;
+    width: 130px;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .mainHeader {
+        padding: 0 15px;
+        gap: 15px;
+    }
 
-.tickerText {
-  display: flex;
-  white-space: nowrap;
-  animation: ticker-move 50s linear infinite;
-}
+    .navList {
+        gap: 15px;
+        overflow-x: auto; 
+        padding-bottom: 5px;
+    }
 
-.tickerText span {
-  /* This controls the space between entries */
-  padding: 0 160px; 
-  font-weight: 500;
-  font-size: 0.95rem;
-}
+    .navLink {
+        font-size: 0.95rem;
+    }
 
-@keyframes ticker-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    
-    transform: translateX(-50%);
-  }
-}
-
-.announcementBar:hover .tickerText {
-  animation-play-state: paused;
+    .searchContainer {
+        display: none; 
+    }
 }
