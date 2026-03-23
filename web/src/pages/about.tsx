@@ -2,7 +2,7 @@ import Header from "../components/general/Header";
 import Footer from "../components/general/Footer";
 import VideoSection from "../components/general/VideoSection";
 import TitleAndText from "../components/general/TitleAndText";
-import TextWithImage from "../components/general/TextWithImage";
+
 import '../styles/aboutPage.css';
 import BackButton from "../components/general/BackButton";
 import ContactList from "../components/contactPage/ContactList";

@@ -6,6 +6,7 @@
     padding: 2rem 4rem;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    margin-top: 0ex;
 }
 
 .footerContent {
@@ -51,6 +52,8 @@
 .socialSection {
     display: flex;
     gap: 15px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .socialIcon {
@@ -63,3 +66,14 @@
 .socialIcon:hover {
     color: #842241; /* maroon hover effect */
 }
+
+.socialIcons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: right;
+}
+.FollowUs {
+    margin-bottom: -20px;
+    
+}   
