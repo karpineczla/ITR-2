@@ -2,10 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Spending from './pages/Spending'
-import Publications from './pages/Publications'
-import RecentFindings from './pages/recent-findings'
-import News from './pages/News'
+import Publications from './pages/publications'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import Resources from './pages/resources'
@@ -28,9 +25,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/publications-and-reports" element={<PublicationsAndReports />} />
-        <Route path="/spending" element={<Spending />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/recent-findings" element={<RecentFindings />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/events" element={<Events />} />
         <Route path="/interactive-data" element={<InteractiveData />} />
@@ -44,7 +38,7 @@ export default function App() {
         <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
         <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
         <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
-        <Route path="get-involved-and-resources" element={<GetInvolved />} />
+        <Route path="/get-involved-and-resources" element={<GetInvolved />} />
       </Routes>
     </Router>
   )
