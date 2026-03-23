@@ -30,19 +30,29 @@ const Header = () => {
       <div className="announcementBar">
         <div className="tickerWrapper">
           <div className="tickerText">
+            {/* 
+            Error occurs when used locally: 
+            "Uncaught Error: Objects are not valid as a React child 
+            (found: object with keys {_key, _type, link, text}). 
+            If you meant to render a collection of children, use an array instead." 
+            
+            Commented out temporarily
+            */}
+            {/*
             {data?.announcements?.map((text: string, i: number) => (
               <span key={i}>{text}</span>
             ))}
             {data?.announcements?.map((text: string, i: number) => (
               <span key={`dup-${i}`}>{text}</span>
             ))}
+            */}
           </div>
         </div>
       </div>
 
       <div className="topSection">
         <Link to="/">
-          <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Itrr-Logo" className="logoImg" />
+          <img src={data?.logoUrl || "/logo-placeholder.png"} alt="Itrr Logo" className="logoImg" />
         </Link>
 
         <div className="topRightActions">
