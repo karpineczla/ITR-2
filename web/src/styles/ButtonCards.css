@@ -18,6 +18,8 @@
   transition: all 0.3s ease;
   overflow: hidden;
   width: 100%;
+  min-height: clamp(210px, 22vw, 260px);
+  height: auto;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
   border: none;
   display: flex;
@@ -31,15 +33,20 @@
 .publications-card-content {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: auto;
   align-items: center;
+  width: 100%;
+  padding: 0.9rem;
+  gap: 0.9rem;
+  box-sizing: border-box;
 }
 
 .publications-card-media {
-  width: 250px;
-  height: 140px;
-  flex: 0 0 250px;
-  margin: 1rem;
+  width: 32%;
+  flex: 0 0 32%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 0;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -48,6 +55,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
 }
 
 .publications-card-image {
@@ -61,23 +71,24 @@
   font-size: 2rem;
   text-align: left;
   color: #ffffff;
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
+  display: block;
   width: 100%;
   font-family: 'Anton', sans-serif;
   margin-top: 0;
   margin-bottom: 0.35rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .publications-card-description {
     font-size: 1.2rem;
     text-align: left;
     color: #ffffff;
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-start;
+    display: block;
     width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 @media (max-width: 768px) {
@@ -85,32 +96,38 @@
     align-items: center;
     gap: .5rem;
     padding: 2rem 0;
-    width: 90vw;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .publications-card-button {
-    width: 90vw;
-    max-width: 90vw;
+    width: 90%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
+    min-height: 280px;
+    height: auto;
   }
 
   .publications-card-content {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    padding: 0.7rem;
+    gap: 0.6rem;
   }
 
   .publications-card-media {
-    width: calc(100% - 1rem);
-    height: 130px;
-    flex: 0 0 130px;
-    margin: 0.5rem;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    flex: 0 0 auto;
+    margin: 0;
   }
 
   .publications-card-text {
-    padding: 0 0.5rem 0.75rem;
+    width: 100%;
+    padding: 0;
   }
 
   .publications-card-title {
@@ -118,14 +135,14 @@
   }
 
   .publications-card-description {
-    font-size: 0.5rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 1024px) {
   .publications-cards-container {
     align-items: center;
-    width: 90vw;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -136,6 +153,13 @@
 
   .publications-card-description {
     font-size: 1rem;
+  }
+
+  .publications-card-media {
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin: 0.75rem auto 0.5rem;
   }
 }
 
