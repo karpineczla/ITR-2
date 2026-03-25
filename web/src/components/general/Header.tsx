@@ -4,6 +4,7 @@ import '../../styles/Header.css';
 
 const Header = () => {
   const [data, setData] = useState<any>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const PROJECT_ID = "a9qy1267"; 
   const DATASET = "production";
@@ -19,6 +20,17 @@ const Header = () => {
     fetch(url)
       .then((res) => res.json())
       .then((json) => setData(json.result));
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1200) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const links = data?.navLinks || [];
@@ -79,7 +91,35 @@ const Header = () => {
         <div className="searchContainer">
           <input type="text" placeholder="Search..." className="searchInput" />
         </div>
+
+        <button
+          type="button"
+          className="menuButton"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          <span className="menuButtonBar" />
+          <span className="menuButtonBar" />
+          <span className="menuButtonBar" />
+        </button>
       </div>
+
+      <nav className={`mobileNav ${isMenuOpen ? 'isOpen' : ''}`} aria-hidden={!isMenuOpen}>
+        <ul className="mobileNavList">
+          {links.map((link: any) => (
+            <li key={`mobile-${link.name}`}>
+              <Link
+                to={`/${link.href.replace(/^\//, '')}`}
+                className="mobileNavLink"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 };
