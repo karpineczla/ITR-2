@@ -58,8 +58,34 @@ export const titleAndText = defineType ({
         defineField ({
             name: 'text',
             title: 'Text',
-            type: 'text',
-            rows: 20,
+            type: 'array',
+            of: [
+                {
+                    type: 'block',
+                    lists: [{ title: 'Bullet', value: 'bullet' }],
+                    marks: {
+                        decorators: [
+                            { title: 'Strong', value: 'strong' },
+                            { title: 'Emphasis', value: 'em' },
+                        ],
+                        annotations: [
+                            {
+                                name: 'link',
+                                type: 'object',
+                                title: 'URL',
+                                fields: [
+                                    defineField({
+                                        name: 'href',
+                                        title: 'URL',
+                                        type: 'url',
+                                        validation: Rule => Rule.required().uri({ scheme: ['http', 'https', 'mailto', 'tel'] }),
+                                    }),
+                                ],
+                            },
+                        ],
+                    },
+                },
+            ],
         }),
         defineField ({
             name: 'textAlignment',

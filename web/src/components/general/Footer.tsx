@@ -9,15 +9,24 @@ const Footer = () => {
           <p>Recreation Research</p>
           <p style={{ marginTop: '10px' }}>32 Campus Drive</p>
           <p>Missoula, MT 59812</p>
+          <p>(406) 243-5686</p>
+          <p><a href="mailto:itrr@umontana.edu">itrr@umontana.edu</a></p>
         </div>
 
         <div className="linksSection">
           <a href="/contact" className="footerLink">Contact Us</a>
           <div className="divider"></div>
-          <a href="/about" className="footerLink">About</a>
+          <a href="/about" className="footerLink">Employment</a>
+          <div className="divider"></div>
+          <a href="" className='footerLink'>Subscribe to Newsletter</a>
         </div>
 
-        <div className="socialSection">
+        <div className="socialSection" >
+          <div className='FollowUs'>
+             <p>Check us out on Social Media</p>
+          </div>
+         
+         <div className='socialIcons'>
           <a href="https://www.youtube.com/@itrrumt" aria-label="YouTube">
             <svg className="socialIcon" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1.1-1.1-1.9-2.2-2.2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.5c-1.1.3-1.9 1.1-2.2 2.2C0 8.2 0 12 0 12s0 3.8.5 5.8c.3 1.1 1.1 1.9 2.2 2.2 2 1 9.3 1 9.3 1s7.3 0 9.3-1c1.1-.3 1.9-1.1 2.2-2.2.5-2 .5-5.8.5-5.8s0-3.8-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
           </a>
@@ -30,7 +39,9 @@ const Footer = () => {
           <a href="https://www.facebook.com/itrrumt/" aria-label="Facebook">
             <svg className="socialIcon" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
           </a>
+          </div>
         </div>
+        
       </div>
     </footer>
   )

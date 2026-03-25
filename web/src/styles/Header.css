@@ -1,179 +1,142 @@
-/* Header.module.css */
+/* Core Layout */
 .headerContainer {
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
-    display: block;
-    /*makes the header be at the very top of the page*/
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-
-/*  makes the links montserat*/
-.navLink {
-    font-family: 'Montserrat', sans-serif;
-    color: white !important;
-    text-decoration: none;
-    font-size: clamp(12px, 1.2vw, 16px);
-    font-weight: 500;
-}
-
-/* makes serarch montserrat font */
-.searchInput {
-    font-family: 'Montserrat', sans-serif;
-    border: none;
-    outline: none;
-    margin-left: 10px;
-    background-color: white;
+/* Announcement Ticker */
+.announcementBar {
+    background-color: #decfba;
     color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    font-size: 0.9rem;
 }
 
-.topSection {
-    background-color: #D1D1D1 !important;
-    padding: 1rem 2rem;
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
+.tickerWrapper {
+    display: flex;
+    width: max-content; 
+}
+
+.tickerText {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker-move 50s linear infinite;
+}
+
+.tickerText span {
+    padding: 0 160px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.tickerLink {
+    opacity: 0.7;
+    text-decoration: none !important;
+    color: black;
+    font: inherit;
+}
+.announcementBar:hover .tickerText {
+    animation-play-state: paused;
+}
+
+@keyframes ticker-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Main Header Navigation */
+.mainHeader {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 40px;
+    height: 65px;
+    background-color: #D1D1D1; 
 }
 
 .logoImg {
-    height: 60px;
+    height: 50px;
     width: auto;
+    display: block;
 }
 
+.navSection {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center; 
+}
+
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation / links */
+.navLink, 
+.navLink:link, 
+.navLink:visited, 
+.navLink:active {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #333 !important; 
+    text-decoration: none !important; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.tickerLink:hover {
+    opacity: 0.7;
+    text-decoration: none !important;
+    color: #333 !important;
+}
+
+/* Search Bar */
 .searchContainer {
     display: flex;
     align-items: center;
     background: white;
-    padding: 5px 15px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
+    padding: 4px 15px;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    height: 32px;
 }
 
-.searchIcon {
-    width: 20px !important;
-    height: 20px !important;
+.searchInput {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    background: transparent;
+    width: 130px;
 }
 
-.navBar {
-    background-color: #842241 !important;
-    padding: 3vh;
-}
-.navList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; /* Forces one single row */
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  overflow-x: auto; /*allows horizontal scrolling if screen is tiny/mobiile  */
-  padding: 10px 0;
-}
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .mainHeader {
+        padding: 0 15px;
+        gap: 15px;
+    }
 
-.navLink {
-    color: white !important;
-    text-decoration: none;
-    font-size: clamp(12px, 1.2vw, 16px);
-    font-weight: 500;
-}
+    .navList {
+        gap: 15px;
+        overflow-x: auto; 
+        padding-bottom: 5px;
+    }
 
-.navLink:hover {
-    text-decoration: underline;
-}
+    .navLink {
+        font-size: 0.95rem;
+    }
 
-
-.topRightActions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 3. Dropdown Styling */
-.menuWrapper {
-  position: relative;
-}
-
-.menuToggleButton {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600; 
-  background: #842241; 
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 8px; 
-  transition: background 0.3s ease;
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  border: 1px solid #eee;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  z-index: 1000;
-  list-style: none;
-  padding: 12px 0;
-  min-width: 240px;
-  margin-top: 12px;
-  border-radius: 12px; 
-  overflow: hidden; 
-}
-
-.dropdownMenu li a {
-  display: block;
-  padding: 12px 20px;
-  color: #333;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.dropdownMenu li a:hover {
-  background: #f5f5f5;
-}
-
-
-
-/* this is the part for announcments bar */
-
-.announcementBar {
-  background-color: #decfba !important;
-  color: rgb(0, 0, 0);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 8px 0;
-  font-size: 0.9rem;
-}
-
-.tickerWrapper {
-  display: flex;
-  width: max-content; /* Ensures the container is as wide as the text */
-}
-
-
-.tickerText {
-  display: flex;
-  white-space: nowrap;
-  animation: ticker-move 50s linear infinite;
-}
-
-.tickerText span {
-  /* This controls the space between entries */
-  padding: 0 160px; 
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-@keyframes ticker-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    
-    transform: translateX(-50%);
-  }
-}
-
-.announcementBar:hover .tickerText {
-  animation-play-state: paused;
+    .searchContainer {
+        display: none; 
+    }
 }

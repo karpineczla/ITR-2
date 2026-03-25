@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
 
+
 interface VideoSectionProps {
   videoUrl?: string;
   altText?: string;

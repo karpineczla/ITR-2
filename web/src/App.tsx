@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Spending from './pages/spending'
-import Publications from './pages/publications'
+import Spending from './pages/Spending'
+import Publications from './pages/Publications'
 import RecentFindings from './pages/recent-findings'
-import News from './pages/news'
+import News from './pages/News'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import Resources from './pages/resources'
@@ -17,6 +17,7 @@ import PilotCommunity from './pages/pilot-community'
 import Sessions from './pages/sessions'
 import EducationAndWorkshops from './pages/education-and-workshops'
 import DashboardSurveyPage from './pages/dashboard-survey'
+import ContinuingTheConversation from './pages/continuing-the-conversation'
 
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/sessions" element={<Sessions />} />
         <Route path="/education-and-workshops" element={<EducationAndWorkshops />} />
         <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
+        <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
       </Routes>
     </Router>
   )

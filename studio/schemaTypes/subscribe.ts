@@ -16,6 +16,9 @@ export const subscribe = {
       title: 'Page Image',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt Text', description: 'Describe the image for accessibility and SEO.' }
+      ],
       validation: (Rule: any) => Rule.required()
     }),
     defineField({
