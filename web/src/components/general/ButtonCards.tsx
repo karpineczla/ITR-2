@@ -87,11 +87,13 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
         >
           <div className="publications-card-content">
             {card.image && (
-              <img
-                src={card.image.asset.url || builder.image(card.image).url()}
-                alt={card.title}
-                className="publications-card-image"
-              />
+              <div className="publications-card-media">
+                <img
+                  src={card.image.asset.url || builder.image(card.image).url()}
+                  alt={card.title}
+                  className="publications-card-image"
+                />
+              </div>
             )}
             <div className="publications-card-text">
               <h3 className="publications-card-title">{card.title}</h3>
