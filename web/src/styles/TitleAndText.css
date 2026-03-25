@@ -1,7 +1,9 @@
 .title-text-container {
   max-width: 80vw;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 5vh;
+  box-sizing: border-box;
 }
 
 .title-text-align-left {
@@ -61,6 +63,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .title-text-container {
+    max-width: 100%;
     padding: 2rem 1rem;
   }
 
