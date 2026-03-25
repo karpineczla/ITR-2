@@ -67,6 +67,14 @@
     padding: 2rem 1rem;
   }
 
+  .title-text-history-part-2 {
+    width: 80vw;
+    max-width: 80vw;
+    padding: 2rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .title-text-title {
     font-size: 1.8rem;
     margin-bottom: 1rem;
