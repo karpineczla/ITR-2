@@ -1,5 +1,5 @@
 import test from './test'
-import {reports} from './reports'
+import reports from './reports'
 import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
 import { homeGridCards } from './homeGridCards'

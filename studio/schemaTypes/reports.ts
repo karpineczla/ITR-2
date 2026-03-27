@@ -1,18 +1,16 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
-
-export const reports= defineType({
+export default {
   name: 'report',
   title: 'Report',
   type: 'document',
   fields: [
     // Reports' title
-    defineField({
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
-    }),
+    },
     // Reports author(s)
-    defineField({
+    {
       name: 'author',
       title: 'Author',
       type: 'string',
@@ -25,27 +23,27 @@ export const reports= defineType({
       description: 'Provide a URL for this report.',
     },
     // The abstract of the report, prompts user for a summary
-    defineField({
+    {
       name: 'abstract',
       title: 'Abstract',
       type: 'text',
       description: 'Provide a brief summary of the report.',
-    }),
+    },
     // The suggested citation for the report
-    defineField({
+    {
       name: 'citation',
       title: 'Citation',
       type: 'text',
       description: 'Enter the suggested citation for this report',
-    }),
+    },
     // The date the report was published selected by the user
-    defineField({
+    {
       name: 'date',
       title: 'Date',
-      type: 'date',
-    }),
+      type: 'datetime',
+    },
     // A set of tags for selecting what type of report it is
-    defineField({
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
@@ -66,6 +64,6 @@ export const reports= defineType({
           },
         },
       ],
-    }),
+    },
   ],
-})
+}

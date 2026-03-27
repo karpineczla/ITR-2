@@ -18,6 +18,7 @@ import Sessions from './pages/sessions'
 import EducationAndWorkshops from './pages/education-and-workshops'
 import DashboardSurveyPage from './pages/dashboard-survey'
 import ContinuingTheConversation from './pages/continuing-the-conversation'
+//import GetInvolvedAndResources from './pages/get-involved-and-resources'
 
 
 export default function App() {
