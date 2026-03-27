@@ -1,43 +1,20 @@
-import { defineField } from "sanity"
+import { defineField } from 'sanity'
 
 export const interactiveData = {
   name: 'interactiveData',
-  title: 'Interactive Data (Test)',
+  title: 'Interactive Data',
   type: 'document',
   fields: [
     defineField({
-      name: 'links',
-      title: 'Links Box Items',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'label',
-              title: 'Link Label',
-              type: 'string',
-              validation: (Rule: any) => Rule.required()
-            }),
-            defineField({
-              name: 'href',
-              title: 'Link URL',
-              type: 'string',
-              validation: (Rule: any) => Rule.required()
-            })
-          ],
-          preview: {
-            select: {
-              title: 'label',
-              subtitle: 'href'
-            }
-          }
-        }
-      ]
+      name: 'sectionKey',
+      title: 'Section Key',
+      type: 'string',
+      description: 'Used by the web app to decide which card set to render on a page.',
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'cards',
-      title: 'Carousel Cards',
+      title: 'Cards',
       type: 'array',
       of: [
         {
@@ -47,52 +24,48 @@ export const interactiveData = {
               name: 'title',
               title: 'Card Title',
               type: 'string',
-              validation: (Rule: any) => Rule.required()
+              validation: (Rule: any) => Rule.required(),
             }),
-            defineField ({
-                name: 'description',
-                title: 'Card Description',
-                type: 'text',
-                validation: (Rule: any) => Rule.required()
+            defineField({
+              name: 'image',
+              title: 'Card Image',
+              type: 'image',
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternate text',
+                  description: 'Important for SEO and accessibility. Describe the image content and function.',
+                  validation: (Rule: any) => Rule.required(),
+                },
+              ],
+              options: { hotspot: true },
+              validation: (Rule: any) => Rule.required(),
             }),
             defineField({
               name: 'link',
-              title: 'Link URL',
+              title: 'Link URL (Optional)',
               type: 'string',
-              validation: (Rule: any) => Rule.required()
-            })
+            }),
           ],
           preview: {
             select: {
-              title: 'title'
-            }
-          }
-        }
-      ]
+              title: 'title',
+              media: 'image',
+            },
+          },
+        },
+      ],
     }),
-    defineField ({
-            name: 'title',
-            title: 'Title',
-            type: 'string',
-        }),
-    defineField ({
-            name: 'text',
-            title: 'Text',
-            type: 'text',
-            rows: 20,
-        })
-],
-  //what the title is in studio for the document
-    preview: {
+  ],
+  preview: {
     select: {
-        cards: 'cards'
+      sectionKey: 'sectionKey',
     },
-      prepare({cards}: {cards?: {title?: string}[]}) {
-        const count = cards?.length || 0
-        const firstTitle = cards?.[0]?.title
+    prepare({ sectionKey }: { sectionKey?: string }) {
       return {
-          title: 'Interactive Data',
-          subtitle: count > 0 ? `${count} card${count === 1 ? '' : 's'}${firstTitle ? ` • First: ${firstTitle}` : ''}` : 'No cards yet'
+        // Use sectionKey as the Studio list title for organization only.
+        title: sectionKey || 'Interactive Data (missing section key)',
       }
     },
   },

@@ -1,26 +1,21 @@
 import Header from "../components/general/Header";
 import Footer from "../components/general/Footer";
-import VideoSection from "../components/general/VideoSection";
+import VideoWithTextRow from "../components/general/VideoWithTextRow";
 import TitleAndText from "../components/general/TitleAndText";
-
-import '../styles/aboutPage.css';
-import BackButton from "../components/general/BackButton";
+import TextWithImage from "../components/general/TextWithImage";
 import ContactList from "../components/contactPage/ContactList";
 
 
+
 export default function About() {
+    const videoSide: 'left' | 'right' = 'left'
+
     return (
         <main className="about-page">
             <Header />
-            <BackButton to="/" />
-            {/* we need this wrapper because the css breaks without it and looks like trash */}
-            <div className="history-wrap-container">
-            <VideoSection />
-            <TitleAndText sectionKey="history-part" />
-            {/*<TextWithImage sectionKey="about-history-row" />*/}
-            </div>
+            <VideoWithTextRow side={videoSide} sectionKey="about-mission" />
+            <TextWithImage sectionKey="about-history-row" />
             <TitleAndText sectionKey="history-part-2" />
-            <TitleAndText sectionKey="about-mission" />
             <ContactList />
             <Footer />
         </main>

@@ -3,12 +3,14 @@ import Header from "../components/general/Header";
 import LearnMoreButton from "../components/general/LearnMoreButton";
 import TitleAndText from "../components/general/TitleAndText";
 import TextWithImage from "../components/general/TextWithImage";
+import BackButton from "../components/general/BackButton";
 import "../styles/SurveyKit.css";
 
 export default function SurveyKit() {
     return (
         <main className="survey-kit-page">
             <Header />
+            <BackButton to='/get-involved-and-resources' />
             <TitleAndText sectionKey="survey-kit" />
             <TitleAndText sectionKey="survey-kit-prices" />
             <section className="survey-kit-buttons-grid" aria-label="Survey kit links">

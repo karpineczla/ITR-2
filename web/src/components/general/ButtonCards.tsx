@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
-import '../../styles/PublicationsButtonCards.css'
+import '../../styles/ButtonCards.css'
 const builder = createImageUrlBuilder(client)
 
 interface Card {
@@ -18,26 +18,30 @@ interface Card {
   link?: string //make sure in sanity the link is an internal path
 }
 
-interface PublicationsButtonCardsData {
+interface ButtonCardsData {
   _id: string
+  sectionKey?: string
   cards: Card[]
 }
 
-interface PublicationsButtonCardsProps {
-  data?: PublicationsButtonCardsData
+interface ButtonCardsProps {
+  data?: ButtonCardsData
+  sectionKey?: string
 }
 
-export default function PublicationsButtonCards({ data }: PublicationsButtonCardsProps) {
+export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(!data)
-  const [cardsData, setCardsData] = useState<PublicationsButtonCardsData | null>(data || null)
+  const [cardsData, setCardsData] = useState<ButtonCardsData | null>(data || null)
 
   useEffect(() => {
     if (!data) {
       const fetchCards = async () => {
         try {
-          const query = `*[_type == "publicationsButtonCards"][0]{
+          const query = sectionKey
+            ? `*[_type == "buttonCards" && sectionKey == $sectionKey][0]{
             _id,
+            sectionKey,
             cards[]{
               _key,
               title,
@@ -46,7 +50,18 @@ export default function PublicationsButtonCards({ data }: PublicationsButtonCard
               link
             }
           }`
-          const result = await client.fetch(query)
+            : `*[_type == "buttonCards"][0]{
+            _id,
+            sectionKey,
+            cards[]{
+              _key,
+              title,
+              description,
+              image{asset->{_ref, url}},
+              link
+            }
+          }`
+          const result = await client.fetch(query, sectionKey ? { sectionKey } : undefined)
           setCardsData(result)
           //console.log('Cards data:', result)
         } catch (error) {
@@ -57,7 +72,7 @@ export default function PublicationsButtonCards({ data }: PublicationsButtonCard
       }
       fetchCards()
     }
-  }, [data])
+  }, [data, sectionKey])
 
   if (loading) return <div className="publications-cards-container">Loading...</div>
   if (!cardsData?.cards || cardsData.cards.length === 0) return null
