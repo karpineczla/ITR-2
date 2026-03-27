@@ -33,6 +33,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(!data)
   const [cardsData, setCardsData] = useState<ButtonCardsData | null>(data || null)
+  const isPublicationsReports = sectionKey === 'publications-and-reports'
 
   useEffect(() => {
     if (!data) {
@@ -78,30 +79,54 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
   if (!cardsData?.cards || cardsData.cards.length === 0) return null
 
   return (
-    <div className="publications-cards-container">
-      {cardsData.cards.map((card) => (
-        <button
-          key={card._key}
-          className="publications-card-button"
-          onClick={() => card.link && navigate(card.link)}
-        >
-          <div className="publications-card-content">
-            {card.image && (
-              <div className="publications-card-media">
-                <img
-                  src={card.image.asset.url || builder.image(card.image).url()}
-                  alt={card.title}
-                  className="publications-card-image"
-                />
+    <div
+      className={`publications-cards-container ${isPublicationsReports ? 'publications-reports-layout' : ''}`.trim()}
+    >
+      {cardsData.cards.map((card) => {
+        const imageSrc = card.image?.asset?.url || (card.image ? builder.image(card.image).url() : '')
+
+        return (
+          <button
+            key={card._key}
+            className="publications-card-button"
+            onClick={() => card.link && navigate(card.link)}
+          >
+            <div className="publications-card-content">
+              {card.image && (
+                <div className="publications-card-media">
+                  <img
+                    src={imageSrc}
+                    alt={card.title}
+                    className="publications-card-image"
+                  />
+                </div>
+              )}
+              <div className="publications-card-text">
+                <h3 className="publications-card-title">{card.title}</h3>
+                <h2 className="publications-card-description">{card.description}</h2>
+              </div>
+            </div>
+
+            {isPublicationsReports && (
+              <div className="publications-card-hover-preview" aria-hidden="true">
+                <div className="publications-card-hover-content">
+                  {card.image && (
+                    <div className="publications-card-hover-media">
+                      <img src={imageSrc} alt={card.title} className="publications-card-image" />
+                    </div>
+                  )}
+                  <div className="publications-card-hover-text">
+                    <h3 className="publications-card-hover-title">{card.title}</h3>
+                    {card.description && (
+                      <p className="publications-card-hover-description">{card.description}</p>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
-            <div className="publications-card-text">
-              <h3 className="publications-card-title">{card.title}</h3>
-              <h2 className="publications-card-description">{card.description}</h2>
-            </div>
-          </div>
-        </button>
-      ))}
+          </button>
+        )
+      })}
     </div>
   )
 }
