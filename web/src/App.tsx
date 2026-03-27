@@ -18,6 +18,7 @@ import EducationAndWorkshops from './pages/education-and-workshops'
 import DashboardSurveyPage from './pages/dashboard-survey'
 import ContinuingTheConversation from './pages/continuing-the-conversation'
 import GetInvolved from './pages/get-involved-and-resources'
+import Search from './pages/search'
 
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
         <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
         <Route path="/get-involved-and-resources" element={<GetInvolved />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   )
