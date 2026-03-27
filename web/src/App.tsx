@@ -2,9 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Publications from './pages/publications'
+import Publications from './pages/Publications'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
+import InteractiveDashboard from './pages/interactive-dashboard'
+import Help from './pages/help'
 import Resources from './pages/resources'
 import Subscribe from './pages/subscribe'
 import Contact from './pages/contact'
@@ -28,6 +30,8 @@ export default function App() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/events" element={<Events />} />
         <Route path="/interactive-data" element={<InteractiveData />} />
+        <Route path="/interactive-dashboard" element={<InteractiveDashboard />} />
+        <Route path="/help" element={<Help />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/contact" element={<Contact />} />
