@@ -21,11 +21,7 @@ interface ReportItem {
   author?: string
   abstract?: string
   tags?: string[]
-  content?: {
-    asset?: {
-      url?: string
-    }
-  }
+  content?: string
 }
 
 interface ResourceItem {
@@ -53,8 +49,17 @@ interface CardItem {
 
 interface CardDocument {
   _id?: string
+  sectionKey?: string
   cards?: CardItem[]
   links?: CardItem[]
+}
+
+interface LearnMoreButtonDoc {
+  _id: string
+  buttonKey?: string
+  label?: string
+  destination?: string
+  pdfUrl?: string
 }
 
 const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
@@ -85,31 +90,40 @@ export default function Search() {
     const fetchSearchResults = async () => {
       setLoading(true)
       try {
-        const [reports, resources, newsDocs, findingsDocs, interactiveDocs, homeButtonDocs, publicationButtonDocs] =
+        const [reports, resources, newsDocs, findingsDocs, interactiveDocs, buttonCardDocs, learnMoreButtons] =
           await Promise.all([
-            client.fetch<ReportItem[]>(`*[_type == "report"]{_id, title, author, abstract, tags, content{asset->{url}}}`),
-            client.fetch<ResourceItem[]>(`*[_type == "resource"]{_id, title, description, resourceType, pdfFile{asset->{url}}, externalUrl}`),
+            client.fetch<ReportItem[]>(`*[_type == "report"]{_id, title, author, abstract, tags, content}`),
+            client.fetch<ResourceItem[]>(`*[_type == "resourceCards"]{_id, title, description, resourceType, pdfFile{asset->{url}}, externalUrl}`),
             client.fetch<CardDocument[]>(`*[_type == "newsCards"]{_id, cards[]{_key, title, link}}`),
             client.fetch<CardDocument[]>(`*[_type == "recentFindingsCards"]{_id, cards[]{_key, title, pdf{asset->{url}}}}`),
             client.fetch<CardDocument[]>(`*[_type == "interactiveData"]{_id, links[]{_key, label, href}, cards[]{_key, title, description, link}}`),
-            client.fetch<CardDocument[]>(`*[_type == "homeButtonCards"]{_id, cards[]{_key, title, description, link}}`),
-            client.fetch<CardDocument[]>(`*[_type == "publicationsButtonCards"]{_id, cards[]{_key, title, description, link}}`),
+            client.fetch<CardDocument[]>(`*[_type == "buttonCards"]{_id, sectionKey, cards[]{_key, title, description, link}}`),
+            client.fetch<LearnMoreButtonDoc[]>(`*[_type == "learnMoreButton"]{_id, buttonKey, label, destination, "pdfUrl": pdfFile.asset->url}`),
           ])
 
         const aggregatedResults: SearchResult[] = []
+        const seenResultIds = new Set<string>()
+
+        const pushResult = (result: SearchResult) => {
+          if (seenResultIds.has(result.id)) {
+            return
+          }
+          seenResultIds.add(result.id)
+          aggregatedResults.push(result)
+        }
 
         for (const report of reports || []) {
           if (!matchesSearch(query, report.title, report.author, report.abstract, report.tags?.join(' '))) {
             continue
           }
 
-          aggregatedResults.push({
+          pushResult({
             id: `report-${report._id}`,
             title: report.title || 'Untitled Report',
             summary: report.abstract || report.author || 'Report',
             source: 'Report',
-            url: report.content?.asset?.url || '/spending',
-            external: !!report.content?.asset?.url,
+            url: report.content || '/publications-and-reports',
+            external: !!report.content && isExternalUrl(report.content),
           })
         }
 
@@ -119,7 +133,7 @@ export default function Search() {
             continue
           }
 
-          aggregatedResults.push({
+          pushResult({
             id: `resource-${resource._id}`,
             title: resource.title || 'Untitled Resource',
             summary: resource.description || 'Resource',
@@ -135,7 +149,7 @@ export default function Search() {
               continue
             }
 
-            aggregatedResults.push({
+            pushResult({
               id: `news-${doc._id || 'doc'}-${newsCard._key || newsCard.title || Math.random().toString(36)}`,
               title: newsCard.title || 'Untitled News Item',
               summary: 'In the News',
@@ -153,7 +167,7 @@ export default function Search() {
             }
 
             const findingPdfUrl = findingCard.pdf?.asset?.url
-            aggregatedResults.push({
+            pushResult({
               id: `finding-${doc._id || 'doc'}-${findingCard._key || findingCard.title || Math.random().toString(36)}`,
               title: findingCard.title || 'Untitled Finding',
               summary: 'Recent Findings',
@@ -170,7 +184,7 @@ export default function Search() {
               continue
             }
 
-            aggregatedResults.push({
+            pushResult({
               id: `interactive-link-${doc._id || 'doc'}-${linkItem._key || linkItem.label || Math.random().toString(36)}`,
               title: linkItem.label || 'Interactive Data Link',
               summary: linkItem.href || 'Interactive Data',
@@ -185,7 +199,7 @@ export default function Search() {
               continue
             }
 
-            aggregatedResults.push({
+            pushResult({
               id: `interactive-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
               title: cardItem.title || 'Interactive Data Card',
               summary: cardItem.description || 'Interactive Data',
@@ -196,38 +210,37 @@ export default function Search() {
           }
         }
 
-        for (const doc of homeButtonDocs || []) {
+        for (const doc of buttonCardDocs || []) {
           for (const cardItem of doc.cards || []) {
             if (!matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
               continue
             }
 
-            aggregatedResults.push({
-              id: `home-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
-              title: cardItem.title || 'Home Card',
-              summary: cardItem.description || 'Home Navigation',
-              source: 'Home Card',
+            pushResult({
+              id: `button-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
+              title: cardItem.title || 'Button Card',
+              summary: cardItem.description || 'Button Card',
+              source: doc.sectionKey ? `Button Card (${doc.sectionKey})` : 'Button Card',
               url: cardItem.link || '/',
               external: !!cardItem.link && isExternalUrl(cardItem.link),
             })
           }
         }
 
-        for (const doc of publicationButtonDocs || []) {
-          for (const cardItem of doc.cards || []) {
-            if (!matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
-              continue
-            }
-
-            aggregatedResults.push({
-              id: `publications-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
-              title: cardItem.title || 'Publications Card',
-              summary: cardItem.description || 'Publications Navigation',
-              source: 'Publications Card',
-              url: cardItem.link || '/publications-and-reports',
-              external: !!cardItem.link && isExternalUrl(cardItem.link),
-            })
+        for (const buttonDoc of learnMoreButtons || []) {
+          if (!matchesSearch(query, buttonDoc.buttonKey, buttonDoc.label, buttonDoc.destination, buttonDoc.pdfUrl)) {
+            continue
           }
+
+          const destination = (buttonDoc.destination || buttonDoc.pdfUrl || '').trim()
+          pushResult({
+            id: `learn-more-${buttonDoc._id}`,
+            title: buttonDoc.label || buttonDoc.buttonKey || 'Learn More Button',
+            summary: buttonDoc.buttonKey || destination || 'Reusable button destination',
+            source: 'Learn More Button',
+            url: destination || '/',
+            external: !!destination && isExternalUrl(destination),
+          })
         }
 
         aggregatedResults.sort((first, second) => first.title.localeCompare(second.title))

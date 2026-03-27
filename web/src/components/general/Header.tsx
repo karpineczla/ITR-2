@@ -1,21 +1,57 @@
 import { useEffect, useState } from 'react';
-import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { client } from '../../sanityClient';
 import '../../styles/Header.css';
 
+interface HeaderAnnouncement {
+  text?: string;
+  link?: string;
+}
+
+interface HeaderNavLink {
+  name?: string;
+  href?: string;
+}
+
+interface HeaderData {
+  logoUrl?: string;
+  announcements?: HeaderAnnouncement[];
+  navLinks?: HeaderNavLink[];
+}
+
 const Header = () => {
-  const navLinks = [
-    //need to change these later o match the page names 
-    { name: 'About', href: '/about' },
-    { name: 'Publications and Reports', href: '/publications-and-reports' },
-    { name: 'Interactive Data', href: '/interactive-data' },
-    { name: 'Employment Opportunities', href: '/employment-opportunities' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Events', href: '/events' },
-    { name: 'Survey Kit', href: '/survey-kit' },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Subscribe', href: '/subscribe' },
-  ]
+  const [data, setData] = useState<HeaderData | null>(null);
+  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchHeader = async () => {
+      try {
+        const query = `*[_type == "header"][0]{
+          "logoUrl": logo.asset->url,
+          announcements[]{ text, link },
+          navLinks[]{ name, href }
+        }`;
+        const result = await client.fetch<HeaderData | null>(query);
+        setData(result || null);
+      } catch {
+        setData(null);
+      }
+    };
+
+    fetchHeader();
+  }, []);
+
+  const links = data?.navLinks || [];
+
+  const submitSearch = () => {
+    const q = searchValue.trim();
+    if (!q) {
+      navigate('/search');
+      return;
+    }
+    navigate(`/search?q=${encodeURIComponent(q)}`);
+  };
 
   return (
     <header className="headerContainer">
@@ -24,7 +60,7 @@ const Header = () => {
         <div className="announcementBar">
           <div className="tickerWrapper">
             <div className="tickerText">
-  {data?.announcements?.map((item: any, i: number) => (
+  {data?.announcements?.map((item: HeaderAnnouncement, i: number) => (
     <span key={i}>
       {item.link ? (
         <a href={item.link} className="tickerLink">
@@ -36,7 +72,7 @@ const Header = () => {
     </span>
   ))}
   {/* Duplicate for seamless loop */}
-  {data?.announcements?.map((item: any, i: number) => (
+  {data?.announcements?.map((item: HeaderAnnouncement, i: number) => (
     <span key={`dup-${i}`}>
       {item.link ? (
         <a href={item.link} className="tickerLink">
@@ -60,9 +96,9 @@ const Header = () => {
 
         <nav className="navSection">
           <ul className="navList">
-            {links.map((link: any) => (
-              <li key={link.name}>
-                <Link to={`/${link.href.replace(/^\//, '')}`} className="navLink">
+            {links.map((link) => (
+              <li key={`${link.name || 'nav'}-${link.href || ''}`}>
+                <Link to={`/${(link.href || '').replace(/^\//, '')}`} className="navLink">
                   {link.name}
                 </Link>
               </li>
@@ -75,7 +111,18 @@ const Header = () => {
             <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2"></line>
           </svg>
-          <input type="text" placeholder="Search" style={{ border: 'none', outline: 'none', marginLeft: '10px' }} />
+          <input
+            type="text"
+            placeholder="Search"
+            className="searchInput"
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                submitSearch();
+              }
+            }}
+          />
         </div>
       </div>
     </header>

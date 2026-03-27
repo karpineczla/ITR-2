@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Publications from './pages/publications'
+import Publications from './pages/Publications'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import Resources from './pages/resources'
@@ -16,6 +16,7 @@ import EducationAndWorkshops from './pages/education-and-workshops'
 import DashboardSurveyPage from './pages/dashboard-survey'
 import ContinuingTheConversation from './pages/continuing-the-conversation'
 import GetInvolved from './pages/get-involved-and-resources'
+import Search from './pages/search'
 
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/dashboard-survey" element={<DashboardSurveyPage />} />
         <Route path="/continuing-the-conversation" element={<ContinuingTheConversation />} />
         <Route path="/get-involved-and-resources" element={<GetInvolved />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   )

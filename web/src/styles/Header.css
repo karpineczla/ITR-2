@@ -116,7 +116,13 @@
     outline: none;
     font-size: 0.9rem;
     background: transparent;
+    color: #111;
+    caret-color: #111;
     width: 130px;
+}
+
+.searchInput::placeholder {
+    color: #666;
 }
 
 /* Mobile Responsiveness */
