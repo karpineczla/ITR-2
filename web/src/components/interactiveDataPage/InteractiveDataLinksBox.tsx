@@ -1,48 +1,112 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
+import { Link } from "react-router-dom";
 
-interface InteractiveLink {
+interface InteractiveCard {
     _key: string;
-    label: string;
-    href: string;
+    title: string;
+    link?: string;
+    imageUrl?: string;
+    imageAlt?: string;
+}
+
+interface InteractiveDataDoc {
+    sectionKey: string;
+    cards?: InteractiveCard[];
 }
 
 export default function InteractiveDataLinksBox() {
-    const [links, setLinks] = useState<InteractiveLink[]>([]);
+    const [nonresidentCards, setNonresidentCards] = useState<InteractiveCard[]>([]);
+    const [residentCards, setResidentCards] = useState<InteractiveCard[]>([]);
 
     useEffect(() => {
-        const fetchLinks = async () => {
+        const fetchCards = async () => {
             try {
-                const query = `*[_type == "interactiveData"][0]{
-                  links[]{
+                                const query = `*[_type == "interactiveData"]{
+                  sectionKey,
+                  cards[]{
                     _key,
-                    label,
-                    href
+                    title,
+                    link,
+                    "imageUrl": image.asset->url,
+                    "imageAlt": image.alt
                   }
                 }`;
 
-                const result = await client.fetch(query);
-                const fetchedLinks = (result?.links || []).filter((link: InteractiveLink) => link?.label && link?.href);
-                setLinks(fetchedLinks);
+                const docs: InteractiveDataDoc[] = await client.fetch(query);
+                const nonresidentDocs = docs.filter(
+                    (doc) => (doc.sectionKey || '').trim().toLowerCase() === 'nonresident'
+                );
+                const residentDocs = docs.filter(
+                    (doc) => (doc.sectionKey || '').trim().toLowerCase() === 'resident'
+                );
+
+                const fetchedNonresident = nonresidentDocs.flatMap((doc) => doc.cards || []).filter(
+                    (card: InteractiveCard) => !!card?.title
+                );
+                const fetchedResident = residentDocs.flatMap((doc) => doc.cards || []).filter(
+                    (card: InteractiveCard) => !!card?.title
+                );
+
+                setNonresidentCards(fetchedNonresident);
+                setResidentCards(fetchedResident);
             } catch (error) {
-                setLinks([]);
+                setNonresidentCards([]);
+                setResidentCards([]);
             }
         };
 
-        fetchLinks();
+        fetchCards();
     }, []);
 
-    if (links.length === 0) {
-        return null;
-    }
+    const nonresidentToRender = nonresidentCards;
+    const residentToRender = residentCards;
 
     return (
-        <div className="links-box" role="navigation" aria-label="Interactive data links">
-            {links.map((link) => (
-                <a key={link._key} href={link.href} className="links-box__link">
-                    {link.label}
-                </a>
-            ))}
-        </div>
+        <section className="interactive-links" aria-label="Interactive data links">
+            <div className="interactive-links__section">
+                <h2>Nonresident</h2>
+                <div className="interactive-links__list" role="navigation" aria-label="Nonresident interactive data">
+                    {nonresidentToRender.map((card) => (
+                        <Link
+                            key={card._key}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
+                            className="interactive-links__card"
+                        >
+                            {card.imageUrl && (
+                                <img
+                                    src={card.imageUrl}
+                                    alt={card.imageAlt || card.title}
+                                    className="interactive-links__image"
+                                />
+                            )}
+                            <span className="interactive-links__label">{card.title}</span>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
+            <div className="interactive-links__section">
+                <h2>Resident</h2>
+                <div className="interactive-links__list" role="navigation" aria-label="Resident interactive data">
+                    {residentToRender.map((card) => (
+                        <Link
+                            key={card._key}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
+                            className="interactive-links__card"
+                        >
+                            {card.imageUrl && (
+                                <img
+                                    src={card.imageUrl}
+                                    alt={card.imageAlt || card.title}
+                                    className="interactive-links__image"
+                                />
+                            )}
+                            <span className="interactive-links__label">{card.title}</span>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }

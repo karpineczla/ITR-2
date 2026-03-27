@@ -13,6 +13,8 @@ import contactCards from './contactCards'
 import { carousel } from './carousel'
 import { eventsRow } from './eventsRow'
 import { header } from './header'
+import { interactiveData } from './interactiveData'
+import { quarterlySurveys } from './quarterlySurveys'
 import { learnMoreButton } from './learnMoreButton'
 import { subscribe } from './subscribe'
 import { textWithImage } from './textWithImage'
@@ -35,6 +37,8 @@ export const schemaTypes = [
     contactCards,
     eventsRow,
     header,
+    interactiveData,
+    quarterlySurveys,
     learnMoreButton,
     subscribe,
     textWithImage,
