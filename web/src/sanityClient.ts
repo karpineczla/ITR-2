@@ -10,6 +10,7 @@ declare global {
   }
 }
 // reads from .env file unless not existing
+// This doesn't work, env returns blank
 //const env = typeof document === "undefined" ? process.env : window.ENV;
 
 export const client = createClient({
@@ -17,6 +18,7 @@ export const client = createClient({
     dataset: 'production',
     apiVersion: '2025-10-30',
     useCdn: true,
+    // to allow for visual editing
     stega: {
     studioUrl: 'http://localhost:3333', 
   },

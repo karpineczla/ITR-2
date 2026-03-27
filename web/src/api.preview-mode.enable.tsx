@@ -1,11 +1,12 @@
+// For visual editing implementation, does not work
 import { validatePreviewUrl } from "@sanity/preview-url-secret";
 import type { ClientPerspective } from "@sanity/client";
 import { client } from "../src/sanityClient";
 import { getSession, commitSession } from "../src/session";
-import type { Route } from "./+types/api.preview-mode.enable";
+import type { Route } from "./+types/api.preview-mode.enable"; // Unable to resolve
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const token = process.env.SANITY_API_READ_TOKEN;
+  const token = process.env.SANITY_API_READ_TOKEN; //does not currently read the token api correctly, not sure why
   
   if (!token) {
     throw new Response(
