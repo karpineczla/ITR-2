@@ -6,6 +6,7 @@ import Publications from './pages/Publications'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import InteractiveDashboard from './pages/interactive-dashboard'
+import Help from './pages/help'
 import Resources from './pages/resources'
 import Subscribe from './pages/subscribe'
 import Contact from './pages/contact'
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/interactive-data" element={<InteractiveData />} />
         <Route path="/interactive-dashboard" element={<InteractiveDashboard />} />
+        <Route path="/help" element={<Help />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/contact" element={<Contact />} />
