@@ -1,7 +1,7 @@
 import Header from '../components/general/Header';
 import Footer from '../components/general/Footer';
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { client } from '../sanityClient';
 import '../styles/InteractiveDashboard.css';
 
@@ -24,6 +24,21 @@ export default function InteractiveDashboard() {
   const embedSrc = searchParams.get('src') || '';
   const selectedYear = searchParams.get('year') || '';
   const isResidentSurveys = pageTitle.trim().toLowerCase() === 'resident surveys';
+  const isFullscreen = searchParams.get('fullscreen') === '1';
+
+  const fullscreenHref = useMemo(() => {
+    const params = new URLSearchParams(searchParams);
+    params.set('fullscreen', '1');
+    const query = params.toString();
+    return query ? `/interactive-dashboard?${query}` : '/interactive-dashboard';
+  }, [searchParams]);
+
+  const exitFullscreenHref = useMemo(() => {
+    const params = new URLSearchParams(searchParams);
+    params.delete('fullscreen');
+    const query = params.toString();
+    return query ? `/interactive-dashboard?${query}` : '/interactive-dashboard';
+  }, [searchParams]);
 
   useEffect(() => {
     if (!isResidentSurveys) {
@@ -135,13 +150,13 @@ export default function InteractiveDashboard() {
   }, [resolvedEmbedSrc]);
 
   return (
-    <main className="interactive-dashboard-page">
-      <Header />
+    <main className={`interactive-dashboard-page ${isFullscreen ? 'is-fullscreen' : ''}`}>
+      {!isFullscreen && <Header />}
 
       <section className="interactive-dashboard-content">
-        <h1>{pageTitle}</h1>
+        {!isFullscreen && <h1>{pageTitle}</h1>}
 
-        {isResidentSurveys && (
+        {!isFullscreen && isResidentSurveys && (
           <section className="interactive-dashboard-years" aria-label="Resident survey years">
             <label htmlFor="year-search" className="interactive-dashboard-years-label">
               Search year
@@ -202,6 +217,18 @@ export default function InteractiveDashboard() {
           </section>
         )}
 
+        <div className={`interactive-dashboard-toolbar ${isFullscreen ? 'interactive-dashboard-toolbar--overlay' : ''}`}>
+          {isFullscreen ? (
+            <Link to={exitFullscreenHref} className="interactive-dashboard-fullscreen-btn">
+              Exit Fullscreen
+            </Link>
+          ) : (
+            <Link to={fullscreenHref} className="interactive-dashboard-fullscreen-btn">
+              Open Fullscreen
+            </Link>
+          )}
+        </div>
+
         <div className="interactive-dashboard-frame-wrap">
           {safeEmbedSrc ? (
             <iframe
@@ -210,6 +237,7 @@ export default function InteractiveDashboard() {
               className="interactive-dashboard-frame"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              allow="fullscreen"
               allowFullScreen
             />
           ) : (
@@ -218,7 +246,7 @@ export default function InteractiveDashboard() {
         </div>
       </section>
 
-      <Footer />
+      {!isFullscreen && <Footer />}
     </main>
   );
 }

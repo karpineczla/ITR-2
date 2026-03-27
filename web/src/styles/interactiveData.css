@@ -59,6 +59,10 @@
   font-weight: 500;
 }
 
+.interactive-links__cta {
+  margin-top: 1.5rem;
+}
+
 @media (max-width: 900px) {
   .interactive-links {
     width: calc(100vw - 2rem);
@@ -81,6 +85,10 @@
 
   .interactive-links__label {
     font-size: clamp(1rem, 3.9vw, 1.25rem);
+  }
+
+  .interactive-links__cta {
+    margin-top: 1rem;
   }
 }
 

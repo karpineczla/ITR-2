@@ -70,7 +70,7 @@ export default function InteractiveDataLinksBox() {
                     {nonresidentToRender.map((card) => (
                         <Link
                             key={card._key}
-                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}&fullscreen=1`}
                             className="interactive-links__card"
                         >
                             {card.imageUrl && (
@@ -92,7 +92,7 @@ export default function InteractiveDataLinksBox() {
                     {residentToRender.map((card) => (
                         <Link
                             key={card._key}
-                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}&fullscreen=1`}
                             className="interactive-links__card"
                         >
                             {card.imageUrl && (

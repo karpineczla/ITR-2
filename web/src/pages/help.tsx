@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import Header from '../components/general/Header';
 import TitleAndText from "../components/general/TitleAndText";
+import LearnMoreButton from '../components/general/LearnMoreButton';
 import Footer from '../components/general/Footer';
 import '../styles/Help.css';
 
@@ -15,9 +15,7 @@ export default function Help() {
 
       <section className="help-content">
         <div className="help-cta-wrap">
-          <Link className="help-cta" to="/contact">
-            Data Request Form
-          </Link>
+          <LearnMoreButton buttonKey="data-request" fallbackDestination="/contact" />
         </div>
 
         <article className="help-contact-card">
