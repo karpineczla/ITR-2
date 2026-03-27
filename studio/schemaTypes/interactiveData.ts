@@ -75,7 +75,7 @@ export const interactiveData = {
             title: 'Title',
             type: 'string',
         }),
-        defineField ({
+    defineField ({
             name: 'text',
             title: 'Text',
             type: 'text',

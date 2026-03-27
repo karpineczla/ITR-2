@@ -25,6 +25,15 @@ export const homeButtonCards = {
               name: 'image',
               title: 'Card Image',
               type: 'image',
+            fields: [
+                {
+                name: 'alt',
+                type: 'string',
+                title: 'Alternate text',
+                description: 'Important for SEO and accessibility. Describe the image content and function.',
+                validation: (Rule: any) => Rule.required()
+                }
+            ],
               options: {
                 hotspot: true
               },
@@ -51,10 +60,16 @@ export const homeButtonCards = {
     select: {
       title: 'title'
     },
-    prepare({title}: {title: string}) {
-      return {
-        title: title || 'Home Button Cards'
+    preview: {
+  select: {
+    title: 'title',
+  },
+  prepare(selection: Record<string, any>) {
+    const { title } = selection
+    return {
+      title: title || 'Home Button Cards',
       }
     },
+  },
   },
 }
