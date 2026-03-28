@@ -5,9 +5,14 @@
 }
 
 .search-content {
+    flex: 1;
     width: min(900px, 92%);
     margin: 0 auto 3rem;
     font-family: 'Montserrat', sans-serif;
+}
+
+.search-page .footerContainer {
+    margin-top: auto;
 }
 
 .search-title {

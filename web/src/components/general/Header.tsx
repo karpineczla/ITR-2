@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/Header.css';
 
 const Header = () => {
   const [data, setData] = useState<any>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate();
 
   const PROJECT_ID = "a9qy1267"; 
   const DATASET = "production";
@@ -23,6 +25,15 @@ const Header = () => {
   }, []);
 
   const links = data?.navLinks || [];
+
+  const submitSearch = () => {
+    const query = searchValue.trim();
+    if (!query) {
+      navigate('/search');
+      return;
+    }
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+  };
 
   return (
     <header className="headerContainer">
@@ -82,7 +93,18 @@ const Header = () => {
         </nav>
 
         <div className="searchContainer">
-          <input type="text" placeholder="Search..." className="searchInput" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="searchInput"
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                submitSearch();
+              }
+            }}
+          />
         </div>
 
         <button 
