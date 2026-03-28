@@ -53,10 +53,17 @@ export const buttonCards = {
               title: 'Link URL (Optional)',
               type: 'string',
             }),
+            defineField({
+              name: 'cardTypeKey',
+              title: 'Card Type Key (Optional)',
+              type: 'string',
+              description: 'Use "report-card" when this card should be treated as a report card in the web app.',
+            }),
           ],
           preview: {
             select: {
               title: 'title',
+              subtitle: 'cardTypeKey',
               media: 'image',
             },
           },

@@ -9,6 +9,7 @@ interface Card {
   _key: string
   title: string
   description?: string
+  cardTypeKey?: string
   image: {
     asset: {
       _ref: string
@@ -47,6 +48,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               _key,
               title,
               description,
+              cardTypeKey,
               image{asset->{_ref, url}},
               link
             }
@@ -58,6 +60,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               _key,
               title,
               description,
+              cardTypeKey,
               image{asset->{_ref, url}},
               link
             }
@@ -88,12 +91,17 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
         return (
           <button
             key={card._key}
-            className="publications-card-button"
+            className={`publications-card-button ${card.cardTypeKey || ''}`.trim()}
             onClick={() => card.link && navigate(card.link)}
           >
             <div className="publications-card-content">
               {card.image && (
                 <div className="publications-card-media">
+                  {card.cardTypeKey === 'report-card' && (
+                    <span className="publications-card-image-overlay" aria-hidden="true">
+                      REPORT
+                    </span>
+                  )}
                   <img
                     src={imageSrc}
                     alt={card.title}
@@ -106,24 +114,6 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
                 <h2 className="publications-card-description">{card.description}</h2>
               </div>
             </div>
-
-            {isPublicationsReports && (
-              <div className="publications-card-hover-preview" aria-hidden="true">
-                <div className="publications-card-hover-content">
-                  {card.image && (
-                    <div className="publications-card-hover-media">
-                      <img src={imageSrc} alt={card.title} className="publications-card-image" />
-                    </div>
-                  )}
-                  <div className="publications-card-hover-text">
-                    <h3 className="publications-card-hover-title">{card.title}</h3>
-                    {card.description && (
-                      <p className="publications-card-hover-description">{card.description}</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
           </button>
         )
       })}
