@@ -4,21 +4,23 @@ const Footer = () => {
   return (
     <footer className="footerContainer">
       <div className="footerContent">
-        <div className="addressSection">
-          <p>Institute for Tourism &</p>
-          <p>Recreation Research</p>
-          <p style={{ marginTop: '10px' }}>32 Campus Drive</p>
-          <p>Missoula, MT 59812</p>
-          <p>(406) 243-5686</p>
-          <p><a href="mailto:itrr@umontana.edu">itrr@umontana.edu</a></p>
-        </div>
+        <div className="topSection">
+          <div className="addressSection">
+            <p>Institute for Tourism &</p>
+            <p>Recreation Research</p>
+            <p className="addressBreak">32 Campus Drive</p>
+            <p>Missoula, MT 59812</p>
+            <p>(406) 243-5686</p>
+            <p><a href="mailto:itrr@umontana.edu">itrr@umontana.edu</a></p>
+          </div>
 
-        <div className="linksSection">
-          <a href="/contact" className="footerLink">Contact Us</a>
-          <div className="divider"></div>
-          <a href="/about" className="footerLink">Employment</a>
-          <div className="divider"></div>
-          <a href="" className='footerLink'>Subscribe to Newsletter</a>
+          <div className="linksSection">
+            <a href="/contact" className="footerLink">Contact Us</a>
+            <div className="divider"></div>
+            <a href="/about" className="footerLink">Employment</a>
+            <div className="divider"></div>
+            <a href="" className='footerLink'>Subscribe to Newsletter</a>
+          </div>
         </div>
 
         <div className="socialSection" >

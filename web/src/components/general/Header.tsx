@@ -1,57 +1,28 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { client } from '../../sanityClient';
+import { Link } from 'react-router-dom';
 import '../../styles/Header.css';
 
-interface HeaderAnnouncement {
-  text?: string;
-  link?: string;
-}
-
-interface HeaderNavLink {
-  name?: string;
-  href?: string;
-}
-
-interface HeaderData {
-  logoUrl?: string;
-  announcements?: HeaderAnnouncement[];
-  navLinks?: HeaderNavLink[];
-}
-
 const Header = () => {
-  const [data, setData] = useState<HeaderData | null>(null);
-  const [searchValue, setSearchValue] = useState('');
-  const navigate = useNavigate();
+  const [data, setData] = useState<any>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const PROJECT_ID = "a9qy1267"; 
+  const DATASET = "production";
 
   useEffect(() => {
-    const fetchHeader = async () => {
-      try {
-        const query = `*[_type == "header"][0]{
-          "logoUrl": logo.asset->url,
-          announcements[]{ text, link },
-          navLinks[]{ name, href }
-        }`;
-        const result = await client.fetch<HeaderData | null>(query);
-        setData(result || null);
-      } catch {
-        setData(null);
-      }
-    };
+    const query = encodeURIComponent(`*[_type == "header"][0]{
+      "logoUrl": logo.asset->url,
+      announcements[]{ text, link },
+      navLinks
+    }`);
+    const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
 
-    fetchHeader();
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => setData(json.result));
   }, []);
 
   const links = data?.navLinks || [];
-
-  const submitSearch = () => {
-    const q = searchValue.trim();
-    if (!q) {
-      navigate('/search');
-      return;
-    }
-    navigate(`/search?q=${encodeURIComponent(q)}`);
-  };
 
   return (
     <header className="headerContainer">
@@ -60,7 +31,7 @@ const Header = () => {
         <div className="announcementBar">
           <div className="tickerWrapper">
             <div className="tickerText">
-  {data?.announcements?.map((item: HeaderAnnouncement, i: number) => (
+  {data?.announcements?.map((item: any, i: number) => (
     <span key={i}>
       {item.link ? (
         <a href={item.link} className="tickerLink">
@@ -72,7 +43,7 @@ const Header = () => {
     </span>
   ))}
   {/* Duplicate for seamless loop */}
-  {data?.announcements?.map((item: HeaderAnnouncement, i: number) => (
+  {data?.announcements?.map((item: any, i: number) => (
     <span key={`dup-${i}`}>
       {item.link ? (
         <a href={item.link} className="tickerLink">
@@ -94,11 +65,15 @@ const Header = () => {
           <img src={data?.logoUrl || "/logo-placeholder.png"} alt="ITRR Logo" className="logoImg" />
         </Link>
 
-        <nav className="navSection">
+        <nav className={`navSection ${menuOpen ? 'navSectionOpen' : ''}`}>
           <ul className="navList">
-            {links.map((link) => (
-              <li key={`${link.name || 'nav'}-${link.href || ''}`}>
-                <Link to={`/${(link.href || '').replace(/^\//, '')}`} className="navLink">
+            {links.map((link: any) => (
+              <li key={link.name}>
+                <Link 
+                  to={`/${link.href.replace(/^\//, '')}`} 
+                  className="navLink"
+                  onClick={() => setMenuOpen(false)}
+                >
                   {link.name}
                 </Link>
               </li>
@@ -107,23 +82,18 @@ const Header = () => {
         </nav>
 
         <div className="searchContainer">
-          <svg className="searchIcon" viewBox="0 0 24 24" fill="none" stroke="black">
-            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2"></line>
-          </svg>
-          <input
-            type="text"
-            placeholder="Search"
-            className="searchInput"
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                submitSearch();
-              }
-            }}
-          />
+          <input type="text" placeholder="Search..." className="searchInput" />
         </div>
+
+        <button 
+          className="hamburgerMenu" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
   );

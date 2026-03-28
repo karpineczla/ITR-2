@@ -66,12 +66,15 @@ export default function TextWithImage({ sectionKey }: TextWithImageProps) {
 
   const width = rowData.rowWidth || '80vw'
   const imageOnRight = rowData.imagePosition === 'right'
+  const stackImageTop = sectionKey === 'about-history-row'
 
   return (
     <section className="text-with-image-row" style={{ width }}>
       {rowData.title && <h2 className="text-with-image-title">{rowData.title}</h2>}
 
-      <div className={`text-with-image-content ${imageOnRight ? 'image-right' : 'image-left'}`}>
+      <div
+        className={`text-with-image-content ${imageOnRight ? 'image-right' : 'image-left'} ${stackImageTop ? 'stack-image-top' : ''}`}
+      >
         <div className="text-with-image-text">
           {rowData.textMode === 'bullets' ? (
             <ul className="text-with-image-list">
