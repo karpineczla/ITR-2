@@ -80,16 +80,14 @@ export default function EventRow({ rowKey, title }: EventRowProps) {
             )}
 
             <div className={`event-row-content ${!imageUrl ? 'event-row-content-no-image' : ''}`.trim()}>
-              <div className="event-row-header">
-                <h3 className="event-row-title">{item.title || 'Untitled event'}</h3>
-                <div className="event-row-actions">
-                  <LearnMoreButton
-                    buttonKey={item.buttonKey || ''}
-                    fallbackDestination="/events"
-                  />
-                </div>
-              </div>
+              <h3 className="event-row-title">{item.title || 'Untitled event'}</h3>
               <p className="event-row-text">{item.text || ''}</p>
+              <div className="event-row-actions">
+                <LearnMoreButton
+                  buttonKey={item.buttonKey || ''}
+                  fallbackDestination="/events"
+                />
+              </div>
             </div>
           </article>
         )
