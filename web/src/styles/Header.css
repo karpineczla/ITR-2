@@ -53,16 +53,17 @@
     flex-direction: row; 
     align-items: center; 
     justify-content: space-between; 
-    gap: 1rem;
     padding: 0 clamp(14px, 3vw, 40px);
     height: 65px;
     background-color: #D1D1D1; 
+    position: relative;
 }
 
 .logoLink {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    margin-right: clamp(1rem, 3vw, 2rem);
 }
 
 .logoImg {
@@ -75,7 +76,8 @@
     display: flex;
     flex: 1 1 auto;
     min-width: 0;
-    justify-content: center; 
+    justify-content: center;
+    margin-right: clamp(1rem, 3vw, 2rem);
 }
 
 .navList {
@@ -116,6 +118,7 @@
     border-radius: 20px;
     border: 1px solid #bbb;
     height: 32px;
+    margin-left: clamp(1rem, 3vw, 2rem);
 }
 
 .searchInput {
@@ -133,34 +136,97 @@
     color: #666;
 }
 
+/* Hamburger Menu */
+.hamburgerMenu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburgerMenu span {
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    transition: 0.3s;
+    display: block;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
     .mainHeader {
-        padding: 0 15px;
-        gap: 15px;
+        justify-content: flex-start;
+    }
+
+    .logoLink {
+        margin-right: auto;
+    }
+
+    .navSection {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #832241;
+        padding: 1rem;
+        z-index: 999;
+        border-radius: 0 0 20px 0;
+    }
+
+    .navSection.navSectionOpen {
+        display: flex;
+    }
+
+    .navList {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .navLink, 
+    .navLink:link, 
+    .navLink:visited, 
+    .navLink:active {
+        color: #ffffff !important;
+        font-size: 1rem;
     }
 
     .searchContainer {
-        display: flex;
-        margin-left: auto;
+        display: none;
     }
 
-    .searchInput {
-        width: 82px;
+    .hamburgerMenu {
+        display: flex;
+        margin-left: auto;
     }
 }
 
 @media (max-width: 640px) {
     .mainHeader {
         gap: 10px;
+        padding: 0 12px;
     }
 
-    .searchContainer {
-        padding: 2px 8px;
+    .logoImg {
+        height: clamp(35px, 5vw, 45px);
     }
 
-    .searchInput {
-        width: 70px;
-        font-size: 0.8rem;
+    .hamburgerMenu span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .navSection {
+        padding: 0.75rem;
+    }
+
+    .navList {
+        gap: 0.5rem;
     }
 }

@@ -4,6 +4,7 @@ import '../../styles/Header.css';
 
 const Header = () => {
   const [data, setData] = useState<any>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const PROJECT_ID = "a9qy1267"; 
   const DATASET = "production";
@@ -64,11 +65,15 @@ const Header = () => {
           <img src={data?.logoUrl || "/logo-placeholder.png"} alt="ITRR Logo" className="logoImg" />
         </Link>
 
-        <nav className="navSection">
+        <nav className={`navSection ${menuOpen ? 'navSectionOpen' : ''}`}>
           <ul className="navList">
             {links.map((link: any) => (
               <li key={link.name}>
-                <Link to={`/${link.href.replace(/^\//, '')}`} className="navLink">
+                <Link 
+                  to={`/${link.href.replace(/^\//, '')}`} 
+                  className="navLink"
+                  onClick={() => setMenuOpen(false)}
+                >
                   {link.name}
                 </Link>
               </li>
@@ -79,6 +84,16 @@ const Header = () => {
         <div className="searchContainer">
           <input type="text" placeholder="Search..." className="searchInput" />
         </div>
+
+        <button 
+          className="hamburgerMenu" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
   );
