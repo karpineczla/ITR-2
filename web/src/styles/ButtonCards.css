@@ -103,8 +103,8 @@
   font-family: 'Anton', sans-serif;
   margin-top: 0;
   margin-bottom: 0.35rem;
-  overflow-wrap: anywhere;
   word-break: break-word;
+  text-transform: uppercase;
 }
 
 .publications-card-description {
@@ -222,12 +222,17 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1439px) {
   .publications-cards-container {
     align-items: center;
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
+    gap: 1rem;
+  }
+
+  .publications-card-button {
+    min-height: clamp(120px, 12vw, 160px);
   }
 
   .publications-card-title {
@@ -287,7 +292,7 @@
   }
  }
  
- @media (min-width: 1024px) {
+ @media (min-width: 1440px) {
   .publications-cards-container {
     gap: 1rem;
     justify-content: center;
@@ -301,6 +306,14 @@
   .publications-card-content {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .publications-card-title {
+    font-size: 2.3rem;
+  }
+
+  .publications-card-description {
+    font-size: 1.8rem;
   }
 
   .publications-card-media {

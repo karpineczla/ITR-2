@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { client } from '../../sanityClient'
 import { createImageUrlBuilder } from '@sanity/image-url'
 import '../../styles/ButtonCards.css'
@@ -31,7 +30,6 @@ interface ButtonCardsProps {
 }
 
 export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
-  const navigate = useNavigate()
   const [loading, setLoading] = useState(!data)
   const [cardsData, setCardsData] = useState<ButtonCardsData | null>(data || null)
   const isPublicationsReports = sectionKey === 'publications-and-reports'
@@ -92,7 +90,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
           <button
             key={card._key}
             className={`publications-card-button ${card.cardTypeKey || ''}`.trim()}
-            onClick={() => card.link && navigate(card.link)}
+            onClick={() => card.link && window.open(card.link, '_blank')}
           >
             <div className="publications-card-content">
               {card.image && (
