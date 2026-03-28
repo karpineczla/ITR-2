@@ -18,6 +18,7 @@ import DashboardSurveyPage from './pages/dashboard-survey'
 import ContinuingTheConversation from './pages/continuing-the-conversation'
 import GetInvolved from './pages/get-involved-and-resources'
 import Search from './pages/search'
+import Contact from './pages/contact'
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/publications-and-reports" element={<PublicationsAndReports />} />
         <Route path="/publications" element={<Publications />} />
