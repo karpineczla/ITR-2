@@ -60,6 +60,12 @@
   line-height: 1.8;
 }
 
+.text-with-image-content.stack-image-top .text-with-image-image {
+  height: 22vh;
+  min-height: 180px;
+  max-height: 280px;
+}
+
 .text-with-image-text {
   font-size: 1.3rem;
   color: #000;
@@ -131,6 +137,10 @@
     justify-content: center;
   }
 
+  .text-with-image-content.stack-image-top .text-with-image-image {
+    height: auto;
+  }
+
   .text-with-image-content.image-right .text-with-image-text,
   .text-with-image-content.image-left .text-with-image-text,
   .text-with-image-content.stack-image-top .text-with-image-text {
@@ -148,6 +158,10 @@
   .text-with-image-image img {
     aspect-ratio: 16 / 10;
     height: auto;
+  }
+
+  .text-with-image-content.stack-image-top .text-with-image-image img {
+    aspect-ratio: 16 / 7;
   }
 
 }
