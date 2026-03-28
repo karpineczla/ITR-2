@@ -2,14 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/itrr-home'
 import About from './pages/about'
 import PublicationsAndReports from './pages/publications-and-reports'
-import Publications from './pages/Publications'
+import Publications from './pages/publications'
 import Events from './pages/events'
 import InteractiveData from './pages/interactive-data'
 import InteractiveDashboard from './pages/interactive-dashboard'
 import Help from './pages/help'
 import Resources from './pages/resources'
 import Subscribe from './pages/subscribe'
-import Contact from './pages/contact'
 import EmploymentOpportunities from './pages/employment-opportunities'
 import SurveyKit from './pages/survey-kit'
 import PilotCommunity from './pages/pilot-community'
@@ -35,7 +34,6 @@ export default function App() {
         <Route path="/help" element={<Help />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/subscribe" element={<Subscribe />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/employment-opportunities" element={<EmploymentOpportunities />} />
         <Route path="/survey-kit" element={<SurveyKit />} />
         <Route path="/pilot-community" element={<PilotCommunity />} />
