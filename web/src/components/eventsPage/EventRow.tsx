@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { createImageUrlBuilder } from '@sanity/image-url'
+import { PortableText } from '@portabletext/react'
 import { client } from '../../sanityClient'
 import LearnMoreButton from '../general/LearnMoreButton'
 import '../../styles/EventRow.css'
@@ -9,7 +10,7 @@ const builder = createImageUrlBuilder(client)
 interface EventRowData {
   _id: string
   title?: string
-  text?: string
+  text?: unknown
   buttonKey?: string
   rowKey?: string
   image?: {
@@ -22,6 +23,29 @@ interface EventRowData {
 interface EventRowProps {
   rowKey?: string
   title?: string
+}
+
+const portableTextComponents = {
+  marks: {
+    link: ({ children, value }: { children: React.ReactNode; value?: { href?: string } }) => {
+      const href = value?.href || ''
+      const isExternal = /^https?:\/\//i.test(href)
+      if (!href) {
+        return <>{children}</>
+      }
+
+      return (
+        <a
+          href={href}
+          className="event-row-text-link"
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+        >
+          {children}
+        </a>
+      )
+    }
+  }
 }
 
 //can use the rowkey or title to say which row you want 
@@ -81,7 +105,13 @@ export default function EventRow({ rowKey, title }: EventRowProps) {
 
             <div className={`event-row-content ${!imageUrl ? 'event-row-content-no-image' : ''}`.trim()}>
               <h3 className="event-row-title">{item.title || 'Untitled event'}</h3>
-              <p className="event-row-text">{item.text || ''}</p>
+              <div className="event-row-text">
+                {Array.isArray(item.text) ? (
+                  <PortableText value={item.text} components={portableTextComponents} />
+                ) : (
+                  <p>{typeof item.text === 'string' ? item.text : ''}</p>
+                )}
+              </div>
               <div className="event-row-actions">
                 <LearnMoreButton
                   buttonKey={item.buttonKey || ''}

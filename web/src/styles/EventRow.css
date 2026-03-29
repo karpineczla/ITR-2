@@ -84,6 +84,19 @@
   color: black;
 }
 
+.event-row-text p {
+  margin: 0;
+}
+
+.event-row-text p + p {
+  margin-top: 0.75rem;
+}
+
+.event-row-text-link {
+  color: #842241;
+  text-decoration: underline;
+}
+
 @media (max-width: 1024px) {
   .events-rows {
     width: min(92vw, 780px);
