@@ -15,11 +15,11 @@ const Footer = () => {
           </div>
 
           <div className="linksSection">
-            <a href="/contact" className="footerLink">Contact Us</a>
+            <a href="/about" className="footerLink">Contact Us</a>
             <div className="divider"></div>
-            <a href="/about" className="footerLink">Employment</a>
+            <a href="/employment-opportunities" className="footerLink">Employment</a>
             <div className="divider"></div>
-            <a href="" className='footerLink'>Subscribe to Newsletter</a>
+            <a href="/subscribe" className='footerLink'>Subscribe to Newsletter</a>
           </div>
         </div>
 

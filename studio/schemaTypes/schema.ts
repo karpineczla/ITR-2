@@ -5,8 +5,6 @@ import { homeButtonCards } from './homeButtonCards'
 import { homeGridCards } from './homeGridCards'
 import { titleAndText } from './titleAndText'
 import { buttonCards } from './buttonCards'
-import { newsCards } from './newsCards'
-import { recentFindingsCards } from './recentFindingsCards'
 import resourcesCards from './resourcesCards' 
 import { bulletsWithImg } from './bulletsWithImg'
 import contactCards from './contactCards'
@@ -29,8 +27,6 @@ export const schemaTypes = [
     homeGridCards,
     titleAndText,
     buttonCards,
-    newsCards,
-    recentFindingsCards,
     resourcesCards,
     bulletsWithImg,
     carousel,

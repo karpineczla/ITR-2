@@ -11,9 +11,9 @@ export default function Resources() {
             <Header />
             <BackButton to='/get-involved-and-resources' />
             <TitleAndText title="Montana and Outdoor Recreation"/>
-            <ResourceCard />
+            <ResourceCard sectionKey="montana-and-outdoor-recreation" />
             <TitleAndText title="Outdoor Recreation in the United States"/>
-            <ResourceCard />
+            <ResourceCard sectionKey="outdoor-recreation-in-the-us" />
             <TitleAndText title="Community Resources" />
             <LearnMoreButton buttonKey="pilot-community" />
             <Footer />

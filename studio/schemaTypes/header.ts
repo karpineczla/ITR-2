@@ -6,6 +6,13 @@ export const header = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'documentTitle',
+      title: 'Document Title',
+      type: 'string',
+      initialValue: 'Main Site Header',
+      validation: (Rule: any) => Rule.required()
+    }),
+    defineField({
       name: 'logo',
       title: 'Site Logo',
       type: 'image',
@@ -43,5 +50,19 @@ export const header = defineType({
         }
       ]
     })
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'documentTitle',
+      navLinks: 'navLinks'
+    },
+    prepare(selection: Record<string, any>) {
+      const { title, navLinks } = selection
+      const count = Array.isArray(navLinks) ? navLinks.length : 0
+      return {
+        title: title || 'Header Settings',
+        subtitle: `${count} nav link${count === 1 ? '' : 's'}`
+      }
+    }
+  }
 })

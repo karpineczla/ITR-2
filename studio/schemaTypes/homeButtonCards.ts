@@ -8,6 +8,13 @@ export const homeButtonCards = {
   type: 'document',
   fields: [
     defineField({
+      name: 'title',
+      title: 'Document Title',
+      type: 'string',
+      initialValue: 'Home Button Cards',
+      validation: (Rule: any) => Rule.required()
+    }),
+    defineField({
       name: 'cards',
       title: 'Cards',
       type: 'array',
@@ -25,15 +32,15 @@ export const homeButtonCards = {
               name: 'image',
               title: 'Card Image',
               type: 'image',
-            fields: [
+              fields: [
                 {
-                name: 'alt',
-                type: 'string',
-                title: 'Alternate text',
-                description: 'Important for SEO and accessibility. Describe the image content and function.',
-                validation: (Rule: any) => Rule.required()
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternate text',
+                  description: 'Important for SEO and accessibility. Describe the image content and function.',
+                  validation: (Rule: any) => Rule.required()
                 }
-            ],
+              ],
               options: {
                 hotspot: true
               },
@@ -53,23 +60,20 @@ export const homeButtonCards = {
           }
         }
       ]
-    }
-  )],
-  //what the title is in studio for the document
-    preview: {
+    })
+  ],
+  preview: {
     select: {
-      title: 'title'
+      title: 'title',
+      cards: 'cards'
     },
-    preview: {
-  select: {
-    title: 'title',
-  },
-  prepare(selection: Record<string, any>) {
-    const { title } = selection
-    return {
-      title: title || 'Home Button Cards',
+    prepare(selection: Record<string, any>) {
+      const { title, cards } = selection
+      const count = Array.isArray(cards) ? cards.length : 0
+      return {
+        title: title || 'Home Button Cards',
+        subtitle: `${count} card${count === 1 ? '' : 's'}`
       }
-    },
-  },
-  },
+    }
+  }
 }
