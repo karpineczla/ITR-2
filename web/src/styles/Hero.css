@@ -29,6 +29,47 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(42%, 520px);
+  background: linear-gradient(180deg, rgba(231, 219, 196, 0.97), rgba(222, 207, 186, 0.6));
+  color: #3c2d1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2.4vw, 2.2rem);
+  box-sizing: border-box;
+}
+
+.hero-overlay-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.hero-overlay-text {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.55;
+}
+
+.hero-overlay .btn-cont {
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+.hero-overlay .learn-more-btn {
+  font-size: 1rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 10px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .hero {
@@ -58,6 +99,28 @@
   .hero-dot.active {
     width: 12px;
     height: 12px;
+  }
+
+  .hero-overlay {
+    width: 100%;
+    height: auto;
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(222, 207, 186, 0.98), rgba(231, 219, 196, 0.93));
+    gap: 0.55rem;
+  }
+
+  .hero-overlay-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-overlay-text {
+    font-size: 0.95rem;
+  }
+
+  .hero-overlay .learn-more-btn {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.95rem;
   }
 }
 
