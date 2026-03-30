@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { client } from '../../sanityClient'
 import '../../styles/LearnMoreButton.css'
 
