@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { client } from '../../sanityClient'
-import { PortableText } from '@portabletext/react'
 import '../../styles/TitleAndText.css'
 
 interface TitleTextData {
@@ -20,6 +19,62 @@ interface TitleAndTextProps {
   subtitle?: string
 }
 
+type PortableTextMarkDef = {
+  _key: string
+  _type?: string
+  href?: string
+}
+
+type PortableTextChild = {
+  _type?: string
+  text?: string
+  marks?: string[]
+}
+
+type PortableTextBlock = {
+  _key?: string
+  _type?: string
+  style?: string
+  children?: PortableTextChild[]
+  markDefs?: PortableTextMarkDef[]
+}
+
+function renderPortableText(value: unknown, linkClassName: string) {
+  if (!Array.isArray(value)) {
+    return <p>{String(value ?? '')}</p>
+  }
+
+  return (value as PortableTextBlock[]).map((block, blockIndex) => {
+    const key = block._key ?? `block-${blockIndex}`
+    const markDefs = block.markDefs ?? []
+    const textChildren = (block.children ?? []).map((child, childIndex) => {
+      const text = child.text ?? ''
+      const marks = child.marks ?? []
+      const linkMark = marks.find((mark) => markDefs.some((def) => def._key === mark && def.href))
+      const linkDef = markDefs.find((def) => def._key === linkMark)
+
+      if (linkDef?.href) {
+        return (
+          <a key={`${key}-${childIndex}`} className={linkClassName} href={linkDef.href}>
+            {text}
+          </a>
+        )
+      }
+
+      return <span key={`${key}-${childIndex}`}>{text}</span>
+    })
+
+    switch (block.style) {
+      case 'h2':
+        return <h2 key={key}>{textChildren}</h2>
+      case 'h3':
+        return <h3 key={key}>{textChildren}</h3>
+      default:
+        return <p key={key}>{textChildren}</p>
+    }
+  })
+}
+
 export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTextProps) {
   const [loading, setLoading] = useState(true)
   const [blockData, setBlockData] = useState<TitleTextData | null>(null)
@@ -28,7 +83,11 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
     const fetchData = async () => {
       try {
         const query = sectionKey
-          ? `*[_type == "titleAndText" && sectionKey == $sectionKey][0]{
+          ? `*[_type == "titleAndText" && (
+              sectionKey == $sectionKey ||
+              lower(sectionKey) == lower($sectionKey) ||
+              lower(sectionKey) == lower($sectionKeySpaced)
+            )][0]{
               _id,
               sectionKey,
               title,
@@ -70,7 +129,13 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
               textAlignment,
               text
             }`
-        const params = sectionKey ? { sectionKey } : title ? { title } : subtitle ? { subtitle } : undefined
+        const params = sectionKey
+          ? { sectionKey, sectionKeySpaced: sectionKey.replace(/-/g, ' ') }
+          : title
+          ? { title }
+          : subtitle
+          ? { subtitle }
+          : undefined
         const result = await client.fetch(query, params)
         setBlockData(result)
         //console.log('Title & Text data:)', result)
@@ -98,30 +163,18 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
   const textAlignmentClass =
     blockData.textAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
 
-  const portableTextComponents = {
-    marks: {
-      link: ({ children, value }: { children: React.ReactNode; value?: { href?: string } }) => {
-        const href = value?.href || '#'
-        return (
-          <a className="title-text-link" href={href}>
-            {children}
-          </a>
-        )
-      },
-    },
-  }
-
   const isPortableText = Array.isArray(blockData.text)
+  const sectionClass = sectionKey ? `title-text-${sectionKey.replace(/[^a-zA-Z0-9-]/g, '-')}` : ''
 
   return (
-    <div className="title-text-container">
+    <div className={`title-text-container ${sectionClass}`.trim()}>
       {blockData.title && <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>}
       {blockData.subtitle && (
         <h3 className={`title-text-subtitle ${subtitleAlignmentClass}`}>{blockData.subtitle}</h3>
       )}
       <div className={`title-text-body ${textAlignmentClass}`}>
         {isPortableText ? (
-          <PortableText value={blockData.text as any[]} components={portableTextComponents} />
+          renderPortableText(blockData.text, 'title-text-link')
         ) : (
           <p>{(blockData.text as string) || ''}</p>
         )}

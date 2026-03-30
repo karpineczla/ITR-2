@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { PortableText } from '@portabletext/react'
 import { client } from '../../sanityClient'
 import '../../styles/TextWithImage.css'
 
@@ -8,7 +9,7 @@ interface TextWithImageData {
   rowWidth?: string
   imagePosition?: 'left' | 'right'
   textMode?: 'paragraph' | 'bullets'
-  text?: string
+  text?: unknown
   bulletPoints?: string[]
   altText?: string
   imageUrl?: string
@@ -66,12 +67,16 @@ export default function TextWithImage({ sectionKey }: TextWithImageProps) {
 
   const width = rowData.rowWidth || '80vw'
   const imageOnRight = rowData.imagePosition === 'right'
+  const stackImageTop = sectionKey === 'about-history-row'
+  const isRichText = Array.isArray(rowData.text)
 
   return (
     <section className="text-with-image-row" style={{ width }}>
       {rowData.title && <h2 className="text-with-image-title">{rowData.title}</h2>}
 
-      <div className={`text-with-image-content ${imageOnRight ? 'image-right' : 'image-left'}`}>
+      <div
+        className={`text-with-image-content ${imageOnRight ? 'image-right' : 'image-left'} ${stackImageTop ? 'stack-image-top' : ''}`}
+      >
         <div className="text-with-image-text">
           {rowData.textMode === 'bullets' ? (
             <ul className="text-with-image-list">
@@ -79,8 +84,10 @@ export default function TextWithImage({ sectionKey }: TextWithImageProps) {
                 <li key={`${point}-${index}`}>{point}</li>
               ))}
             </ul>
+          ) : isRichText ? (
+            <PortableText value={rowData.text} />
           ) : (
-            <p>{rowData.text}</p>
+            <p>{String(rowData.text ?? '')}</p>
           )}
         </div>
 

@@ -11,6 +11,13 @@ export const titleAndText = defineType ({
     description: 'Title, subtitle, and text block with selectable alignment',
     fields: [
         defineField ({
+            name: 'documentTitle',
+            title: 'Document Title',
+            type: 'string',
+            description: 'Label for this document in the list (for your reference)',
+            validation: Rule => Rule.required(),
+        }),
+        defineField ({
             //can use a key to identify when a title isnt present
             name: 'sectionKey',
             title: 'Section Key',
@@ -102,4 +109,17 @@ export const titleAndText = defineType ({
             validation: Rule => Rule.required(),
         }),
     ],
+    preview: {
+        select: {
+            documentTitle: 'documentTitle',
+            sectionKey: 'sectionKey',
+        },
+        prepare(selection: Record<string, any>) {
+            const { documentTitle, sectionKey } = selection
+            return {
+                title: documentTitle || 'Untitled',
+                subtitle: sectionKey ? `Key: ${sectionKey}` : 'No section key',
+            }
+        }
+    }
 });

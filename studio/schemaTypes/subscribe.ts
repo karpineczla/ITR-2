@@ -24,7 +24,36 @@ export const subscribe = {
     defineField({
       name: 'description',
       title: 'Subscription Paragraph',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          lists: [],
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  defineField({
+                    name: 'href',
+                    title: 'URL',
+                    type: 'url',
+                    validation: (Rule: any) => Rule.required().uri({
+                      scheme: ['http', 'https', 'mailto', 'tel']
+                    })
+                  }),
+                ],
+              },
+            ],
+          },
+        },
+      ],
       validation: (Rule: any) => Rule.required()
     }),
     defineField({

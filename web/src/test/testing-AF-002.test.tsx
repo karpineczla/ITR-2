@@ -107,7 +107,7 @@ describe('Image upload by schema type', () => {
   }, 30000)
 
   //case 3: image nested inside an array .
-  runWhenAuthenticated('nested object image: updates publicationsButtonCards.cards[].image', async () => {
+    runWhenAuthenticated('nested object image: updates buttonCards.cards[].image', async () => {
     const docId = 'test-publications-button-cards'
     let assetId: string | undefined
 
@@ -117,7 +117,7 @@ describe('Image upload by schema type', () => {
 
       await client.createOrReplace({
         _id: docId,
-        _type: 'publicationsButtonCards',
+           _type: 'buttonCards',
         cards: [
           {
             _key: `card-${Date.now()}`,

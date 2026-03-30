@@ -62,12 +62,12 @@ export const textWithImage = defineType({
 		defineField({
 			name: 'text',
 			title: 'Text',
-			type: 'text',
-			rows: 8,
+			type: 'array',
+			of: [{ type: 'block' }],
 			hidden: ({ document }) => document?.textMode === 'bullets',
 			validation: (Rule) =>
 				Rule.custom((value, context) => {
-					if (context.document?.textMode === 'paragraph' && !value) {
+					if (context.document?.textMode === 'paragraph' && (!Array.isArray(value) || value.length === 0)) {
 						return 'Text is required when Text Type is Paragraph.'
 					}
 					return true

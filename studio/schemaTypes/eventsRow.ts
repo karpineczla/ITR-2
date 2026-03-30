@@ -13,7 +13,34 @@ export const eventsRow = defineType({
         defineField({
             name: 'text',
             title: 'Text',
-            type: 'text',
+            type: 'array',
+            of: [
+                {
+                    type: 'block',
+                    lists: [],
+                    marks: {
+                        decorators: [
+                            { title: 'Strong', value: 'strong' },
+                            { title: 'Emphasis', value: 'em' },
+                        ],
+                        annotations: [
+                            {
+                                name: 'link',
+                                type: 'object',
+                                title: 'URL',
+                                fields: [
+                                    defineField({
+                                        name: 'href',
+                                        title: 'URL',
+                                        type: 'url',
+                                        validation: Rule => Rule.required().uri({ scheme: ['http', 'https', 'mailto', 'tel'] }),
+                                    }),
+                                ],
+                            },
+                        ],
+                    },
+                },
+            ],
         }),
         defineField({
             name: 'image',
