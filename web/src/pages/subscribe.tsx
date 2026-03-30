@@ -74,7 +74,7 @@ const Subscribe = () => {
           <h1 className="subscribe-heading">Subscribe</h1>
           
           <div className="subscribe-paragraph">
-            <PortableText value={content.description} components={portableTextComponents} />
+            <PortableText value={content.description as any} components={portableTextComponents} />
           </div>
 
           <div className="button-container">
