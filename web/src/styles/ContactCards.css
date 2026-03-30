@@ -169,3 +169,89 @@
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+@media (min-width: 1024px) {
+  .contact-page-container {
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-page-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 14px;
+    box-sizing: border-box;
+  }
+
+  .contact-main-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-card-inner {
+    padding: 12px;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .contact-card-img {
+    width: 96px;
+    height: 120px;
+    margin-right: 0;
+    flex-shrink: 0;
+  }
+
+  .contact-card-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .contact-card-info .role {
+    margin: 4px 0 10px 0;
+    font-size: 0.85rem;
+  }
+
+  .email-link {
+    font-size: 0.82rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .show-more {
+    font-size: 0.9rem;
+  }
+
+  .contact-modal {
+    max-width: 92vw;
+    padding: 18px;
+  }
+
+  .modal-top {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .modal-img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin-right: 0;
+  }
+
+  .modal-header-text h2 {
+    font-size: 1.35rem;
+  }
+
+  .modal-bio {
+    max-height: 240px;
+    font-size: 0.9rem;
+  }
+}

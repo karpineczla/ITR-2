@@ -25,12 +25,36 @@ interface ReportItem {
 }
 
 interface ResourceItem {
-  _id: string
+  _key?: string
   title?: string
-  description?: string
-  resourceType?: 'pdf' | 'link'
+  description?: unknown
+  resourceType?: 'pdf' | 'link' | 'image'
   pdfFile?: { asset?: { url?: string } }
+  imageFile?: { asset?: { url?: string } }
   externalUrl?: string
+}
+
+type PortableTextMarkDef = {
+  _key?: string
+  href?: string
+}
+
+type PortableTextChild = {
+  _type?: string
+  text?: string
+  marks?: string[]
+}
+
+type PortableTextBlock = {
+  _type?: string
+  children?: PortableTextChild[]
+  markDefs?: PortableTextMarkDef[]
+}
+
+interface ResourceDocument {
+  _id: string
+  sectionKey?: string
+  cards?: ResourceItem[]
 }
 
 interface CardItem {
@@ -74,6 +98,25 @@ const matchesSearch = (query: string, ...fields: Array<string | undefined>) => {
   return fields.some((field) => (field || '').toLowerCase().includes(normalizedQuery))
 }
 
+const portableTextToPlainText = (value: unknown) => {
+  if (typeof value === 'string') {
+    return value
+  }
+
+  if (!Array.isArray(value)) {
+    return ''
+  }
+
+  return (value as PortableTextBlock[])
+    .map((block) =>
+      (block.children || [])
+        .map((child) => child.text || '')
+        .join('')
+    )
+    .join(' ')
+    .trim()
+}
+
 export default function Search() {
   const location = useLocation()
   const query = useMemo(() => getSearchQuery(location.search), [location.search])
@@ -93,7 +136,7 @@ export default function Search() {
         const [reports, resources, newsDocs, findingsDocs, interactiveDocs, buttonCardDocs, learnMoreButtons] =
           await Promise.all([
             client.fetch<ReportItem[]>(`*[_type == "report"]{_id, title, author, abstract, tags, content}`),
-            client.fetch<ResourceItem[]>(`*[_type == "resourceCards"]{_id, title, description, resourceType, pdfFile{asset->{url}}, externalUrl}`),
+            client.fetch<ResourceDocument[]>(`*[_type == "resourceCards"]{_id, sectionKey, cards[]{_key, title, description, resourceType, pdfFile{asset->{url}}, imageFile{asset->{url}}, externalUrl}}`),
             client.fetch<CardDocument[]>(`*[_type == "newsCards"]{_id, cards[]{_key, title, link}}`),
             client.fetch<CardDocument[]>(`*[_type == "recentFindingsCards"]{_id, cards[]{_key, title, pdf{asset->{url}}}}`),
             client.fetch<CardDocument[]>(`*[_type == "interactiveData"]{_id, links[]{_key, label, href}, cards[]{_key, title, description, link}}`),
@@ -127,20 +170,28 @@ export default function Search() {
           })
         }
 
-        for (const resource of resources || []) {
-          const resourceUrl = resource.resourceType === 'pdf' ? resource.pdfFile?.asset?.url : resource.externalUrl
-          if (!matchesSearch(query, resource.title, resource.description, resource.resourceType)) {
-            continue
-          }
+        for (const resourceDoc of resources || []) {
+          for (const resource of resourceDoc.cards || []) {
+            const descriptionText = portableTextToPlainText(resource.description)
+            const resourceUrl =
+              resource.resourceType === 'pdf'
+                ? resource.pdfFile?.asset?.url
+                : resource.resourceType === 'image'
+                  ? resource.imageFile?.asset?.url
+                  : resource.externalUrl
+            if (!matchesSearch(query, resource.title, descriptionText, resource.resourceType)) {
+              continue
+            }
 
-          pushResult({
-            id: `resource-${resource._id}`,
-            title: resource.title || 'Untitled Resource',
-            summary: resource.description || 'Resource',
-            source: 'Resource',
-            url: resourceUrl || '/resources',
-            external: !!resourceUrl && isExternalUrl(resourceUrl),
-          })
+            pushResult({
+              id: `resource-${resourceDoc._id}-${resource._key || resource.title || Math.random().toString(36)}`,
+              title: resource.title || 'Untitled Resource',
+              summary: descriptionText || 'Resource',
+              source: resourceDoc.sectionKey ? `Resource (${resourceDoc.sectionKey})` : 'Resource',
+              url: resourceUrl || '/resources',
+              external: !!resourceUrl && isExternalUrl(resourceUrl),
+            })
+          }
         }
 
         for (const doc of newsDocs || []) {

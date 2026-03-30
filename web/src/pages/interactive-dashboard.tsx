@@ -1,5 +1,6 @@
 import Header from '../components/general/Header';
 import Footer from '../components/general/Footer';
+import BackButton from '../components/general/BackButton';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { client } from '../sanityClient';
@@ -152,6 +153,7 @@ export default function InteractiveDashboard() {
   return (
     <main className={`interactive-dashboard-page ${isFullscreen ? 'is-fullscreen' : ''}`}>
       {!isFullscreen && <Header />}
+      {!isFullscreen && <BackButton to="/interactive-data" />}
 
       <section className="interactive-dashboard-content">
         {!isFullscreen && <h1>{pageTitle}</h1>}

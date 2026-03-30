@@ -15,7 +15,7 @@
   text-align: center;
   color: #000000;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(2.8rem, 4.7vw, 4.3rem);
+  font-size: clamp(1.3rem, 2.5vw, 4.3rem);
   line-height: 1.1;
 }
 
@@ -54,7 +54,7 @@
   color: #000000;
   padding: 0.15rem 0;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(2.25rem, 4vw, 3.2rem);
+  font-size: clamp(1.3rem, 2.5vw, 3.2rem);
   line-height: 1;
   cursor: pointer;
 }

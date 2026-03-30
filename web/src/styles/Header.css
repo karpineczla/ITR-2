@@ -9,8 +9,8 @@
 
 /* Announcement Ticker was decfba */
 .announcementBar {
-    background-color:maroon;
-    color: #333;
+    background-color: #842241;
+    color: white;
     overflow: hidden;
     white-space: nowrap;
     padding: 8px 0;
@@ -36,9 +36,8 @@
     font-color: white;
 }
 .tickerLink {
-    opacity: 0.7;
     text-decoration: none !important;
-    color: white;/*was black*/
+    color: white;
     font: inherit;
 }
 .announcementBar:hover .tickerText {
@@ -56,29 +55,40 @@
     flex-direction: row; 
     align-items: center; 
     justify-content: space-between; 
-    padding: 0 40px;
+    padding: 0 clamp(14px, 3vw, 40px);
     height: 65px;
     background-color: #D1D1D1; 
+    position: relative;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: clamp(1rem, 3vw, 2rem);
 }
 
 .logoImg {
-    height: 50px;
+    height: clamp(38px, 4vw, 50px);
     width: auto;
     display: block;
 }
 
 .navSection {
     display: flex;
-    flex-grow: 1;
-    justify-content: center; 
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    margin-right: clamp(1rem, 3vw, 2rem);
 }
 
 .navList {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: clamp(12px, 2vw, 30px);
     margin: 0;
     padding: 0;
+    min-width: 0;
 }
 
 /* Navigation / links */
@@ -89,27 +99,28 @@
     font-family: 'Montserrat', sans-serif !important;
     color: #333 !important; 
     text-decoration: none !important; 
-    font-size: 1.1rem;
+    font-size: clamp(0.85rem, 1vw, 1.1rem);
     font-weight: 600;
     white-space: nowrap;
     transition: opacity 0.2s;
 }
 
 .tickerLink:hover {
-    opacity: 0.7;
     text-decoration: none !important;
-    color: #333 !important;
+    color: white;
 }
 
 /* Search Bar */
 .searchContainer {
     display: flex;
+    flex: 0 0 auto;
     align-items: center;
     background: white;
     padding: 4px 15px;
     border-radius: 20px;
     border: 1px solid #bbb;
     height: 32px;
+    margin-left: clamp(1rem, 3vw, 2rem);
 }
 
 .searchInput {
@@ -127,24 +138,97 @@
     color: #666;
 }
 
+/* Hamburger Menu */
+.hamburgerMenu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburgerMenu span {
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    transition: 0.3s;
+    display: block;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
     .mainHeader {
-        padding: 0 15px;
-        gap: 15px;
+        justify-content: flex-start;
+    }
+
+    .logoLink {
+        margin-right: auto;
+    }
+
+    .navSection {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #832241;
+        padding: 1rem;
+        z-index: 999;
+        border-radius: 0 0 20px 0;
+    }
+
+    .navSection.navSectionOpen {
+        display: flex;
     }
 
     .navList {
-        gap: 15px;
-        overflow-x: auto; 
-        padding-bottom: 5px;
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
-    .navLink {
-        font-size: 0.95rem;
+    .navLink, 
+    .navLink:link, 
+    .navLink:visited, 
+    .navLink:active {
+        color: #ffffff !important;
+        font-size: 1rem;
     }
 
     .searchContainer {
-        display: none; 
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: flex;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .mainHeader {
+        gap: 10px;
+        padding: 0 12px;
+    }
+
+    .logoImg {
+        height: clamp(35px, 5vw, 45px);
+    }
+
+    .hamburgerMenu span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .navSection {
+        padding: 0.75rem;
+    }
+
+    .navList {
+        gap: 0.5rem;
     }
 }

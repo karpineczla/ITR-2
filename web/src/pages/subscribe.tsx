@@ -1,26 +1,58 @@
 import { useEffect, useState } from 'react';
+import { PortableText } from '@portabletext/react';
 import '../styles/Subscribe.css'; 
 import Header from '../components/general/Header';
 import Footer from '../components/general/Footer';
+import { client } from '../sanityClient';
+
+interface SubscribeContent {
+  imageUrl?: string;
+  description?: unknown;
+  externalLink?: string;
+}
 
 const Subscribe = () => {
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<SubscribeContent | null>(null);
 
-  const PROJECT_ID = "a9qy1267"; 
-  const DATASET = "production";
+  const portableTextComponents = {
+    marks: {
+      link: ({ children, value }: { children: React.ReactNode; value?: { href?: string } }) => {
+        const href = value?.href || '';
+        const isExternal = /^https?:\/\//i.test(href);
+        if (!href) {
+          return <>{children}</>;
+        }
+
+        return (
+          <a
+            href={href}
+            className="subscribe-paragraph-link"
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+          >
+            {children}
+          </a>
+        );
+      }
+    }
+  };
 
   useEffect(() => {
-    const query = encodeURIComponent(`*[_type == "subscribePage"][0]{
-      "imageUrl": mainImage.asset->url,
-      description,
-      externalLink
-    }`);
-    const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
+    const fetchData = async () => {
+      try {
+        const result = await client.fetch<SubscribeContent>(`*[_type == "subscribePage"][0]{
+          "imageUrl": mainImage.asset->url,
+          description,
+          externalLink
+        }`);
+        setContent(result || null);
+      } catch (err) {
+        console.error('Error fetching subscribe data:', err);
+        setContent(null);
+      }
+    };
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => setContent(json.result))
-      .catch((err) => console.error("Error fetching subscribe data:", err));
+    fetchData();
   }, []);
 
   if (!content) return null;
@@ -41,9 +73,9 @@ const Subscribe = () => {
         <div className="subscribe-text">
           <h1 className="subscribe-heading">Subscribe</h1>
           
-          <p className="subscribe-paragraph">
-            {content.description}
-          </p>
+          <div className="subscribe-paragraph">
+            <PortableText value={content.description} components={portableTextComponents} />
+          </div>
 
           <div className="button-container">
             <a 

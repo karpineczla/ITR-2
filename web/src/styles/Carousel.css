@@ -15,6 +15,7 @@
   font-size: 1.8rem;
   text-transform: uppercase;
   font-family: 'Anton', sans-serif;
+  color: black;
 }
 
 .visitor-trends__carousel {
@@ -22,6 +23,7 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 12px;
+  color: black;
 }
 
 .visitor-trends__arrow {
