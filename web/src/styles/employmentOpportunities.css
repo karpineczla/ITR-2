@@ -27,31 +27,40 @@
 
 .tabHeader {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: 8px;
-  margin-bottom: -3px; /* Pulls header down to overlap content border */
+  gap: 5px; 
+  margin-bottom: -3px;
   padding: 0;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 /* Base Tab Button Style */
 .tabButton {
-  /* Size & Text */
-  padding: 18px 45px; 
-  font-size: 1.15rem;
+
+  flex: 1; 
+  min-width: 0; 
+  padding: 18px 10px; /* Reduced side padding so they can get smaller */
+  font-size: 1.1rem;
   font-weight: 700;
   color: #000000;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
   
-  /* Borders & Background */
+  /* Prevent text from making tabs explode */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if the label is too long for the tiny tab */
+  
   background-color: #cccccc;
   border: 2px solid #8c8c8c;
   border-bottom: none;
   border-radius: 10px 10px 0 0;
   
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .tabButton:hover:not(.active) {
@@ -62,15 +71,12 @@
 .tabButton.active {
   background-color: #d9d9d9;
   color: #000000;
-  
-  /* Maroon borders on top, left, and right */
   border: 3px solid #6e0d2a;
   border-bottom: none; 
-  
-  /* Ensure it sits flush on the content box */
   position: relative;
-  padding-bottom: 21px; /* Slightly more padding to cover the box border */
+  padding-bottom: 21px; 
   margin-bottom: -3px;
+  z-index: 3;
 }
 
 /* Main Content Box */
@@ -78,11 +84,9 @@
   background-color: #d9d9d9;
   padding: 40px;
   text-align: left;
-  
- 
+  border: 3px solid #6e0d2a;
   border-radius: 0 12px 12px 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-  
   min-height: 300px;
 }
 
@@ -136,4 +140,35 @@
 
 .footerText p {
   margin-bottom: 15px;
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+  .hiringHeader {
+    font-size: 2.2rem;
+  }
+
+  .tabButton {
+    padding: 12px 5px;
+    font-size: 0.85rem; /* Shrink text to fit one line */
+  }
+
+  .tabButton.active {
+    padding-bottom: 15px;
+  }
+
+  .tabContent {
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .contentTop {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .jobTitle {
+    font-size: 1.2rem;
+  }
 }
