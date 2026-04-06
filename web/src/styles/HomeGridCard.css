@@ -78,9 +78,9 @@
 }
 
 .grid-card-description {
-  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.45vw, 1.45rem);
   color: #666;
-  line-height: 1.5;
+  line-height: 1.35;
   margin: 0;
   min-width: 0;
   max-width: 100%;

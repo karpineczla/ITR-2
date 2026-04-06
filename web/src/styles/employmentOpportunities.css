@@ -4,11 +4,12 @@
   margin: 40px auto;
   padding: 20px;
   text-align: center;
+  color: #000;
 }
 
 .hiringHeader {
   font-family: 'Anton', sans-serif;
-  font-size: 4rem;
+  font-size: 2.5rem;
   letter-spacing: 2px;
   margin-bottom: 5px;
 }
@@ -16,6 +17,7 @@
 .instructionText {
   font-weight: 700;
   margin-bottom: 30px;
+  color: #000;
 }
 
 /* Tabs UI */
@@ -44,6 +46,7 @@
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
   transition: 0.2s;
+  color: #000;
 }
 
 .tabButton.active {
@@ -56,6 +59,7 @@
   padding: 40px;
   text-align: left;
   min-height: 300px;
+  border-radius: 8px;
 }
 
 .contentTop {
@@ -71,6 +75,7 @@
   max-width: 70%;
   margin: 0;
   line-height: 1.2;
+  color: #000;
 }
 
 .learnMoreBtn {
@@ -81,20 +86,41 @@
   border-radius: 8px;
   font-size: 1.1rem;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .jobDescription {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   line-height: 1.5;
+  color: #000;
 }
 
 /* Bottom Text Styling */
 .footerText {
   text-align: left;
-  font-size: 1rem;
-  color: #333;
+  font-size: 1.3rem;
+  color: #000;
 }
 
 .footerText p {
   margin-bottom: 15px;
+}
+
+.footerText a {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .hiringHeader {
+    font-size: 1.8rem;
+  }
+
+  .footerText {
+    font-size: 1rem;
+  }
+
+  .jobDescription {
+    font-size: 1rem;
+  }
 }
