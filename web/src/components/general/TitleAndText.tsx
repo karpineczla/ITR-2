@@ -148,7 +148,7 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
     fetchData()
   }, [sectionKey, title, subtitle])
 
-  if (loading) return <div className="title-text-container">Loading...</div>
+  if (loading) return null
   if (!blockData)
     return (
       <div className="title-text-container">

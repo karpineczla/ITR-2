@@ -69,7 +69,7 @@ export default function Hero({ data }: HeroProps) {
   }, [heroData])
 
   if (loading) {
-    return <div className="hero-loading">Loading hero section...</div>
+    return null
   }
 
   if (!heroData?.images || heroData.images.length === 0) {

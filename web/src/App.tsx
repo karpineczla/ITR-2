@@ -17,11 +17,13 @@ import ContinuingTheConversation from './pages/continuing-the-conversation'
 import GetInvolved from './pages/get-involved-and-resources'
 import Search from './pages/search'
 import Contact from './pages/contact'
+import GlobalLoadingOverlay from './components/general/GlobalLoadingOverlay'
 
 
 export default function App() {
   return (
     <Router>
+      <GlobalLoadingOverlay />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />

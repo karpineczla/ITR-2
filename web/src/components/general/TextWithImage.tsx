@@ -62,7 +62,7 @@ export default function TextWithImage({ sectionKey }: TextWithImageProps) {
     fetchData()
   }, [sectionKey])
 
-  if (loading) return <div className="text-with-image-row">Loading...</div>
+  if (loading) return null
   if (!rowData) return null
 
   const width = rowData.rowWidth || '80vw'

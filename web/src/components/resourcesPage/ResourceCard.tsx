@@ -98,7 +98,7 @@ export default function ResourceCard({ sectionKey }: ResourceCardProps) {
     fetchResources()
   }, [sectionKey])
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return null
 
   return (
     <div className="resources-grid">

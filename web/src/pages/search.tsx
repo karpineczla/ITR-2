@@ -318,8 +318,6 @@ export default function Search() {
           {query ? `Showing results for "${query}"` : 'Type a term in the header search box to begin.'}
         </p>
 
-        {loading && <p className="search-status">Searching...</p>}
-
         {!loading && !!query && !results.length && (
           <p className="search-status">No results found. Try another keyword.</p>
         )}

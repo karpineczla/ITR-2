@@ -65,12 +65,7 @@ export default function Carousel({ sectionKey }: CarouselProps) {
     }, [reports, activeIndex]);
 
     if (loading) {
-        return (
-            <section className="visitor-trends" aria-label="Visitor Trends reports carousel">
-                <h2 className="visitor-trends__title">{sectionTitle}</h2>
-                <div className="visitor-trends__card">Loading...</div>
-            </section>
-        );
+        return null;
     }
 
     if (reports.length === 0) {
