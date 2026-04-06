@@ -4,6 +4,7 @@ import TitleAndText from "../components/general/TitleAndText";
 import BackButton from "../components/general/BackButton";
 import TwoBlockRow from "../components/general/TwoBlockRow";
 import BulletPointsWithImage from "../components/general/BulletPointsWithImage";
+import Carousel from "../components/interactiveDataPage/Carousel";
 
 export default function PilotCommunity() {
     return (
@@ -14,6 +15,7 @@ export default function PilotCommunity() {
             <TitleAndText subtitle="How ITRR is Supporting Communities" />
             <TwoBlockRow />
             <BulletPointsWithImage />
+            <Carousel sectionKey="pilot-community-resources" />
             <Footer />
         </main>
     )
