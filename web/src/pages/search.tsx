@@ -24,6 +24,12 @@ interface ReportItem {
   content?: string
 }
 
+interface ResourceDocument {
+  _id: string
+  sectionKey?: string
+  cards?: ResourceItem[]
+}
+
 interface ResourceItem {
   _key?: string
   title?: string
@@ -34,27 +40,11 @@ interface ResourceItem {
   externalUrl?: string
 }
 
-type PortableTextMarkDef = {
-  _key?: string
-  href?: string
-}
-
-type PortableTextChild = {
-  _type?: string
-  text?: string
-  marks?: string[]
-}
-
-type PortableTextBlock = {
-  _type?: string
-  children?: PortableTextChild[]
-  markDefs?: PortableTextMarkDef[]
-}
-
-interface ResourceDocument {
-  _id: string
+interface CardDocument {
+  _id?: string
   sectionKey?: string
-  cards?: ResourceItem[]
+  cards?: CardItem[]
+  links?: CardItem[]
 }
 
 interface CardItem {
@@ -71,19 +61,17 @@ interface CardItem {
   }
 }
 
-interface CardDocument {
-  _id?: string
-  sectionKey?: string
-  cards?: CardItem[]
-  links?: CardItem[]
-}
-
 interface LearnMoreButtonDoc {
   _id: string
   buttonKey?: string
   label?: string
   destination?: string
   pdfUrl?: string
+}
+
+interface PortableTextBlock {
+  _type?: string
+  children?: { text?: string }[]
 }
 
 const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
@@ -99,20 +87,10 @@ const matchesSearch = (query: string, ...fields: Array<string | undefined>) => {
 }
 
 const portableTextToPlainText = (value: unknown) => {
-  if (typeof value === 'string') {
-    return value
-  }
-
-  if (!Array.isArray(value)) {
-    return ''
-  }
-
+  if (typeof value === 'string') return value
+  if (!Array.isArray(value)) return ''
   return (value as PortableTextBlock[])
-    .map((block) =>
-      (block.children || [])
-        .map((child) => child.text || '')
-        .join('')
-    )
+    .map((block) => (block.children || []).map((child) => child.text || '').join(''))
     .join(' ')
     .trim()
 }
@@ -123,6 +101,10 @@ export default function Search() {
 
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState<SearchResult[]>([])
+  
+  // --- Filter and Sort State ---
+  const [filterSource, setFilterSource] = useState<string>('All')
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
   useEffect(() => {
     if (!query) {
@@ -148,153 +130,129 @@ export default function Search() {
         const seenResultIds = new Set<string>()
 
         const pushResult = (result: SearchResult) => {
-          if (seenResultIds.has(result.id)) {
-            return
-          }
+          if (seenResultIds.has(result.id)) return
           seenResultIds.add(result.id)
           aggregatedResults.push(result)
         }
 
+        // Logic for mapping Sanity data to SearchResult objects
         for (const report of reports || []) {
-          if (!matchesSearch(query, report.title, report.author, report.abstract, report.tags?.join(' '))) {
-            continue
+          if (matchesSearch(query, report.title, report.author, report.abstract, report.tags?.join(' '))) {
+            pushResult({
+              id: `report-${report._id}`,
+              title: report.title || 'Untitled Report',
+              summary: report.abstract || report.author || 'Report',
+              source: 'Report',
+              url: report.content || '/publications-and-reports',
+              external: !!report.content && isExternalUrl(report.content),
+            })
           }
-
-          pushResult({
-            id: `report-${report._id}`,
-            title: report.title || 'Untitled Report',
-            summary: report.abstract || report.author || 'Report',
-            source: 'Report',
-            url: report.content || '/publications-and-reports',
-            external: !!report.content && isExternalUrl(report.content),
-          })
         }
 
         for (const resourceDoc of resources || []) {
           for (const resource of resourceDoc.cards || []) {
             const descriptionText = portableTextToPlainText(resource.description)
-            const resourceUrl =
-              resource.resourceType === 'pdf'
-                ? resource.pdfFile?.asset?.url
-                : resource.resourceType === 'image'
-                  ? resource.imageFile?.asset?.url
-                  : resource.externalUrl
-            if (!matchesSearch(query, resource.title, descriptionText, resource.resourceType)) {
-              continue
+            const resourceUrl = resource.resourceType === 'pdf' ? resource.pdfFile?.asset?.url : resource.resourceType === 'image' ? resource.imageFile?.asset?.url : resource.externalUrl
+            if (matchesSearch(query, resource.title, descriptionText, resource.resourceType)) {
+              pushResult({
+                id: `resource-${resourceDoc._id}-${resource._key || resource.title}`,
+                title: resource.title || 'Untitled Resource',
+                summary: descriptionText || 'Resource',
+                source: resourceDoc.sectionKey ? `Resource (${resourceDoc.sectionKey})` : 'Resource',
+                url: resourceUrl || '/resources',
+                external: !!resourceUrl && isExternalUrl(resourceUrl),
+              })
             }
-
-            pushResult({
-              id: `resource-${resourceDoc._id}-${resource._key || resource.title || Math.random().toString(36)}`,
-              title: resource.title || 'Untitled Resource',
-              summary: descriptionText || 'Resource',
-              source: resourceDoc.sectionKey ? `Resource (${resourceDoc.sectionKey})` : 'Resource',
-              url: resourceUrl || '/resources',
-              external: !!resourceUrl && isExternalUrl(resourceUrl),
-            })
           }
         }
 
         for (const doc of newsDocs || []) {
           for (const newsCard of doc.cards || []) {
-            if (!matchesSearch(query, newsCard.title, newsCard.link)) {
-              continue
+            if (matchesSearch(query, newsCard.title, newsCard.link)) {
+              pushResult({
+                id: `news-${doc._id}-${newsCard._key || newsCard.title}`,
+                title: newsCard.title || 'Untitled News Item',
+                summary: 'In the News',
+                source: 'News',
+                url: newsCard.link || '/news',
+                external: !!newsCard.link && isExternalUrl(newsCard.link),
+              })
             }
-
-            pushResult({
-              id: `news-${doc._id || 'doc'}-${newsCard._key || newsCard.title || Math.random().toString(36)}`,
-              title: newsCard.title || 'Untitled News Item',
-              summary: 'In the News',
-              source: 'News',
-              url: newsCard.link || '/news',
-              external: !!newsCard.link && isExternalUrl(newsCard.link),
-            })
           }
         }
 
         for (const doc of findingsDocs || []) {
           for (const findingCard of doc.cards || []) {
-            if (!matchesSearch(query, findingCard.title)) {
-              continue
+            if (matchesSearch(query, findingCard.title)) {
+              const findingPdfUrl = findingCard.pdf?.asset?.url
+              pushResult({
+                id: `finding-${doc._id}-${findingCard._key || findingCard.title}`,
+                title: findingCard.title || 'Untitled Finding',
+                summary: 'Recent Findings',
+                source: 'Recent Finding',
+                url: findingPdfUrl || '/recent-findings',
+                external: !!findingPdfUrl,
+              })
             }
-
-            const findingPdfUrl = findingCard.pdf?.asset?.url
-            pushResult({
-              id: `finding-${doc._id || 'doc'}-${findingCard._key || findingCard.title || Math.random().toString(36)}`,
-              title: findingCard.title || 'Untitled Finding',
-              summary: 'Recent Findings',
-              source: 'Recent Finding',
-              url: findingPdfUrl || '/recent-findings',
-              external: !!findingPdfUrl,
-            })
           }
         }
 
         for (const doc of interactiveDocs || []) {
           for (const linkItem of doc.links || []) {
-            if (!matchesSearch(query, linkItem.label, linkItem.href)) {
-              continue
+            if (matchesSearch(query, linkItem.label, linkItem.href)) {
+              pushResult({
+                id: `interactive-link-${doc._id}-${linkItem._key || linkItem.label}`,
+                title: linkItem.label || 'Interactive Data Link',
+                summary: linkItem.href || 'Interactive Data',
+                source: 'Interactive Data',
+                url: linkItem.href || '/interactive-data',
+                external: !!linkItem.href && isExternalUrl(linkItem.href),
+              })
             }
-
-            pushResult({
-              id: `interactive-link-${doc._id || 'doc'}-${linkItem._key || linkItem.label || Math.random().toString(36)}`,
-              title: linkItem.label || 'Interactive Data Link',
-              summary: linkItem.href || 'Interactive Data',
-              source: 'Interactive Data',
-              url: linkItem.href || '/interactive-data',
-              external: !!linkItem.href && isExternalUrl(linkItem.href),
-            })
           }
-
           for (const cardItem of doc.cards || []) {
-            if (!matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
-              continue
+            if (matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
+              pushResult({
+                id: `interactive-card-${doc._id}-${cardItem._key || cardItem.title}`,
+                title: cardItem.title || 'Interactive Data Card',
+                summary: cardItem.description || 'Interactive Data',
+                source: 'Interactive Data',
+                url: cardItem.link || '/interactive-data',
+                external: !!cardItem.link && isExternalUrl(cardItem.link),
+              })
             }
-
-            pushResult({
-              id: `interactive-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
-              title: cardItem.title || 'Interactive Data Card',
-              summary: cardItem.description || 'Interactive Data',
-              source: 'Interactive Data',
-              url: cardItem.link || '/interactive-data',
-              external: !!cardItem.link && isExternalUrl(cardItem.link),
-            })
           }
         }
 
         for (const doc of buttonCardDocs || []) {
           for (const cardItem of doc.cards || []) {
-            if (!matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
-              continue
+            if (matchesSearch(query, cardItem.title, cardItem.description, cardItem.link)) {
+              pushResult({
+                id: `button-card-${doc._id}-${cardItem._key || cardItem.title}`,
+                title: cardItem.title || 'Button Card',
+                summary: cardItem.description || 'Button Card',
+                source: doc.sectionKey ? `Button Card (${doc.sectionKey})` : 'Button Card',
+                url: cardItem.link || '/',
+                external: !!cardItem.link && isExternalUrl(cardItem.link),
+              })
             }
-
-            pushResult({
-              id: `button-card-${doc._id || 'doc'}-${cardItem._key || cardItem.title || Math.random().toString(36)}`,
-              title: cardItem.title || 'Button Card',
-              summary: cardItem.description || 'Button Card',
-              source: doc.sectionKey ? `Button Card (${doc.sectionKey})` : 'Button Card',
-              url: cardItem.link || '/',
-              external: !!cardItem.link && isExternalUrl(cardItem.link),
-            })
           }
         }
 
         for (const buttonDoc of learnMoreButtons || []) {
-          if (!matchesSearch(query, buttonDoc.buttonKey, buttonDoc.label, buttonDoc.destination, buttonDoc.pdfUrl)) {
-            continue
+          if (matchesSearch(query, buttonDoc.buttonKey, buttonDoc.label, buttonDoc.destination, buttonDoc.pdfUrl)) {
+            const destination = (buttonDoc.destination || buttonDoc.pdfUrl || '').trim()
+            pushResult({
+              id: `learn-more-${buttonDoc._id}`,
+              title: buttonDoc.label || buttonDoc.buttonKey || 'Learn More Button',
+              summary: buttonDoc.buttonKey || destination || 'Reusable button destination',
+              source: 'Learn More Button',
+              url: destination || '/',
+              external: !!destination && isExternalUrl(destination),
+            })
           }
-
-          const destination = (buttonDoc.destination || buttonDoc.pdfUrl || '').trim()
-          pushResult({
-            id: `learn-more-${buttonDoc._id}`,
-            title: buttonDoc.label || buttonDoc.buttonKey || 'Learn More Button',
-            summary: buttonDoc.buttonKey || destination || 'Reusable button destination',
-            source: 'Learn More Button',
-            url: destination || '/',
-            external: !!destination && isExternalUrl(destination),
-          })
         }
 
-        aggregatedResults.sort((first, second) => first.title.localeCompare(second.title))
         setResults(aggregatedResults)
       } catch (error) {
         console.error('Failed to fetch search results:', error)
@@ -307,6 +265,30 @@ export default function Search() {
     fetchSearchResults()
   }, [query])
 
+  // --- UI Derived Data ---
+  const categories = useMemo(() => {
+    const sources = results.map(r => r.source)
+    return ['All', ...Array.from(new Set(sources))]
+  }, [results])
+
+  const filteredAndSortedResults = useMemo(() => {
+    let processed = [...results]
+
+    // 1. Filtering
+    if (filterSource !== 'All') {
+      processed = processed.filter(r => r.source === filterSource)
+    }
+
+    // 2. Sorting
+    processed.sort((a, b) => {
+      return sortOrder === 'asc' 
+        ? a.title.localeCompare(b.title) 
+        : b.title.localeCompare(a.title)
+    })
+
+    return processed
+  }, [results, filterSource, sortOrder])
+
   return (
     <main className="search-page">
       <Header />
@@ -318,13 +300,47 @@ export default function Search() {
           {query ? `Showing results for "${query}"` : 'Type a term in the header search box to begin.'}
         </p>
 
+        {/* --- Controls Panel --- */}
+        {!!results.length && !loading && (
+          <div className="search-controls">
+            <div className="control-group">
+              <label htmlFor="category-filter">Filter by Type: </label>
+              <select 
+                id="category-filter"
+                value={filterSource} 
+                onChange={(e) => setFilterSource(e.target.value)}
+              >
+                {categories.map(cat => (
+                  <option key={cat} value={cat}>{cat}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="control-group">
+              <label htmlFor="sort-order">Sort Alphabetically:</label>
+              <select 
+                id="sort-order"
+                value={sortOrder} 
+                onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+              >
+                <option value="asc">A to Z</option>
+                <option value="desc">Z to A</option>
+              </select>
+            </div>
+          </div>
         {!loading && !!query && !results.length && (
           <p className="search-status">No results found. Try another keyword.</p>
         )}
 
-        {!loading && !!query && !!results.length && (
+        {loading && <p className="search-status">Searching...</p>}
+
+        {!loading && !!query && !filteredAndSortedResults.length && (
+          <p className="search-status">No results found for your selection. Try adjusting your filters.</p>
+        )}
+
+        {!loading && !!query && !!filteredAndSortedResults.length && (
           <ul className="search-results-list">
-            {results.map((result) => (
+            {filteredAndSortedResults.map((result) => (
               <li key={result.id} className="search-result-item">
                 <p className="search-result-source">{result.source}</p>
                 <h2 className="search-result-title">
