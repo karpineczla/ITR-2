@@ -50,7 +50,7 @@ export default function HomeGrid({ data }: HomeGridProps) {
     }
   }, [data])
 
-  if (loading) return <div className="grid-container">Loading...</div>
+  if (loading) return null
   if (!gridData?.cards || gridData.cards.length === 0) return null
 
   return (

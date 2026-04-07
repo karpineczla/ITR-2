@@ -53,7 +53,7 @@ export default function TwoBlockRow({ title }: TwoBlockRowProps) {
     fetchData()
   }, [title])
 
-  if (loading) return <div className="two-block-row">Loading...</div>
+  if (loading) return null
   if (!rowData) return null
 
   const cards = rowData.cards ?? []

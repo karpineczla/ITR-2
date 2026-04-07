@@ -57,7 +57,7 @@ export default function HomeButtonCards({ data }: HomeButtonCardsProps) {
     }
   }, [data])
 
-  if (loading) return <div className="cards-container">Loading...</div>
+  if (loading) return null
   if (!cardsData?.cards || cardsData.cards.length === 0) return null
 
   return (

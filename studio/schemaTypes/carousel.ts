@@ -35,7 +35,8 @@ export const carousel = {
             defineField ({
                 name: 'description',
                 title: 'Card Description',
-                type: 'text',
+              type: 'array',
+              of: [{ type: 'block' }],
                 validation: (Rule: any) => Rule.required()
             }),
             defineField({
