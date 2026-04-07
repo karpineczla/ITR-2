@@ -39,6 +39,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.visitor-trends__arrow:hover,
+.visitor-trends__arrow:focus-visible {
+  background: #d2b48c;
+  color: #2f1b0c;
 }
 
 .visitor-trends__card {
@@ -106,6 +113,13 @@
   background-color: #842241;
   padding: 8px 16px;
   border-radius: 4px;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.visitor-trends__link:hover,
+.visitor-trends__link:focus-visible {
+  background-color: #d2b48c;
+  color: #2f1b0c;
 }
 
 .visitor-trends__dots {
@@ -123,6 +137,12 @@
   background: #cbd5e1;
   padding: 0;
   cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.visitor-trends__dot:hover,
+.visitor-trends__dot:focus-visible {
+  background: #d2b48c;
 }
 
 .visitor-trends__dot.is-active {
