@@ -74,6 +74,20 @@
   font-size: 1.2rem;
 }
 
+.visitor-trends__card-text p {
+  margin: 0 0 0.75rem;
+}
+
+.visitor-trends__card-text p:last-child {
+  margin-bottom: 0;
+}
+
+.visitor-trends__card-text ul,
+.visitor-trends__card-text ol {
+  margin: 0 0 0.75rem 1.25rem;
+  padding: 0;
+}
+
 .visitor-trends__card-bold {
   margin: 0 0 12px 0;
   max-width: 90%;

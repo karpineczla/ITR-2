@@ -54,6 +54,13 @@ export const buttonCards = {
               type: 'string',
             }),
             defineField({
+              name: 'openInNewTab',
+              title: 'Open In New Tab',
+              type: 'boolean',
+              initialValue: false,
+              description: 'When enabled, this card link opens in a new tab. Leave off to open in the current tab.',
+            }),
+            defineField({
               name: 'cardTypeKey',
               title: 'Card Type Key (Optional)',
               type: 'string',

@@ -45,5 +45,60 @@ body {
   flex-direction: column;
 }
 
+.global-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.global-loading-panel {
+  width: min(520px, 88vw);
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: #f1f1f1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.global-loading-message {
+  margin: 0 0 0.6rem;
+  color: #2a2a2a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.global-loading-track {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #c9c9c9;
+  overflow: hidden;
+}
+
+.global-loading-bar {
+  position: absolute;
+  top: 0;
+  left: -36%;
+  width: 36%;
+  height: 100%;
+  border-radius: 999px;
+  background: #6e0d2a;
+  animation: global-loading-slide 1.15s ease-in-out infinite;
+}
+
+@keyframes global-loading-slide {
+  0% {
+    left: -36%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 
 

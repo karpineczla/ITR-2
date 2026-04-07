@@ -328,6 +328,8 @@ export default function Search() {
               </select>
             </div>
           </div>
+        {!loading && !!query && !results.length && (
+          <p className="search-status">No results found. Try another keyword.</p>
         )}
 
         {loading && <p className="search-status">Searching...</p>}

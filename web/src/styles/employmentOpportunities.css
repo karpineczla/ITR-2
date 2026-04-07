@@ -5,11 +5,12 @@
   margin: 40px auto;
   padding: 20px;
   text-align: center;
+  color: #000;
 }
 
 .hiringHeader {
   font-family: 'Anton', sans-serif;
-  font-size: 4rem;
+  font-size: 2.5rem;
   letter-spacing: 2px;
   margin-bottom: 5px;
   text-transform: uppercase;
@@ -18,6 +19,7 @@
 .instructionText {
   font-weight: 700;
   margin-bottom: 30px;
+  color: #000;
 }
 
 /* Tabs UI Container */
@@ -88,6 +90,7 @@
   border-radius: 0 12px 12px 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.08);
   min-height: 300px;
+  border-radius: 8px;
 }
 
 /* Inner Job Details */

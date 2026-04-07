@@ -9,6 +9,7 @@ interface Card {
   title: string
   description?: string
   cardTypeKey?: string
+  openInNewTab?: boolean
   image: {
     asset: {
       _ref: string
@@ -47,6 +48,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               title,
               description,
               cardTypeKey,
+              openInNewTab,
               image{asset->{_ref, url}},
               link
             }
@@ -59,6 +61,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               title,
               description,
               cardTypeKey,
+              openInNewTab,
               image{asset->{_ref, url}},
               link
             }
@@ -76,7 +79,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
     }
   }, [data, sectionKey])
 
-  if (loading) return <div className="publications-cards-container">Loading...</div>
+  if (loading) return null
   if (!cardsData?.cards || cardsData.cards.length === 0) return null
 
   return (
@@ -90,7 +93,10 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
           <button
             key={card._key}
             className={`publications-card-button ${card.cardTypeKey || ''}`.trim()}
-            onClick={() => card.link && window.open(card.link, '_blank')}
+            onClick={() => {
+              if (!card.link) return
+              window.open(card.link, card.openInNewTab ? '_blank' : '_self')
+            }}
           >
             <div className="publications-card-content">
               {card.image && (
