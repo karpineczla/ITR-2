@@ -81,7 +81,7 @@ export default function EventRow({ rowKey, title }: EventRowProps) {
     fetchData()
   }, [rowKey, title])
 
-  if (loading) return <div className="events-rows">Loading...</div>
+  if (loading) return null
   if (!eventRowData.length) return <div className="events-rows">No events found.</div>
 
   return (

@@ -98,7 +98,7 @@ export default function ResourceCard({ sectionKey }: ResourceCardProps) {
     fetchResources()
   }, [sectionKey])
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return null
 
   return (
     <div className="resources-grid">
@@ -130,9 +130,9 @@ export default function ResourceCard({ sectionKey }: ResourceCardProps) {
             >
               <div className="resource-card-content">
                 <h3>{resource.title}</h3>
-                {resource.description && (
+                {resource.description as any && (
                   <div className="resource-card-description">
-                    <PortableText value={resource.description} components={portableTextComponents} />
+                    <PortableText value={resource.description as any} components={portableTextComponents} />
                   </div>
                 )}
               </div>
@@ -147,9 +147,9 @@ export default function ResourceCard({ sectionKey }: ResourceCardProps) {
           <div key={resource._key || resource._id || resource.title} className="resource-card">
             <div className="resource-card-content">
               <h3>{resource.title}</h3>
-              {resource.description && (
+              {resource.description as any && (
                 <div className="resource-card-description">
-                  <PortableText value={resource.description} components={portableTextComponents} />
+                  <PortableText value={resource.description as any} components={portableTextComponents} />
                 </div>
               )}
             </div>

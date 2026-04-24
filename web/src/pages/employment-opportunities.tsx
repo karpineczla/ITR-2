@@ -99,7 +99,7 @@ export default function EmploymentOpportunities() {
     fetchJobs();
   }, []);
 
-  if (loading) return <div className="loading">Loading Opportunities...</div>;
+  if (loading) return null;
   if (!data || !data.jobs.length) return <div>No positions currently available.</div>;
 
   const activeJob = data.jobs[activeTabIndex];

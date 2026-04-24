@@ -7,7 +7,7 @@
     z-index: 1000;
 }
 
-/* Announcement Ticker */
+/* Announcement Ticker was decfba */
 .announcementBar {
     background-color: #842241;
     color: white;
@@ -26,12 +26,14 @@
     display: flex;
     white-space: nowrap;
     animation: ticker-move 50s linear infinite;
+    
 }
 
 .tickerText span {
     padding: 0 160px;
     font-weight: 500;
     font-size: 1rem;
+    font-color: white;
 }
 .tickerLink {
     text-decoration: none !important;
