@@ -106,6 +106,7 @@ export default function EmploymentOpportunities() {
 
   return (
     <main className="employment-opportunities-page">
+      <title>ITRR | Employment Opportunities</title>
       <Header />
       <div className="employmentContainer">
         <h1 className="hiringHeader">{data.pageHeader}</h1>

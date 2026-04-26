@@ -7,6 +7,7 @@ import Carousel from "../components/interactiveDataPage/Carousel";
 export default function Sessions() {
     return (
         <main className="sessions-page">
+            <title>ITRR | Sessions</title>
             <Header />
             <BackButton to="/events" />
             <TitleAndText title="Listening Sessions"/>

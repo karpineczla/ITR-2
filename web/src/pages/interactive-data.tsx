@@ -8,6 +8,7 @@ import "../styles/interactiveData.css";
 export default function InteractiveData() {
     return (
         <main className="interactive-data-page">
+            <title>ITRR | Interactive Data</title>
             <Header />
             <TitleAndText sectionKey="interactive-data" />
             <InteractiveDataLinksBox />

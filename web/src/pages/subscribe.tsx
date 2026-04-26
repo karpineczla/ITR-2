@@ -59,6 +59,7 @@ const Subscribe = () => {
 
   return (
     <main className="subscribe-page">
+      <title>ITRR | Subcribe to Newsletter</title>
       <Header />
     <div className="subscribe-page-wrapper">
       <div className="subscribe-container">

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import Header from '../components/general/Header'
 import Footer from '../components/general/Footer'
 import BackButton from '../components/general/BackButton'
@@ -411,6 +411,7 @@ export default function Search() {
 
   return (
     <main className="search-page">
+      <title>ITRR | Search Site</title>
       <Header />
       <BackButton to="/" />
 
