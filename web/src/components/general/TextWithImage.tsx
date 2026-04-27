@@ -85,7 +85,7 @@ export default function TextWithImage({ sectionKey }: TextWithImageProps) {
               ))}
             </ul>
           ) : isRichText ? (
-            <PortableText value={rowData.text} />
+            <PortableText value={rowData.text as any} />
           ) : (
             <p>{String(rowData.text ?? '')}</p>
           )}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { client } from '../../sanityClient'
+import { backgroundClient } from '../../sanityClient'
 import '../../styles/LearnMoreButton.css'
 
 interface LearnMoreButtonData {
@@ -39,7 +39,7 @@ export default function LearnMoreButton({ buttonKey, fallbackDestination }: Lear
 					"pdfUrl": pdfFile.asset->url,
 					openInNewTab
 				}`
-				const result = await client.fetch(query, { buttonKey })
+				const result = await backgroundClient.fetch(query, { buttonKey })
 				setButtonData(result || null)
 			} catch (error) {
 				console.error('Failed to fetch Learn More button data:', error)

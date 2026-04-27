@@ -1,11 +1,51 @@
 {
   "cookies": [
     {
+      "name": "signals-sdk-user-id",
+      "value": "ae6d24ff-c46d-42e4-a6f0-a30f9ac4adde",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1806373307,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "signals-sdk-session-id",
+      "value": "b61d55de-44f3-497b-9395-c54b44c6c570",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1774839107,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "osano_consentmanager_uuid",
+      "value": "89028090-6958-46b5-9296-01f549d2f99d",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1806373309.085224,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "osano_consentmanager",
+      "value": "LciYMFvBLR_WyKW6ehCAKDikIQGH5rDar6tl6Qrfv820cv9deIv4K48n6IOszxDLh77tzZx8SNDtTc1l-zyApN-pfzWhAVsLXMNf31H2SS6BETL6YcSEKCi-yKw5XuATpzpcQ-WFkcbZ4-mwB9ua2g4PPT4cbQ9iVBkbcQFmtcRxq6fAxmcfhgjSvhFl66lyK0xnzQ3iN_Rkcs0Fwz46Scq54sBOVFEggXaJ5W0O4OK3QlUxcCsisnhk3T5xPaxNBjPC7-iwMdHt1sNmRkqzETZs2bW4GWo9Pf7SmsnEMR-Qg0Ei49JuN9vbqrppiJunPCu8hvF_ztc=",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1806373309.085937,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
       "name": "rl_anonymous_id",
-      "value": "RS_ENC_v3_IjMzYWUyMjQ3LTNjNjAtNDU1NC05YmIyLTJiZGNhZjczOGQ4NSI%3D",
+      "value": "RS_ENC_v3_IjU5ZDFlZmQwLTk0MWQtNDhlOC1iMzI4LWM4ZTY3YWQwNDM5YyI%3D",
       "domain": "www.sanity.io",
       "path": "/",
-      "expires": 1805342471,
+      "expires": 1806373311,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -15,220 +55,140 @@
       "value": "RS_ENC_v3_IiRkaXJlY3Qi",
       "domain": "www.sanity.io",
       "path": "/",
-      "expires": 1805342471,
+      "expires": 1806373311,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
+    },
+    {
+      "name": "_cfuvid",
+      "value": "Fymsri50CGGNPvM09CzhHrClKwRp0qfjp5gx6Q_PrW8-1774837311762-0.0.1.1-604800000",
+      "domain": ".zoominfo.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.3.971638674.1774837312",
+      "domain": ".www.sanity.io",
+      "path": "/",
+      "expires": 1809397311.935092,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "FPAU",
+      "value": "1.2.653828384.1774837312",
+      "domain": ".sanity.io",
+      "path": "/",
+      "expires": 1782613312.509326,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "R",
+      "value": "593fbadffc711d80cd2cfa8e",
+      "domain": ".influ2.com",
+      "path": "/",
+      "expires": 1806373318.925192,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "test_cookie",
+      "value": "CheckForPermission",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1774838212.932094,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1774837312950.83675887326069624",
+      "domain": ".sanity.io",
+      "path": "/",
+      "expires": 1782613316,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tuid",
+      "value": "25fc2c19-1e39-48d7-9f09-d8225ed9ebfa",
+      "domain": ".a.usbrowserspeed.com",
+      "path": "/",
+      "expires": 1806373313.228395,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
     },
     {
       "name": "tempSession",
-      "value": "s%3ABrfmDRIW3_1OVkg-LtEvyEx0EA5wSn3L.pxhTT0%2F8bZniuD4T%2FPm6zoMGDkbNkBKGLz3XS9LKLH8",
+      "value": "s%3AG71l49PCZ2CjPptZCCaPIkhvxQBx_AiE.Qp1e4hxAB2DAmlC8NnDFAHDWqrNricQnXL0Q%2B%2F4WHes",
       "domain": "api.sanity.io",
       "path": "/",
-      "expires": 1773806725.496592,
+      "expires": 1774837617.678101,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "_octo",
-      "value": "GH1.1.607577760.1773806427",
-      "domain": ".github.com",
+      "name": "__Host-GAPS",
+      "value": "1:R8KFrRfzKGutlHgKNOqx7S2MsZnrNw:QqfD1-xtD62kCw3-",
+      "domain": "accounts.google.com",
       "path": "/",
-      "expires": 1805342425.684899,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "cpu_bucket",
-      "value": "xlg",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "preferred_color_mode",
-      "value": "light",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "tz",
-      "value": "America%2FDenver",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_device_id",
-      "value": "de342059eaa1565db787bc73d692693d",
-      "domain": "github.com",
-      "path": "/",
-      "expires": 1805342426.474891,
+      "expires": 1809397318.195234,
       "httpOnly": true,
       "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "saved_user_sessions",
-      "value": "144267396%3AMI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
-      "domain": "github.com",
-      "path": "/",
-      "expires": 1781582466.721355,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "user_session",
-      "value": "MI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
-      "domain": "github.com",
-      "path": "/",
-      "expires": 1775016066.721521,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "__Host-user_session_same_site",
-      "value": "MI_Iz9rWQCX1n37t7EXmv5X4N_ybxUqwxC0-afRG69wBQY4w",
-      "domain": "github.com",
-      "path": "/",
-      "expires": 1775016066.721593,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Strict"
-    },
-    {
-      "name": "tz",
-      "value": "America%2FDenver",
-      "domain": "github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "color_mode",
-      "value": "%7B%22color_mode%22%3A%22auto%22%2C%22light_theme%22%3A%7B%22name%22%3A%22light%22%2C%22color_mode%22%3A%22light%22%7D%2C%22dark_theme%22%3A%7B%22name%22%3A%22dark%22%2C%22color_mode%22%3A%22dark%22%7D%7D",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "logged_in",
-      "value": "yes",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": 1805342466.722209,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "dotcom_user",
-      "value": "madisonDavis7",
-      "domain": ".github.com",
-      "path": "/",
-      "expires": 1805342466.722308,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "last_write_ms",
-      "value": "1773806468241",
-      "domain": "github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_gh_sess",
-      "value": "bo5VvvP8bfnrHeyc4snjry2nimisyikI75rvljWIHx9I14v%2FDyEk0VfG1s3aQ9WPASQj8qsWXitlyLNwlkOTJhwmkbE6etrYTmca%2FxtuPvth%2FLe44hOOuscbqwYEP2YV8iedLieJNkGdi3IH7il5Xp%2FdCqn2x4F8Sajj6Z34JZRU1gSx1oScPtmcjM9tggb8U3UtAls1G6l8IT931O%2BEJLHXv%2F7UWlODpu1f%2BA9E9N3zYEpnfe46dNI3S1NTh2N1m3lYM20F1WE589fzjseGDtKgLfw1beiJUZ6geHjl2mdlriQv8OWWJfoLuIijABPSxb8ATfRVLRrzebEfQeQXnaTgsjsOCOVPH3Lbn3WQV8eo11jMZo8cRmaawTTT46Ol5M2dPzNsT1fX58XxxIBmyssoM2Myb6HInMcZPZ6ldeDk%2B6Wdx8n4mrnAbez6qefmi61NQ6%2F2qgz0pTOL133IQCwP%2BsQrmYY2BsAImcHtCq8NgAX5q23mfHG%2FZh%2FC6pL75EPFmcRWzreq9j0bnaQA2xoXN21PKZ%2F2%2F%2FYnYghjDk5Vs4okIZRCKlKZb2zkYJpEdEV9fRKRerYVZCbLzBUvvPDujetcD8H0R3CTYDvj4As6%2FAtFFJJs9TKsY%2BrM2ZAHbUQ0irZznL7rja3ISfI0d3ThGt%2BxV58BErKp4UE23%2BpiTgA2ob81Uon16GcvdmS8KwQVWWIx%2F%2FoIG5KhI0ctyfzGFZ8VSdYwvQ6N7g2I2NmBn0MWKezzuGKw2XD9OXRhvwXeuq5uF6pu1PTReQHwgX0iXN4jqtwF8qwR0VG9ZfeNynrnicQd2zQyTCN7T0Q4uIfxbVO1OVtUSVA%2BV8YoxI9Qb7AaaogNu9rTExUF2qRZxchd%2FMWcMLBLGknq4aRUIQOlBFPg%2BPz5JjRcZQKvawb7%2BaBBIytRIOnOthHnIzTW0v5NhGG0zRPAVZfQ%2F9K6Huoi8tQUlCZnjOAwZUqsyju7qnQv%2FvAzrhXmzXaPri4MfPMChNSXD7kl4qXeAuSTtkTj6OQgspUCAHVGPwi%2BJRlTfYCA%2Fqjrao3G2i5tlIWdeMXrT3kx8MXWd%2FG81LaHVOQgDSx1wJHN1G81X2u38W8DFG2rsgB1p5wCH1Ku3IdKMLdwHXyrDjoSq7pQXqQNlzlMCSr9mn6em3Yn21Tjsep6y6czuHK%2BeHxbimeoL7U%3D--1LxJnZwggRqpkcU7--NzpvOMFLkocdNaKctU8KCw%3D%3D",
-      "domain": "github.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "sanitySession",
-      "value": "sk2GUZahM93K5uFwwAO8Fu886kvERg0vXRBWoq8TN7Z5oH1jNYiKL14EZ9pw6Sw7rlw1wHJboeyQbuvYn",
-      "domain": "api.sanity.io",
-      "path": "/",
-      "expires": 1805342469.390807,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "rl_user_id",
-      "value": "RS_ENC_v3_Imc2RXNxWDBWdSI%3D",
-      "domain": "www.sanity.io",
-      "path": "/",
-      "expires": 1805342472,
-      "httpOnly": false,
-      "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "rl_session",
-      "value": "RS_ENC_v3_eyJhdXRvVHJhY2siOnRydWUsInRpbWVvdXQiOjE4MDAwMDAsImV4cGlyZXNBdCI6MTc3MzgwODI3MjUwNCwiaWQiOjE3NzM4MDY0MjA5MzMsInNlc3Npb25TdGFydCI6ZmFsc2V9",
+      "value": "RS_ENC_v3_eyJhdXRvVHJhY2siOnRydWUsInRpbWVvdXQiOjE4MDAwMDAsImV4cGlyZXNBdCI6MTc3NDgzOTExODQ0MywiaWQiOjE3NzQ4MzczMDgyODQsInNlc3Npb25TdGFydCI6ZmFsc2V9",
       "domain": "www.sanity.io",
       "path": "/",
-      "expires": 1805342472,
+      "expires": 1806373318,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
-      "name": "m",
-      "value": "a3192f01-3a38-47d7-a633-151d291ced62a7f67d",
-      "domain": "m.stripe.com",
+      "name": "_ga_K7J41TW619",
+      "value": "GS2.3.s1774837311$o1$g0$t1774837318$j53$l0$h1981642068",
+      "domain": ".www.sanity.io",
       "path": "/",
-      "expires": 1808366497.913208,
+      "expires": 1809397318.800644,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "OTZ",
+      "value": "8542222_80_84_104220_80_446880",
+      "domain": "accounts.google.com",
+      "path": "/",
+      "expires": 1777429321,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "NID",
+      "value": "530=gjddaDQTV8ejW1zXEkOkcm1KFnWUFYV63qu5n8rPaVoMf9vtBsseJpe2w_GS8S1b92FpROJyrGItcGHePUfBzGtue4BeXn9lurxMXzkuzU4u0v5WagmSp8KQcPNraqaulVK1yYgHFzTVzgEUV5nD-TyCwBSa_FCxIosnswfJP4mpdmoVvs2lH8VjhBuWe9ZBhweS5Y31yKcYDNpETjU",
+      "domain": ".google.com",
+      "path": "/",
+      "expires": 1790648521.412667,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
-    },
-    {
-      "name": "__stripe_mid",
-      "value": "c810ec30-d511-40d7-ba41-7e88c6becc23f50ea3",
-      "domain": ".www.sanity.io",
-      "path": "/",
-      "expires": 1805342476,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Strict"
-    },
-    {
-      "name": "__stripe_sid",
-      "value": "6ff1de5a-89c7-4834-a8b6-89de5f5f2c7ef9bad2",
-      "domain": ".www.sanity.io",
-      "path": "/",
-      "expires": 1773808276,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Strict"
     }
   ],
   "origins": [
@@ -236,61 +196,81 @@
       "origin": "https://www.sanity.io",
       "localStorage": [
         {
-          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.queue",
-          "value": "\"[]\""
+          "name": "most_recent_website_referrer_url",
+          "value": "{\"value\":\"https://www.sanity.io/login?origin=https%3A%2F%2Fwww.sanity.io%2Fmanage%2Fproject%2Fa9qy1267%2Fmembers\",\"expiration\":1777429315419}"
         },
         {
-          "name": "sanity:last_used_provider",
-          "value": "github"
+          "name": "_mdb_mdb_pxl_01KHX2K6VHSB5Q2A2QQB66M3NT",
+          "value": "{\"sid\":\"01KMY8RBRV0G1M6SWF2PYTT05F\",\"lv\":1774837313307}"
         },
         {
-          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.batchQueue",
-          "value": "\"[]\""
-        },
-        {
-          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.inProgress",
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.inProgress",
           "value": "\"{}\""
         },
         {
-          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.inProgress",
-          "value": "\"{}\""
-        },
-        {
-          "name": "osano_consentmanager_tattles",
-          "value": "{\"55\":{\"queue\":{},\"ignore\":{\"localStorage\":[\"_Is_Incognit\",\"nuqs-localStorage-test\",\"test_rudder_ls\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.inProgress\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.queue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.batchQueue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.ack\",\"gbFeaturesCache\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.inProgress\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.queue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.batchQueue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.ack\",\"_1773806422713\",\"sanity:last_used_provider\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.inProgress\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.queue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.batchQueue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.ack\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.reclaimStart\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.1a72875f-6bb5-441e-9d89-55296f7c76da.reclaimEnd\"]}}}"
-        },
-        {
-          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.batchQueue",
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.batchQueue",
           "value": "\"[]\""
-        },
-        {
-          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.queue",
-          "value": "\"[]\""
-        },
-        {
-          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.379bd21e-1e14-457b-8f91-defe09ef0e7b.ack",
-          "value": "\"1773806500249\""
-        },
-        {
-          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.ae0d6609-e41e-4f8a-b69c-80ad788ea588.ack",
-          "value": "\"1773806425660\""
         },
         {
           "name": "loglevel",
           "value": "WARN"
         },
         {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.queue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.ack",
+          "value": "\"1774837308331\""
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.batchQueue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "sanity:last_used_provider",
+          "value": "google"
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.ack",
+          "value": "\"1774837318774\""
+        },
+        {
+          "name": "osano_consentmanager_uuid",
+          "value": "89028090-6958-46b5-9296-01f549d2f99d"
+        },
+        {
+          "name": "rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.queue",
+          "value": "\"[]\""
+        },
+        {
+          "name": "osano_consentmanager_tattles",
+          "value": "{\"55\":{\"queue\":{},\"ignore\":{\"localStorage\":[\"_Is_Incognit\",\"nuqs-localStorage-test\",\"test_rudder_ls\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.inProgress\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.queue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.batchQueue\",\"rudder_1t5CnBDhZUkATfk0InAIzJfpDOi.b7f26a82-b377-4702-9fed-30643a8fc29a.ack\",\"vector_test\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.inProgress\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.queue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.batchQueue\",\"rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.ack\",\"gbFeaturesCache\",\"_1774837311491\",\"_mdb_vid\",\"_mdb_mdb_pxl_01KHX2K6VHSB5Q2A2QQB66M3NT\",\"most_recent_website_referrer_url\",\"sanity:last_used_provider\"]}}}"
+        },
+        {
+          "name": "_mdb_vid",
+          "value": "01KMY8RBRV8C6TXWSMDAQ7DXFF"
+        },
+        {
+          "name": "rudder_1pdJ2e9UCRz5KkcdZD47x7f53h0.e62b211e-3c12-4412-bdb7-e3909bde9016.inProgress",
+          "value": "\"{\\\"72d09729-ad04-42e0-a1dc-f8c7148b8c69\\\":{\\\"item\\\":{\\\"url\\\":\\\"https://www.sanity.io/intake/dp/v1/track\\\",\\\"headers\\\":{\\\"AnonymousId\\\":\\\"NTlkMWVmZDAtOTQxZC00OGU4LWIzMjgtYzhlNjdhZDA0Mzlj\\\"},\\\"event\\\":{\\\"properties\\\":{\\\"experimentId\\\":\\\"login-signup-02-18-2026\\\",\\\"variationId\\\":1,\\\"currentPath\\\":\\\"/login\\\"},\\\"event\\\":\\\"experiment\\\",\\\"type\\\":\\\"track\\\",\\\"channel\\\":\\\"web\\\",\\\"context\\\":{\\\"traits\\\":{},\\\"sessionId\\\":1774837308284,\\\"app\\\":{\\\"name\\\":\\\"RudderLabs JavaScript SDK\\\",\\\"namespace\\\":\\\"com.rudderlabs.javascript\\\",\\\"version\\\":\\\"3.23.0\\\",\\\"installType\\\":\\\"npm\\\"},\\\"library\\\":{\\\"name\\\":\\\"RudderLabs JavaScript SDK\\\",\\\"version\\\":\\\"3.23.0\\\"},\\\"userAgent\\\":\\\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36\\\",\\\"os\\\":{\\\"name\\\":\\\"\\\",\\\"version\\\":\\\"\\\"},\\\"locale\\\":\\\"en-US\\\",\\\"screen\\\":{\\\"width\\\":1280,\\\"height\\\":720,\\\"density\\\":1,\\\"innerWidth\\\":1280,\\\"innerHeight\\\":720},\\\"campaign\\\":{},\\\"page\\\":{\\\"path\\\":\\\"/login\\\",\\\"referrer\\\":\\\"https://www.sanity.io/manage/project/a9qy1267/members\\\",\\\"referring_domain\\\":\\\"www.sanity.io\\\",\\\"search\\\":\\\"?origin=https%3A%2F%2Fwww.sanity.io%2Fmanage%2Fproject%2Fa9qy1267%2Fmembers\\\",\\\"title\\\":\\\"Log in to Sanity\\\",\\\"url\\\":\\\"https://www.sanity.io/login?origin=https%3A%2F%2Fwww.sanity.io%2Fmanage%2Fproject%2Fa9qy1267%2Fmembers\\\",\\\"tab_url\\\":\\\"https://www.sanity.io/login?origin=https%3A%2F%2Fwww.sanity.io%2Fmanage%2Fproject%2Fa9qy1267%2Fmembers\\\",\\\"initial_referrer\\\":\\\"$direct\\\",\\\"initial_referring_domain\\\":\\\"\\\"},\\\"timezone\\\":\\\"GMT-0600\\\"},\\\"originalTimestamp\\\":\\\"2026-03-30T02:21:58.455Z\\\",\\\"messageId\\\":\\\"3f30dc14-75dc-464b-b94e-2bafb170343b\\\",\\\"userId\\\":\\\"\\\",\\\"anonymousId\\\":\\\"59d1efd0-941d-48e8-b328-c8e67ad0439c\\\",\\\"integrations\\\":{\\\"All\\\":true},\\\"sentAt\\\":\\\"2026-03-30T02:21:58.455Z\\\"}},\\\"attemptNumber\\\":0,\\\"time\\\":1774837318465,\\\"type\\\":\\\"Single\\\",\\\"firstAttemptedAt\\\":1774837318477,\\\"lastAttemptedAt\\\":1774837318477}}\""
+        },
+        {
+          "name": "osano_consentmanager",
+          "value": "LciYMFvBLR_WyKW6ehCAKDikIQGH5rDar6tl6Qrfv820cv9deIv4K48n6IOszxDLh77tzZx8SNDtTc1l-zyApN-pfzWhAVsLXMNf31H2SS6BETL6YcSEKCi-yKw5XuATpzpcQ-WFkcbZ4-mwB9ua2g4PPT4cbQ9iVBkbcQFmtcRxq6fAxmcfhgjSvhFl66lyK0xnzQ3iN_Rkcs0Fwz46Scq54sBOVFEggXaJ5W0O4OK3QlUxcCsisnhk3T5xPaxNBjPC7-iwMdHt1sNmRkqzETZs2bW4GWo9Pf7SmsnEMR-Qg0Ei49JuN9vbqrppiJunPCu8hvF_ztc="
+        },
+        {
           "name": "gbFeaturesCache",
-          "value": "[[\"https://cdn.growthbook.io||sdk-4pAt27oKPwT5F4ko\",{\"data\":{\"status\":200,\"features\":{\"manage-log-downloads\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"projectId\":\"d45jg133\"},\"force\":true},{\"condition\":{\"projectId\":\"d2cl22fk\"},\"force\":true},{\"condition\":{\"projectId\":\"3do82whm\"},\"force\":true},{\"condition\":{\"organizationId\":\"oSyH1iET5\"},\"force\":true},{\"condition\":{\"organizationId\":\"oRO8LCn7v\"},\"force\":true},{\"condition\":{\"organizationId\":\"oGOZkklmt\"},\"force\":true},{\"condition\":{\"organizationId\":\"ohHpLl1fL\"},\"force\":true},{\"condition\":{\"organizationId\":\"oGPp6oWdw\"},\"force\":true},{\"condition\":{\"organizationId\":\"oz1C0bJLW\"},\"force\":true},{\"force\":true,\"coverage\":0.5,\"hashAttribute\":\"organizationId\"}]},\"manage-single-page-checkout-flow\":{\"defaultValue\":false},\"request-upgrade-dialog\":{\"defaultValue\":true},\"manage-downgrade-survey-flow\":{\"defaultValue\":true},\"request-access-to-project\":{\"defaultValue\":true},\"manage-centralized-access-management\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"manage-getting-started-xp\":{\"defaultValue\":false,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"userId\",\"seed\":\"4c8753e1-5b43-424d-b1df-51ea81f30ef7\",\"hashVersion\":2,\"force\":true}]},\"manage-dashboard-rollout\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"auto-update-channel-enabled\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"origin\":{\"$in\":[\"hygg.li\",\"bjoerge-aus-debug.sanity.studio\",\"test-studio.sanity.build\",\"test-studio-auto-updates.sanity.studio\",\"logo-test-again.sanity.studio\",\"test.sanity.studio\",\"mm-blog-test.sanity.studio\",\"karkort-app.sanity.studio\",\"geoff-playground.sanity.studio\",\"auto-updating-test.sanity.studio\"]}},\"force\":true},{\"condition\":{\"projectId\":{\"$in\":[\"m7rwbid8\",\"3do82whm\"]}},\"force\":true}]},\"llm-activation-xp-2025\":{\"defaultValue\":false},\"external-studio-auto-updating-enabled\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"origin\":{\"$in\":[\"oh-im-so-excited.sanity.build\",\"hygg.li\"]}},\"force\":true},{\"condition\":{\"projectId\":{\"$in\":[\"m7rwbid8\",\"y1n65957\",\"3do82whm\"]}},\"force\":true}]},\"manage-new-org-usage\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"organizationId\":{\"$in\":[]}},\"force\":false}]},\"manage-auth-provider-ui\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"$or\":[{\"emailDomain\":\"sanity.io\"},{\"emailDomain\":\"vercel.com\"}]},\"force\":true},{\"condition\":{\"userId\":\"g8V1ZhQcN\"},\"force\":true}]},\"session_management_org\":{\"defaultValue\":true},\"session_management_self\":{\"defaultValue\":true},\"manage-show-ai-usage\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"attribute-management\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"organizationId\":{\"$in\":[\"o8JRA5EQO\",\"oKikZZNXA\"]}},\"force\":true}]},\"manage-show-embeddings\":{\"defaultValue\":false}},\"dateUpdated\":\"2026-03-17T14:28:35.962Z\"},\"version\":\"2026-03-17T14:28:35.962Z\",\"staleAt\":\"2026-03-18T04:01:21.028Z\",\"sse\":true}],[\"https://cdn.growthbook.io||sdk-MMswHFL4XViuBx8\",{\"data\":{\"status\":200,\"features\":{\"use_oauth_org_prompt_flag\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g61omhurehg8\",\"force\":true,\"coverage\":1,\"hashAttribute\":\"userId\"}]},\"write_saml_attributes\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6smmupn3j3\",\"condition\":{\"organizationId\":{\"$in\":[\"oKikZZNXA\"]}},\"force\":true}]},\"schengen_ui_next\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6omls5a8p0\",\"coverage\":0.05,\"hashAttribute\":\"anonymousId\",\"bucketVersion\":1,\"seed\":\"599e002c-77e2-4ed0-bcc7-9b7d2bcdf8f2\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"login-signup-02-18-2026\",\"phase\":\"3\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}]}]},\"use_partitioned_cookies\":{\"defaultValue\":false}},\"experiments\":[],\"dateUpdated\":\"2026-03-17T20:55:17.154Z\"},\"version\":\"2026-03-17T20:55:17.154Z\",\"staleAt\":\"2026-03-18T04:01:22.491Z\",\"sse\":true}]]"
+          "value": "[[\"https://cdn.growthbook.io||sdk-MMswHFL4XViuBx8\",{\"data\":{\"status\":200,\"features\":{\"use_oauth_org_prompt_flag\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g61omhurehg8\",\"force\":true,\"coverage\":1,\"hashAttribute\":\"userId\"}]},\"write_saml_attributes\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6smmupn3j3\",\"condition\":{\"organizationId\":{\"$in\":[\"oKikZZNXA\",\"oOXIG9P3c\",\"o48jDa6KN\",\"oiPFhmeK4\",\"oNAgKWFqi\"]}},\"force\":true}]},\"schengen_ui_next\":{\"defaultValue\":false,\"rules\":[{\"id\":\"fr_19g6omls5a8p0\",\"coverage\":1,\"hashAttribute\":\"anonymousId\",\"bucketVersion\":1,\"seed\":\"ba43a26f-fb6b-4026-87ef-61bdf139c307\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"login-signup-02-18-2026\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"5\"}]},\"use_partitioned_cookies\":{\"defaultValue\":false}},\"experiments\":[],\"dateUpdated\":\"2026-03-25T19:22:09.014Z\"},\"version\":\"2026-03-25T19:22:09.014Z\",\"staleAt\":\"2026-03-30T02:22:51.348Z\",\"sse\":true}]]"
         }
       ]
     },
     {
-      "origin": "https://www.google.com",
+      "origin": "https://cmp.osano.com",
       "localStorage": [
         {
-          "name": "rc::a",
-          "value": "MXl0eTduZTFjaTQybGo="
+          "name": "osano_consentmanager_e53d2bde-32d5-45a1-ab1a-16b98951bfe3",
+          "value": "LciYMFvBLR_WyKW6ehCAKDikIQGH5rDar6tl6Qrfv820cv9deIv4K48n6IOszxDLh77tzZx8SNDtTc1l-zyApN-pfzWhAVsLXMNf31H2SS6BETL6YcSEKCi-yKw5XuATpzpcQ-WFkcbZ4-mwB9ua2g4PPT4cbQ9iVBkbcQFmtcRxq6fAxmcfhgjSvhFl66lyK0xnzQ3iN_Rkcs0Fwz46Scq54sBOVFEggXaJ5W0O4OK3QlUxcCsisnhk3T5xPaxNBjPC7-iwMdHt1sNmRkqzETZs2bW4GWo9Pf7SmsnEMR-Qg0Ei49JuN9vbqrppiJunPCu8hvF_ztc="
         }
       ]
     }

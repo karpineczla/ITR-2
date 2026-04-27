@@ -2,7 +2,7 @@ import test from './test'
 import reports from './reports'
 import { hero } from './hero'
 import { homeButtonCards } from './homeButtonCards'
-import { homeGridCards } from './homeGridCards'
+import { homeGridCards } from './HomeGridCards'
 import { titleAndText } from './titleAndText'
 import { buttonCards } from './buttonCards'
 import resourcesCards from './resourcesCards' 
@@ -18,6 +18,7 @@ import { subscribe } from './subscribe'
 import { textWithImage } from './textWithImage'
 import { twoBlockRow } from './twoBlockRow'
 import { videoSection } from './videoSection'
+import employmentOpportunities from './employment'
 
 export const schemaTypes = [
     test,
@@ -39,6 +40,7 @@ export const schemaTypes = [
     subscribe,
     textWithImage,
     twoBlockRow,
-    videoSection
+    videoSection,
+    employmentOpportunities,
 
 ]

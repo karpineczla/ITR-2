@@ -6,7 +6,7 @@
     padding: 2rem 4rem;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
-    margin-top: 0ex;
+    margin-top: 15ex;
 }
 
 .footerContent {
@@ -14,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    max-width: 1400px;
+   
     margin: 0 auto;
 }
 
@@ -109,13 +109,7 @@
         text-align: center;
     }
 
-    .linksSection {
-        width: min(100%, 760px);
-        margin: 0 auto;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
+    
 
     .footerLink {
         font-size: 15px;
