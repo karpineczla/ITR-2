@@ -198,7 +198,16 @@
     }
 
     .searchContainer {
-        display: none;
+        display: flex;
+        margin-left: 0;
+        margin-right: 10px;
+        padding: 4px 10px;
+        height: 30px;
+        min-width: 0;
+    }
+
+    .searchInput {
+        width: clamp(80px, 20vw, 120px);
     }
 
     .hamburgerMenu {
@@ -228,5 +237,16 @@
 
     .navList {
         gap: 0.5rem;
+    }
+
+    .searchContainer {
+        margin-right: 8px;
+        padding: 3px 8px;
+        height: 28px;
+    }
+
+    .searchInput {
+        width: clamp(70px, 24vw, 96px);
+        font-size: 0.85rem;
     }
 }
