@@ -77,6 +77,12 @@ interface PortableTextBlock {
 const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
 
 // Static site pages index — keywords matched against user query
+// About page keywords will be dynamically extended with contact card names
+const aboutPageKeywords = [
+  'about', 'mission', 'team', 'overview', 'who we are', 'background',
+  'contact', 'email', 'reach', 'connect', 'phone', 'address', 'get in touch'
+]
+
 const SITE_PAGES: { title: string; description: string; url: string; keywords: string[] }[] = [
   {
     title: 'Home',
@@ -88,13 +94,7 @@ const SITE_PAGES: { title: string; description: string; url: string; keywords: s
     title: 'About',
     description: 'Learn about the ITR-2 project',
     url: '/about',
-    keywords: ['about', 'mission', 'team', 'overview', 'who we are', 'background'],
-  },
-  {
-    title: 'Contact',
-    description: 'Get in touch with ITR-2',
-    url: '/contact',
-    keywords: ['contact', 'email', 'reach', 'connect', 'phone', 'address', 'get in touch'],
+    keywords: aboutPageKeywords,
   },
   {
     title: 'Publications & Reports',
@@ -221,6 +221,18 @@ export default function Search() {
     const fetchSearchResults = async () => {
       setLoading(true)
       try {
+        // Fetch contact card names and add to About keywords
+        const contactCardsResult = await client.fetch<{ cards: { name?: string }[] }>(
+          '*[_type == "contactCards"][0]{ cards[]{ name } }'
+        )
+        const contactNames = (contactCardsResult?.cards || [])
+          .map(card => card.name)
+          .filter((name): name is string => typeof name === 'string' && !!name)
+        // Only add unique names not already present
+        for (const name of contactNames) {
+          if (!aboutPageKeywords.includes(name)) aboutPageKeywords.push(name)
+        }
+
         const [reports, resources, newsDocs, findingsDocs, interactiveDocs, buttonCardDocs, learnMoreButtons] =
           await Promise.all([
             client.fetch<ReportItem[]>(`*[_type == "report"]{_id, title, author, abstract, tags, content}`),

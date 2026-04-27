@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../../styles/Header.css';
 
 const Header = () => {
   const [data, setData] = useState<any>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const location = useLocation();
   const navigate = useNavigate();
 
   const PROJECT_ID = "a9qy1267"; 
@@ -25,6 +26,14 @@ const Header = () => {
   }, []);
 
   const links = data?.navLinks || [];
+
+
+  // Keep search input in sync with ?q= param in URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || '';
+    setSearchValue(q);
+  }, [location.search]);
 
   const submitSearch = () => {
     const query = searchValue.trim();
