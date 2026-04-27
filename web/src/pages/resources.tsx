@@ -8,6 +8,7 @@ import ResourceCard from "../components/resourcesPage/ResourceCard";
 export default function Resources() {
     return (
         <main className="resources-page">
+            <title>ITRR | Resources</title>
             <Header />
             <BackButton to='/get-involved-and-resources' />
             <TitleAndText title="Montana and Outdoor Recreation"/>

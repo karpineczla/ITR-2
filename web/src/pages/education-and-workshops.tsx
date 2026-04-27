@@ -7,6 +7,7 @@ import TitleAndText from "../components/general/TitleAndText";
 export default function EducationAndWorkshops() {
     return (
         <main className="education-and-workshops-page">
+            <title>ITRR | Education and Workshops</title>
             <Header />
             <BackButton to="/events" />
             <TitleAndText title="Education and Workshops"/>
