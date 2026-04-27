@@ -113,17 +113,20 @@
 .learnMoreBtn {
   background-color: #6e0d2a;
   color: white;
+  text-decoration: none;
   padding: 14px 30px;
   border: none;
   border-radius: 8px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.1s, background-color 0.2s;
+  transition: color 0.4s ease, background-color 0.4s ease;
 }
 
 .learnMoreBtn:hover {
-  background-color: #8a1236;
+  background-color: #decfba;
+  color: #000;
+  text-decoration: none;
 }
 
 .jobDescription {
