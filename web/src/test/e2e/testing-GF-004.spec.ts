@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('ITRR Publication Download', () => {
+test.describe('GF-004 Users can download pdfs', () => {
   test('User can open the publication PDF page', async ({ page, context }) => {
    
     await page.goto('https://itrr-website-build.web.app/publications-and-reports', { 

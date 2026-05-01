@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('Search Functionality', () => {
+test.describe('GF-008 Search Functionality', () => {
   test('Users can search for events on the live site', async ({ page }) => {
     const liveUrl = 'https://itrr-website-build.web.app';
 

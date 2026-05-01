@@ -2,20 +2,20 @@
   "cookies": [
     {
       "name": "tempSession",
-      "value": "s%3AbMF6fE3K1KHvHTvGMdPYisKMOA8VF1Oa.kPjDoKXDOmOKVqqlTIyMMjG0rG7UHvsQUpnCFBvDuY4",
+      "value": "s%3AoYXO3SmKYyU0EksYmg39rDSU77AgTqub.78G1zupkn4UQR4LMOucY0EBRg8aQBKn1Yz8%2BjH6gXBA",
       "domain": "api.sanity.io",
       "path": "/",
-      "expires": 1776573241.12607,
+      "expires": 1777653681.619093,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "_octo",
-      "value": "GH1.1.2078283586.1776572920",
+      "value": "GH1.1.471155024.1777653036",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1808108921.8265,
+      "expires": 1809189037.230175,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -31,16 +31,6 @@
       "sameSite": "Lax"
     },
     {
-      "name": "_device_id",
-      "value": "a05f74c37cf0c4f4d80439da4e467e60",
-      "domain": "github.com",
-      "path": "/",
-      "expires": 1808108924.103478,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
       "name": "tz",
       "value": "America%2FDenver",
       "domain": ".github.com",
@@ -51,31 +41,41 @@
       "sameSite": "Lax"
     },
     {
-      "name": "saved_user_sessions",
-      "value": "113050570%3A2KRqHmY3REtWQZ7Or50H1cu8E8_0wJxQP3duU7FUDGN5G1Dj",
+      "name": "_device_id",
+      "value": "86517ac87e7de7ae57d38e24aae4d1b7",
       "domain": "github.com",
       "path": "/",
-      "expires": 1784348938.892198,
+      "expires": 1809189038.949323,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "saved_user_sessions",
+      "value": "113050570%3AokieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1785429078.729421,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "user_session",
-      "value": "2KRqHmY3REtWQZ7Or50H1cu8E8_0wJxQP3duU7FUDGN5G1Dj",
+      "value": "okieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
       "domain": "github.com",
       "path": "/",
-      "expires": 1777782538.892442,
+      "expires": 1778862678.729586,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "__Host-user_session_same_site",
-      "value": "2KRqHmY3REtWQZ7Or50H1cu8E8_0wJxQP3duU7FUDGN5G1Dj",
+      "value": "okieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
       "domain": "github.com",
       "path": "/",
-      "expires": 1777782538.892634,
+      "expires": 1778862678.729664,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Strict"
@@ -105,7 +105,7 @@
       "value": "yes",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1808108938.89328,
+      "expires": 1809189079.729895,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -115,14 +115,14 @@
       "value": "karpineczla",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1808108938.893683,
+      "expires": 1809189079.730007,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "last_write_ms",
-      "value": "1776572937369",
+      "value": "1777653079020",
       "domain": "github.com",
       "path": "/",
       "expires": -1,
@@ -132,7 +132,7 @@
     },
     {
       "name": "_gh_sess",
-      "value": "%2BRn%2FiOuNh7pz1d%2FRdeXQqAasW50NxX8BFY5VSOtjiYgbFnV2mXefMcEF5b0od4NOSEuvEnfva2lf77F1i5QIcdIbUqvgqcTkZbDY1iY5jz%2BQfTbeGSU0u17iuqVc1ypo11oUkM8z7VjbrCj0wzAhIH1DRCMc7fHSpj0ZtFqGCCphnbz6gFJbl3bFDexaLKE59CKec5nHlKlnlIDAyhL2PKzRGdJGom5vhzdKY77elsTypTkYNBP7OGXhCUF4gMk%2Fe%2Buc2JT6LLEm9eth6NI9Pl2tHU626Nj1n2MC64CUFOwmNNqdmtisupK48Vc0CsdHTkdfbDVBNlGGfgrW6wq9ohOMKNxTeXPAUWl%2FYCb3hZa7fLIvlF8E2ZRWNNtMwpx1K9DPAUSEv9jsxVWhWOTVCnPqiWsNv56wAfLTEqkkbFDf5QYpiURbLrZNmLNkef7js5%2BWGexOV5LV9JRunEgnM6003knMkgiajfQuGWzP1gRX%2F6nNF4%2BQeTmp4qyiPyPMz%2F0Ubl4K7wUjjdFygyufmf8o5GmNoGtk6VI6iDEVWfU5%2B3vhTxpfd0uM%2BEEn8suaWFAEWr66z1lsgMvyBaHHAlWHU6Vhprnpm7b1SuU4oOCEr%2F%2FjMlk3d9BrqyBf1gaKcnrqFdADvV4ZFyutKcy%2BDzSFGZXE3n1fT7Y9YScA%2BFQsH9Y5%2Blb0K%2FyQe3ryvQCx6zTcsudTbRAmQvIb%2F4HPk0ZZ1D5Tf6OhfZrArDpr0ksL0LDwCCCLDmctdrZ2jrm7MDQrms9IyuLSukMmdtF%2BKLwY3ZIjPRL9nD67DQTuR%2BBesdO4m%2BDrfdL01ytOyz3Ep4SBXob6otso5MsB6O8hPXvnre7sYgFugwsfYo1nRWfQYEf9j1Fe%2BB6%2FazmQG%2FKY2yEs%2FvivgYfCUi0nQkjyDR32Up%2FGhGSZCaD%2B0NGSaZBaaF7pOR6z6ZCZuCdXf3A63jm7Y2JW6bW5Z7BTBOozxhhr1uoHo5axR97u63qw4%2BBIpzN%2FN3TwbsaVWDqqEiWyj2JdG0g4d0M%3D--YSiB2%2BiC1a3HbSdG--nkx7USxRp5a1kFvVySIlJQ%3D%3D",
+      "value": "hP7KoCZWg1GdYwanzs8MBQKGOKa8MLt5RQbAouaMpfrJZZoDDopo5CHG0r3DbISlEG98iwcbI696ebTwGrF0Xncq7gDKj16RIKQcpg3SZNX4YnHEPDiNf%2BzwGMDg6PUyzpIWRb14FBI0Rkr0tF0uW8EKIE8HHfzt4unygUtuvEjzThRsIOksUEt0oXgjT3OaXXzKoqxw6XDb4vtFYKkqlWCgh8xlK5qjuPAreh49EGbKmawuCFe6sN3t8NCtGA07AJMg5zV6ej9x51wiX6tVy4qyCG0pSBsj%2BLoq4fdc%2FGcoYlqeOpKvmNjVkYqEGbblFDEwqZPTaVlQqJBvJwwtPXZnZNZ4ZnIGwJ9RE6c8vi1Md5AIq%2BworWW4jgk%2FR6kfVfH1MjdU4zZY5h6a%2FJoYdBN4nK5fy%2Fgh6l6DNxjxQmk1GxoBHZ4vAtVXwzU5tQKYajQ3L3DKuRVWoME%2BNZYBJ%2Fc%2FvWcsTLG8rCRdmn9x3s%2BemByLQIbmxptEg0W0EA9aAH1GIX0t%2BT3lQfbwNKKSxntnuCwJ4DDxq7BqGbXqd9TyvcQCagGvRbYJCw%2FMUgMFfZHFyP8EO1Zx58EVd1z%2Fb6bamdrm8KGVSPO%2FZ9Do21ulVJ4I21Wfth170sQzJ73KHY%2BzuRwZfrXZm4YZoe2U8Dka6SJs7Knp1PTrol9wikgkYMAeZ3F5IEOZGyt3am5KeUoDktgAXu7ewv5JNH6v1qTivrjfRjkTddDnKgBmUnh5kNUu%2BdoMApM2PDHTgQJFjqzoLhCzRsfBu%2FUKcxKYFiUVe8p3ZIlLK7ms5r7tRVIqXlnNmuByv%2F4l3hhyNdHPC7Bg4oFh%2FVlHisNliVN1pyHsUOAQ7Y5ibStNF%2BSMp7nyHRbOjpr99WwHwyLZEyCyTeh3JWHmWuXzuCqXuk%2Fro4exvqRDEs9hR8FPYpwrYXXloRR%2BlWILKZtFD8epBV%2Bz33Zf4wVGj2P%2Fm7KasdH1A6DbSryjx8ftON3xa1ltioaB%2B4aL7hQnrrbqy0FtTLmhpAtlE8DmmaE%3D--8KT6YHf998UFLQfn--G4yWxGW%2BR%2FBN4voA7bKWeA%3D%3D",
       "domain": "github.com",
       "path": "/",
       "expires": -1,
@@ -142,10 +142,10 @@
     },
     {
       "name": "sanitySession",
-      "value": "skXRlgjstW6ciheUVlhfKyHX7rxvlRDbwJg7dfQaVBiU12jiq3nhEgAZOf1cB4ddjikCfKcaOz1YxK4e",
+      "value": "skqjUC2AErjUrzzE2aEWLIeYh21TBn1JYpX9r7uzRwdX5G7AVWBUF2gf3WXBe8DD7hEW35QkBqsntiTf",
       "domain": ".a9qy1267.api.sanity.io",
       "path": "/",
-      "expires": 1808108941.834525,
+      "expires": 1809189081.890591,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -168,6 +168,10 @@
         {
           "name": "sanity:last_used_provider",
           "value": "github"
+        },
+        {
+          "name": "studio.announcement.seen",
+          "value": "\"c367472a-9438-4810-bca2-62fec038449b\""
         },
         {
           "name": "sanityStudio:ui:colorScheme",

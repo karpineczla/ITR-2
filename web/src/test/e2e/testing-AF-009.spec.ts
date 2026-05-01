@@ -8,7 +8,7 @@ const storageStatePath = process.env.SANITY_MANAGE_STORAGE_STATE
   ? resolve(process.env.SANITY_MANAGE_STORAGE_STATE) 
   : undefined;
 
-test.describe('AF-023 Logout Visibility', () => {
+test.describe('AF-023 Logout test', () => {
   test.use({ storageState: storageStatePath });
 
   test('Admin user can see the sign out button', async ({ page }) => {

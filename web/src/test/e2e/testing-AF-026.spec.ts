@@ -8,7 +8,7 @@ const storageStatePath = process.env.SANITY_MANAGE_STORAGE_STATE
   ? resolve(process.env.SANITY_MANAGE_STORAGE_STATE) 
   : undefined;
 
-test.describe('Document Lifecycle', () => {
+test.describe('AF-026 Admin can Unpublish Documents', () => {
   test.use({ storageState: storageStatePath });
 
   test('User can create and then delete a new document', async ({ page }) => {

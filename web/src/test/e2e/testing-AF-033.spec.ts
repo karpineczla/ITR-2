@@ -8,7 +8,7 @@ const storageStatePath = process.env.SANITY_MANAGE_STORAGE_STATE
   ? resolve(process.env.SANITY_MANAGE_STORAGE_STATE) 
   : undefined;
 
-test.describe('Report Lifecycle', () => {
+test.describe('AF-033 Confirm Reports Published', () => {
   test.use({ storageState: storageStatePath });
 
   test('User can create and then delete a new report', async ({ page }) => {
