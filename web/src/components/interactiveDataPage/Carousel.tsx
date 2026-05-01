@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PortableText } from '@portabletext/react'
+import type { TypedObject } from '@portabletext/types';
 import { client } from "../../sanityClient";
 import "../../styles/Carousel.css";
 
@@ -95,7 +96,7 @@ export default function Carousel({ sectionKey }: CarouselProps) {
                 <div className="visitor-trends__card">
                     <h3 className="visitor-trends__card-title">{activeReport.title}</h3>
                     <div className="visitor-trends__card-text">
-                        <PortableText value={activeReport.description} />
+                        <PortableText value={activeReport.description as TypedObject[]} />
                     </div>
                     {activeReport.datetime && (
                         <p className="visitor-trends__card-bold">{activeReport.datetime}</p>
