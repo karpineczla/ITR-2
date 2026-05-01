@@ -1,7 +1,7 @@
 import Header from '../components/general/Header';
 import Footer from '../components/general/Footer';
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router';
 import { client } from '../sanityClient';
 import '../styles/InteractiveDashboard.css';
 

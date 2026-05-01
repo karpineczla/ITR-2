@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { PortableText } from '@portabletext/react'
-import type { TypedObject } from '@portabletext/types';
+import type { PortableTextBlock, TypedObject } from '@portabletext/types'
 import { client } from "../../sanityClient";
 import "../../styles/Carousel.css";
 
 interface Report {
     _key: string;
     title: string;
-    description: unknown;
+    description: PortableTextBlock[];
     href: string;
     buttonText?: string;
     datetime?: string;

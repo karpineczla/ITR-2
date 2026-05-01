@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import Header from '../components/general/Header'
 import Footer from '../components/general/Footer'
 import BackButton from '../components/general/BackButton'
@@ -75,6 +75,112 @@ interface PortableTextBlock {
 }
 
 const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
+
+// Static site pages index — keywords matched against user query
+const SITE_PAGES: { title: string; description: string; url: string; keywords: string[] }[] = [
+  {
+    title: 'Home',
+    description: 'Institute for Tourism and Recreaction Research home page',
+    url: '/',
+    keywords: ['home', 'itr', 'itrr', 'welcome', 'main'],
+  },
+  {
+    title: 'About',
+    description: 'Learn more about the ITRR and it\'s people',
+    url: '/about',
+    keywords: ['about', 'mission', 'team', 'overview', 'who we are', 'background','staff','faculty'],
+  },
+  {
+    title: 'Contact',
+    description: 'Get in touch with ITRR',
+    url: '/contact',
+    keywords: ['contact', 'email', 'reach', 'connect', 'phone', 'address', 'get in touch'],
+  },
+  {
+    title: 'Publications & Reports',
+    description: 'Browse published reports and documents',
+    url: '/publications-and-reports',
+    keywords: ['publications', 'reports', 'documents', 'papers', 'research', 'findings', 'pdf', 'publish'],
+  },
+  {
+    title: 'Events',
+    description: 'Upcoming and past ITRR events',
+    url: '/events',
+    keywords: ['events', 'calendar', 'schedule', 'upcoming', 'webinar', 'conference', 'meeting', 'training'],
+  },
+  {
+    title: 'Interactive Data',
+    description: 'Explore interactive data visualizations',
+    url: '/interactive-data',
+    keywords: ['interactive', 'data', 'charts', 'graphs', 'visualizations', 'statistics', 'dashboard', 'explore'],
+  },
+  {
+    title: 'Interactive Dashboard',
+    description: 'View the interactive data dashboard',
+    url: '/interactive-dashboard',
+    keywords: ['dashboard', 'interactive', 'data', 'charts', 'analytics', 'metrics'],
+  },
+  {
+    title: 'Need Help?',
+    description: 'Help and support resources',
+    url: '/help',
+    keywords: ['help', 'support', 'faq', 'questions', 'assistance', 'guide', 'how to'],
+  },
+  {
+    title: 'Resources',
+    description: 'Resource library and downloads',
+    url: '/resources',
+    keywords: ['resources', 'library', 'downloads', 'tools', 'materials', 'links', 'documents'],
+  },
+  {
+    title: 'Subscribe',
+    description: 'Subscribe to ITRR updates and newsletters',
+    url: '/subscribe',
+    keywords: ['subscribe', 'newsletter', 'email', 'updates', 'notifications', 'sign up', 'mailing list'],
+  },
+  {
+    title: 'Employment Opportunities',
+    description: 'Job openings and career opportunities at ITRR',
+    url: '/employment-opportunities',
+    keywords: ['employment', 'jobs', 'careers', 'hiring', 'openings', 'positions', 'work', 'apply', 'job posting', 'opportunity', 'opportunities'],
+  },
+  {
+    title: 'Survey Kit',
+    description: 'Access the ITRR survey kit',
+    url: '/survey-kit',
+    keywords: ['survey', 'kit','kits', 'questionnaire', 'assessment', 'toolkit', 'surveys'],
+  },
+  {
+    title: 'Pilot Community',
+    description: 'Connect with the ITRR pilot community',
+    url: '/pilot-community',
+    keywords: ['pilot', 'community', 'network', 'connect', 'peers', 'cohort'],
+  },
+  {
+    title: 'Sessions',
+    description: 'Browse ITRR sessions',
+    url: '/sessions',
+    keywords: ['sessions', 'workshops', 'classes', 'training', 'learning'],
+  },
+  {
+    title: 'Education & Workshops',
+    description: 'Educational resources and workshop information',
+    url: '/education-and-workshops',
+    keywords: ['education', 'workshops', 'training', 'learning', 'courses', 'curriculum', 'teach'],
+  },
+  {
+    title: 'Continuing the Conversation',
+    description: 'Ongoing discussions and community dialogue',
+    url: '/continuing-the-conversation',
+    keywords: ['conversation', 'dialogue', 'discussion', 'community', 'forum', 'talk', 'engage'],
+  },
+  {
+    title: 'Get Involved & Resources',
+    description: 'Ways to get involved with ITRR',
+    url: '/get-involved-and-resources',
+    keywords: ['get involved', 'volunteer', 'participate', 'resources', 'engage', 'contribute', 'join'],
+  },
+]
 
 const getSearchQuery = (locationSearch: string) => {
   const params = new URLSearchParams(locationSearch)
@@ -253,6 +359,20 @@ export default function Search() {
           }
         }
 
+        // Site pages — match against title, description, and keywords
+        for (const page of SITE_PAGES) {
+          if (matchesSearch(query, page.title, page.description, page.keywords.join(' '))) {
+            pushResult({
+              id: `page-${page.url}`,
+              title: page.title,
+              summary: page.description,
+              source: 'Page',
+              url: page.url,
+              external: false,
+            })
+          }
+        }
+
         setResults(aggregatedResults)
       } catch (error) {
         console.error('Failed to fetch search results:', error)
@@ -291,6 +411,7 @@ export default function Search() {
 
   return (
     <main className="search-page">
+      <title>ITRR | Search Site</title>
       <Header />
       <BackButton to="/" />
 
@@ -343,19 +464,19 @@ export default function Search() {
           <ul className="search-results-list">
             {filteredAndSortedResults.map((result) => (
               <li key={result.id} className="search-result-item">
-                <p className="search-result-source">{result.source}</p>
-                <h2 className="search-result-title">
-                  {result.external ? (
-                    <a href={result.url} target="_blank" rel="noopener noreferrer" className="search-result-link">
-                      {result.title}
-                    </a>
-                  ) : (
-                    <Link to={result.url} className="search-result-link">
-                      {result.title}
-                    </Link>
-                  )}
-                </h2>
-                <p className="search-result-summary">{result.summary}</p>
+                {result.external ? (
+                  <a href={result.url} target="_blank" rel="noopener noreferrer" className="search-result-card-link">
+                    {/* <p className="search-result-source">{result.source}</p> */}
+                    <h2 className="search-result-title">{result.title}</h2>
+                    <p className="search-result-summary">{result.summary}</p>
+                  </a>
+                ) : (
+                  <Link to={result.url} className="search-result-card-link">
+                    {/* <p className="search-result-source">{result.source}</p> */}
+                    <h2 className="search-result-title">{result.title}</h2>
+                    <p className="search-result-summary">{result.summary}</p>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

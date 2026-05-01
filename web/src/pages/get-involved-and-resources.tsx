@@ -7,6 +7,7 @@ import TitleAndText from '../components/general/TitleAndText';
 export default function GetInvolved() {
     return (
         <main className="home">
+            <title>ITRR | Get Involved and Resources</title>
             <Header />
             <TitleAndText sectionKey="get-involved-intro" />
             <ButtonCards sectionKey="get-involved" />

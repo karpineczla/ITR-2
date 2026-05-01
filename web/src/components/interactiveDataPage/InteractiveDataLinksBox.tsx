@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 interface InteractiveCard {
     _key: string;

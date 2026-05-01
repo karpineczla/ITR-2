@@ -16,8 +16,8 @@ export default function ContactList() {
   }, []);
 
   return (
-    <div className="contact-page-container">
-      <h1 className="contact-main-title">Contact Us</h1>
+    <div className="contact-page-container" >
+      <h1 className="contact-main-title" id="contact">Contact Us</h1>
       
       <div className="contact-grid">
         {members.map((member) => (
