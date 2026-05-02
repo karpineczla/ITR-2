@@ -8,6 +8,7 @@ import '../styles/Home.css'
 export default function Home() {
     return (
         <main className="home">
+            <title>ITRR | Institute for Tourism and Recreation Research</title>
             <Header />
             <Hero />
             <HomeButtonCards />

@@ -9,6 +9,7 @@ import "../styles/SurveyKit.css";
 export default function SurveyKit() {
     return (
         <main className="survey-kit-page">
+            <title>ITRR | Survey Kits</title>
             <Header />
             <BackButton to='/get-involved-and-resources' />
             <TitleAndText sectionKey="survey-kit" />

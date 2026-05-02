@@ -7,6 +7,7 @@ import TitleAndText from "../components/general/TitleAndText";
 export default function ContinuingTheConversation() {
     return (
         <main className="continuing-the-conversation-page">
+            <title>ITRR | Continuing the Conversation</title>
             <Header />
             <BackButton to="/education-and-workshops" />
             <TitleAndText sectionKey="webinar" />

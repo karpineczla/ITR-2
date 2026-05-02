@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import Header from '../components/general/Header'
 import Footer from '../components/general/Footer'
 import BackButton from '../components/general/BackButton'
@@ -86,13 +86,13 @@ const aboutPageKeywords = [
 const SITE_PAGES: { title: string; description: string; url: string; keywords: string[] }[] = [
   {
     title: 'Home',
-    description: 'ITR-2 home page',
+    description: 'Institute for Tourism and Recreaction Research home page',
     url: '/',
-    keywords: ['home', 'itr', 'itr2', 'itr-2', 'welcome', 'main'],
+    keywords: ['home', 'itr', 'itrr', 'welcome', 'main'],
   },
   {
     title: 'About',
-    description: 'Learn about the ITR-2 project',
+    description: 'Learn more about the ITRR and it\'s people',
     url: '/about',
     keywords: aboutPageKeywords,
   },
@@ -104,7 +104,7 @@ const SITE_PAGES: { title: string; description: string; url: string; keywords: s
   },
   {
     title: 'Events',
-    description: 'Upcoming and past ITR-2 events',
+    description: 'Upcoming and past ITRR events',
     url: '/events',
     keywords: ['events', 'calendar', 'schedule', 'upcoming', 'webinar', 'conference', 'meeting', 'training'],
   },
@@ -121,7 +121,7 @@ const SITE_PAGES: { title: string; description: string; url: string; keywords: s
     keywords: ['dashboard', 'interactive', 'data', 'charts', 'analytics', 'metrics'],
   },
   {
-    title: 'Help',
+    title: 'Need Help?',
     description: 'Help and support resources',
     url: '/help',
     keywords: ['help', 'support', 'faq', 'questions', 'assistance', 'guide', 'how to'],
@@ -134,31 +134,31 @@ const SITE_PAGES: { title: string; description: string; url: string; keywords: s
   },
   {
     title: 'Subscribe',
-    description: 'Subscribe to ITR-2 updates and newsletters',
+    description: 'Subscribe to ITRR updates and newsletters',
     url: '/subscribe',
     keywords: ['subscribe', 'newsletter', 'email', 'updates', 'notifications', 'sign up', 'mailing list'],
   },
   {
     title: 'Employment Opportunities',
-    description: 'Job openings and career opportunities at ITR-2',
+    description: 'Job openings and career opportunities at ITRR',
     url: '/employment-opportunities',
     keywords: ['employment', 'jobs', 'careers', 'hiring', 'openings', 'positions', 'work', 'apply', 'job posting', 'opportunity', 'opportunities'],
   },
   {
     title: 'Survey Kit',
-    description: 'Access the ITR-2 survey kit',
+    description: 'Access the ITRR survey kit',
     url: '/survey-kit',
-    keywords: ['survey', 'kit', 'questionnaire', 'assessment', 'toolkit', 'surveys'],
+    keywords: ['survey', 'kit','kits', 'questionnaire', 'assessment', 'toolkit', 'surveys'],
   },
   {
     title: 'Pilot Community',
-    description: 'Connect with the ITR-2 pilot community',
+    description: 'Connect with the ITRR pilot community',
     url: '/pilot-community',
     keywords: ['pilot', 'community', 'network', 'connect', 'peers', 'cohort'],
   },
   {
     title: 'Sessions',
-    description: 'Browse ITR-2 sessions',
+    description: 'Browse ITRR sessions',
     url: '/sessions',
     keywords: ['sessions', 'workshops', 'classes', 'training', 'learning'],
   },
@@ -176,7 +176,7 @@ const SITE_PAGES: { title: string; description: string; url: string; keywords: s
   },
   {
     title: 'Get Involved & Resources',
-    description: 'Ways to get involved with ITR-2',
+    description: 'Ways to get involved with ITRR',
     url: '/get-involved-and-resources',
     keywords: ['get involved', 'volunteer', 'participate', 'resources', 'engage', 'contribute', 'join'],
   },
@@ -423,6 +423,7 @@ export default function Search() {
 
   return (
     <main className="search-page">
+      <title>ITRR | Search Site</title>
       <Header />
       <BackButton to="/" />
 

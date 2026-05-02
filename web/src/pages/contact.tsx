@@ -7,6 +7,7 @@ import '../styles/ContactCards.css';
 export default function Contact() {
     return (
         <main className="contact-page">
+            <title>ITRR | Contact Us</title>
             <Header />
             <BackButton to="/" />
             <ContactList />

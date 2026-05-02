@@ -7,6 +7,7 @@ import BackButton from "../components/general/BackButton";
 export default function News() {
     return (
         <main className="news-page">
+            <title>ITRR | News</title>
             <Header />
             <BackButton to="/publications-and-reports" />
             <TitleAndText title="In the News" />

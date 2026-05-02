@@ -18,6 +18,7 @@ import { subscribe } from './subscribe'
 import { textWithImage } from './textWithImage'
 import { twoBlockRow } from './twoBlockRow'
 import { videoSection } from './videoSection'
+import { footer } from './footer'
 import employmentOpportunities from './employment'
 
 export const schemaTypes = [
@@ -42,5 +43,6 @@ export const schemaTypes = [
     twoBlockRow,
     videoSection,
     employmentOpportunities,
+    footer,
 
 ]
