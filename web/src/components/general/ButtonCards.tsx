@@ -11,12 +11,14 @@ interface Card {
   cardTypeKey?: string
   openInNewTab?: boolean
   image: {
+    alt?:string //alt text for the images
     asset: {
       _ref: string
       url?: string
     }
   }
   link?: string //make sure in sanity the link is an internal path
+  
 }
 
 interface ButtonCardsData {
@@ -49,8 +51,8 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               description,
               cardTypeKey,
               openInNewTab,
-              image{asset->{_ref, url}},
-              link
+              image{alt,asset->{_ref, url}},
+              link,
             }
           }`
             : `*[_type == "buttonCards"][0]{
@@ -62,8 +64,8 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
               description,
               cardTypeKey,
               openInNewTab,
-              image{asset->{_ref, url}},
-              link
+              image{alt,asset->{_ref, url}},
+              link,
             }
           }`
           const result = await client.fetch(query, sectionKey ? { sectionKey } : undefined)
@@ -92,6 +94,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
         return (
           <button
             key={card._key}
+            name={card.title}
             className={`publications-card-button ${card.cardTypeKey || ''}`.trim()}
             onClick={() => {
               if (!card.link) return
@@ -108,7 +111,7 @@ export default function ButtonCards({ data, sectionKey }: ButtonCardsProps) {
                   )}
                   <img
                     src={imageSrc}
-                    alt={card.title}
+                    alt=""
                     className="publications-card-image"
                   />
                 </div>

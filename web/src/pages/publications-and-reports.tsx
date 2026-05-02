@@ -6,6 +6,7 @@ import TitleAndText from "../components/general/TitleAndText";
 export default function PublicationsAndReports() {
     return (
         <main className="publications-and-reports-page">
+            <title>ITRR | Publications and Reports</title>
             <Header />
             <TitleAndText title="Publications and Reports" />
             <ButtonCards sectionKey="publications-and-reports" />

@@ -2,20 +2,20 @@
   "cookies": [
     {
       "name": "tempSession",
-      "value": "s%3AoYXO3SmKYyU0EksYmg39rDSU77AgTqub.78G1zupkn4UQR4LMOucY0EBRg8aQBKn1Yz8%2BjH6gXBA",
+      "value": "s%3Az8XhPJoQmCNyJD3wnqp5f2VYzysPCSpS.23fBBgGwl6U8KbIYQVPYs3S0qbr4eMAxQsBLOm80EQM",
       "domain": "api.sanity.io",
       "path": "/",
-      "expires": 1777653681.619093,
+      "expires": 1776573139.253754,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "_octo",
-      "value": "GH1.1.471155024.1777653036",
+      "value": "GH1.1.1547853476.1776572818",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1809189037.230175,
+      "expires": 1808108819.483031,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -42,40 +42,40 @@
     },
     {
       "name": "_device_id",
-      "value": "86517ac87e7de7ae57d38e24aae4d1b7",
+      "value": "399a39fb65c3c0acde5bc1a7c2a06915",
       "domain": "github.com",
       "path": "/",
-      "expires": 1809189038.949323,
+      "expires": 1808108821.094562,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "saved_user_sessions",
-      "value": "113050570%3AokieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
+      "value": "113050570%3AMPRBkCLH390LFL9AUaZMp3iShtCuY_VYPTVAhh75iWrAYdKR",
       "domain": "github.com",
       "path": "/",
-      "expires": 1785429078.729421,
+      "expires": 1784348837.247534,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "user_session",
-      "value": "okieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
+      "value": "MPRBkCLH390LFL9AUaZMp3iShtCuY_VYPTVAhh75iWrAYdKR",
       "domain": "github.com",
       "path": "/",
-      "expires": 1778862678.729586,
+      "expires": 1777782437.24772,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "__Host-user_session_same_site",
-      "value": "okieZyBGYZwzoiFdiglOuMHot-FWXJl09G2k8hHlz8JnatzL",
+      "value": "MPRBkCLH390LFL9AUaZMp3iShtCuY_VYPTVAhh75iWrAYdKR",
       "domain": "github.com",
       "path": "/",
-      "expires": 1778862678.729664,
+      "expires": 1777782437.24785,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Strict"
@@ -105,7 +105,7 @@
       "value": "yes",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1809189079.729895,
+      "expires": 1808108837.248357,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -115,14 +115,14 @@
       "value": "karpineczla",
       "domain": ".github.com",
       "path": "/",
-      "expires": 1809189079.730007,
+      "expires": 1808108837.248508,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "last_write_ms",
-      "value": "1777653079020",
+      "value": "1776572835731",
       "domain": "github.com",
       "path": "/",
       "expires": -1,
@@ -132,7 +132,7 @@
     },
     {
       "name": "_gh_sess",
-      "value": "hP7KoCZWg1GdYwanzs8MBQKGOKa8MLt5RQbAouaMpfrJZZoDDopo5CHG0r3DbISlEG98iwcbI696ebTwGrF0Xncq7gDKj16RIKQcpg3SZNX4YnHEPDiNf%2BzwGMDg6PUyzpIWRb14FBI0Rkr0tF0uW8EKIE8HHfzt4unygUtuvEjzThRsIOksUEt0oXgjT3OaXXzKoqxw6XDb4vtFYKkqlWCgh8xlK5qjuPAreh49EGbKmawuCFe6sN3t8NCtGA07AJMg5zV6ej9x51wiX6tVy4qyCG0pSBsj%2BLoq4fdc%2FGcoYlqeOpKvmNjVkYqEGbblFDEwqZPTaVlQqJBvJwwtPXZnZNZ4ZnIGwJ9RE6c8vi1Md5AIq%2BworWW4jgk%2FR6kfVfH1MjdU4zZY5h6a%2FJoYdBN4nK5fy%2Fgh6l6DNxjxQmk1GxoBHZ4vAtVXwzU5tQKYajQ3L3DKuRVWoME%2BNZYBJ%2Fc%2FvWcsTLG8rCRdmn9x3s%2BemByLQIbmxptEg0W0EA9aAH1GIX0t%2BT3lQfbwNKKSxntnuCwJ4DDxq7BqGbXqd9TyvcQCagGvRbYJCw%2FMUgMFfZHFyP8EO1Zx58EVd1z%2Fb6bamdrm8KGVSPO%2FZ9Do21ulVJ4I21Wfth170sQzJ73KHY%2BzuRwZfrXZm4YZoe2U8Dka6SJs7Knp1PTrol9wikgkYMAeZ3F5IEOZGyt3am5KeUoDktgAXu7ewv5JNH6v1qTivrjfRjkTddDnKgBmUnh5kNUu%2BdoMApM2PDHTgQJFjqzoLhCzRsfBu%2FUKcxKYFiUVe8p3ZIlLK7ms5r7tRVIqXlnNmuByv%2F4l3hhyNdHPC7Bg4oFh%2FVlHisNliVN1pyHsUOAQ7Y5ibStNF%2BSMp7nyHRbOjpr99WwHwyLZEyCyTeh3JWHmWuXzuCqXuk%2Fro4exvqRDEs9hR8FPYpwrYXXloRR%2BlWILKZtFD8epBV%2Bz33Zf4wVGj2P%2Fm7KasdH1A6DbSryjx8ftON3xa1ltioaB%2B4aL7hQnrrbqy0FtTLmhpAtlE8DmmaE%3D--8KT6YHf998UFLQfn--G4yWxGW%2BR%2FBN4voA7bKWeA%3D%3D",
+      "value": "gFfUSm%2FfPzyqt6E6aZoh%2FrhKXqjs6wwdC35blJ3wYRcxrx5tJ3hc0mPTHarvWXac4%2BdEh4LgcrboEjEcZ5CgE9U8O3zk1mtUaccmsVEZsTEH%2Fit5AfvxTooNWZF1Fwp6wrw75QVSQiq6kXztb0ahKoKLOkaFnlg1mY%2BXgE0KnyzYFQixwkH%2BIxOYZP%2FFK70k8lB9gliE6fTOn2dEgvcom2IdUPXxJpzS4YlsyiusQ6uBhNhxMCKv6Cjmfs1O4lDoufjO0pahS%2B6vd8tgXBpRl7xcbUBCCKWGqWjDwvNi8s1614MxVuXBogu66nX5SUSsSyV1pknE3biOu%2FPth%2FS%2FgBJHYUsgD%2FUZcp2rplzX5CugrwKGO2yKQt7%2FohxSjAhmaxS%2BbFGdh5LeqaS%2FtSFfWiLM3iMhaJJ2kT5bTg8yY8S20N4%2BCGQYxucOAc5pMDBLRm6h1S%2Fypk23z8fLNvPYzQunwyM87tHQXXgi9H8uEp89rj6iqUhAkdK4w7FieZPzNuOKonC1eEq4po%2BjxqSlND3NU0QcxAGwdNXOrLV9y4LQ%2BlWRl667vTXB1NA4F67i2tqjcOy%2Bp97hxWFJrWgawgNORCmU36ozffOZ%2FvuP7ls%2BBRZpdo6Pu4iaqmRtqX38o2xR%2F496nlPKmfvG%2FkxuxBa16Fsh7Gh1p8HeySBKgh5y3hCqUKot2sDJN5HvcQU0Kvt8NXVZ4BKlo9yk41duNiqRIHQPQLE8rirG4zwEHE7LVhDo4xJRY93RjYOOmLexkPPh065mFflQCPFeGtGOm9KR8bSkqHV6o0dGerSSrmdpFiez%2Fw5HR81IYs%2FwFCVecueRBkgfE5YM%2Bgh8EsdQUAGIojaql%2F%2BQjdzMMvEcrrVMu2xjUqsQE7m8BNloWHmjd9r91JQNzxuoESrzHymoR3tbOpUb%2FyHDqsqj5NpgQ2C2XNhmfG55M9i0vvlFMViHa%2FQV2jJEW%2Fm6nFORtRphNMWd0QZ6S%2FzFKXZ4SYcWcdFpdx%2BWiImQWW1V%2Fpcj5maZYZjWOFONr90%3D--%2FDTf33LIwgsAgYaf--ixv4dRF9rDpV%2F8HlYvjD4A%3D%3D",
       "domain": "github.com",
       "path": "/",
       "expires": -1,
@@ -142,10 +142,10 @@
     },
     {
       "name": "sanitySession",
-      "value": "skqjUC2AErjUrzzE2aEWLIeYh21TBn1JYpX9r7uzRwdX5G7AVWBUF2gf3WXBe8DD7hEW35QkBqsntiTf",
+      "value": "skMM9jBiIZotebZJUjZZVsupcBIRkSt42SiXFM5oz3HRT4FSl1XNdTMgEFRQrB0eFdN1OkyGk5HWPm4c",
       "domain": ".a9qy1267.api.sanity.io",
       "path": "/",
-      "expires": 1809189081.890591,
+      "expires": 1808108839.73634,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -168,10 +168,6 @@
         {
           "name": "sanity:last_used_provider",
           "value": "github"
-        },
-        {
-          "name": "studio.announcement.seen",
-          "value": "\"c367472a-9438-4810-bca2-62fec038449b\""
         },
         {
           "name": "sanityStudio:ui:colorScheme",
