@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-
+//import { useLocation } from 'react-router';
+// Not in use
 const PageTitle = () =>{
   const [data, setData] = useState<any>(null);
 
   const PROJECT_ID = "a9qy1267"; 
   const DATASET = "production";
-  const location = useLocation();
+  //const location = useLocation();
   useEffect(() => {
     const query = encodeURIComponent(`*[_type == "header"][0]{
       "logoUrl": logo.asset->url,

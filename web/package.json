@@ -23,7 +23,7 @@
     "@portabletext/react": "^6.0.3",
     "@sanity/client": "^7.13.1",
     "@sanity/image-url": "^2.0.3",
-    "dotenv": "^17.4.1",
+    "dotenv": "^17.4.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.14.2"

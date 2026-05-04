@@ -4,7 +4,7 @@ import VideoWithTextRow from "../components/general/VideoWithTextRow";
 import TitleAndText from "../components/general/TitleAndText";
 import TextWithImage from "../components/general/TextWithImage";
 import ContactList from "../components/contactPage/ContactList";
-import PageTitle from "../components/general/PageTitles";
+//import PageTitle from "../components/general/PageTitles";
 
 
 
