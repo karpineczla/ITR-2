@@ -20,18 +20,28 @@ Wireframe: https://www.figma.com/design/QUX5gP9tTtS7K3z67uBpfk/ITRR-high-fidelit
 
 ## Installing and Setup
 
-1. create a new folder (I used ITRR) and cd into it
-2. clone the repo to your machine
-   https://github.com/karpineczla/ITR-2
-3. you should now have a folder called ITRR-new-site
-4. install the sanity client globally
-   npm install -g @sanity/cli
-5. cd into the studio folder
-6. install dependencies for sanity
-   npm install
-7. cd into the web folder and install dependencies
-   npm install
-8. install CORS for sanity, cd into the studio folder and run
+Make sure to have Node.js and Git installed already.
+
+Node.js --> https://nodejs.org/en
+
+Git --> https://git-scm.com/
+
+**Steps**
+
+1. Navigate to the location you wish to put the ITRR website files
+2. Clone the repo to your machine by going to terminal and inputting: 
+   'git clone https://github.com/karpineczla/ITR-2'
+3. You should now have a folder called ITR-2
+4. Navigate into the folder with 'cd ITR-2'
+5. Install the sanity client globally with 
+   'npm install -g @sanity/cli'
+6. Navigate to the studio folder with 'cd studio'
+7. Install dependencies for sanity with 
+   'npm install'
+9. Navigate out of the sanity folder with 'cd ..'
+10. Navigate into the web folder with 'cd web'
+11. Install the dependencies with 'npm install'
+12. install CORS for sanity, cd into the studio folder and run
    sanity cors add http://localhost:5173 (need to add whatever the url is for your local host)
 
 **To Run the React App**
