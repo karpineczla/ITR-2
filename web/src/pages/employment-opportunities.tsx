@@ -99,13 +99,14 @@ export default function EmploymentOpportunities() {
     fetchJobs();
   }, []);
 
-  if (loading) return <div className="loading">Loading Opportunities...</div>;
+  if (loading) return null;
   if (!data || !data.jobs.length) return <div>No positions currently available.</div>;
 
   const activeJob = data.jobs[activeTabIndex];
 
   return (
     <main className="employment-opportunities-page">
+      <title>ITRR | Employment Opportunities</title>
       <Header />
       <div className="employmentContainer">
         <h1 className="hiringHeader">{data.pageHeader}</h1>

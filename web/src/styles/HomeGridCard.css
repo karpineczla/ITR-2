@@ -10,7 +10,7 @@
 .grid-card {
   background: #dadada;
   padding: 1rem 1rem 1rem 0;
-  height: 200px;
+  min-height: 200px;
   display: flex;
   border-radius: 10px;
   flex-direction: row;
@@ -22,6 +22,7 @@
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
+  overflow: hidden;
 }
 
 /*
@@ -77,9 +78,29 @@
 }
 
 .grid-card-description {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.45vw, 1.45rem);
   color: #666;
-  line-height: 1.5;
+  line-height: 1.35;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .grid-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .grid-card-icon {
+    margin-left: 0;
+  }
 }
 
 /* Responsive design */
@@ -88,5 +109,9 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
+  }
+
+  .grid-card {
+    min-height: 220px;
   }
 }

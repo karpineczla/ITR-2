@@ -7,6 +7,7 @@ import BackButton from "../components/general/BackButton";
 export default function Events() {
     return (
         <main className="events-page">
+            <title>ITRR | Events</title>
             <Header />
             <BackButton to='/get-involved-and-resources' />
             <TitleAndText title="Events" />

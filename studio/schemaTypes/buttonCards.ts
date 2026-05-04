@@ -53,10 +53,24 @@ export const buttonCards = {
               title: 'Link URL (Optional)',
               type: 'string',
             }),
+            defineField({
+              name: 'openInNewTab',
+              title: 'Open In New Tab',
+              type: 'boolean',
+              initialValue: false,
+              description: 'When enabled, this card link opens in a new tab. Leave off to open in the current tab.',
+            }),
+            defineField({
+              name: 'cardTypeKey',
+              title: 'Card Type Key (Optional)',
+              type: 'string',
+              description: 'Use "report-card" when this card should be treated as a report card in the web app.',
+            }),
           ],
           preview: {
             select: {
               title: 'title',
+              subtitle: 'cardTypeKey',
               media: 'image',
             },
           },

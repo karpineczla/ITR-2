@@ -8,6 +8,7 @@ export default function Help() {
 
   return (
     <main className="help-page">
+      <title>ITRR | Need Help?</title>
       <Header />
       <section className="help-intro">
         <TitleAndText sectionKey="need-help" />

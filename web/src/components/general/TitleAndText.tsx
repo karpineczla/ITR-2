@@ -148,7 +148,7 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
     fetchData()
   }, [sectionKey, title, subtitle])
 
-  if (loading) return <div className="title-text-container">Loading...</div>
+  if (loading) return null
   if (!blockData)
     return (
       <div className="title-text-container">
@@ -164,9 +164,10 @@ export default function TitleAndText({ sectionKey, title, subtitle }: TitleAndTe
     blockData.textAlignment === 'center' ? 'title-text-align-center' : 'title-text-align-left'
 
   const isPortableText = Array.isArray(blockData.text)
+  const sectionClass = sectionKey ? `title-text-${sectionKey.replace(/[^a-zA-Z0-9-]/g, '-')}` : ''
 
   return (
-    <div className="title-text-container">
+    <div className={`title-text-container ${sectionClass}`.trim()}>
       {blockData.title && <h2 className={`title-text-title ${titleAlignmentClass}`}>{blockData.title}</h2>}
       {blockData.subtitle && (
         <h3 className={`title-text-subtitle ${subtitleAlignmentClass}`}>{blockData.subtitle}</h3>

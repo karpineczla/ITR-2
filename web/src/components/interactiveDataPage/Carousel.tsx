@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { PortableText } from '@portabletext/react'
+import type { PortableTextBlock, TypedObject } from '@portabletext/types'
 import { client } from "../../sanityClient";
 import "../../styles/Carousel.css";
 
 interface Report {
     _key: string;
     title: string;
-    description: string;
+    description: PortableTextBlock[];
     href: string;
     buttonText?: string;
     datetime?: string;
@@ -65,12 +67,7 @@ export default function Carousel({ sectionKey }: CarouselProps) {
     }, [reports, activeIndex]);
 
     if (loading) {
-        return (
-            <section className="visitor-trends" aria-label="Visitor Trends reports carousel">
-                <h2 className="visitor-trends__title">{sectionTitle}</h2>
-                <div className="visitor-trends__card">Loading...</div>
-            </section>
-        );
+        return null;
     }
 
     if (reports.length === 0) {
@@ -98,7 +95,9 @@ export default function Carousel({ sectionKey }: CarouselProps) {
 
                 <div className="visitor-trends__card">
                     <h3 className="visitor-trends__card-title">{activeReport.title}</h3>
-                    <p className="visitor-trends__card-text">{activeReport.description}</p>
+                    <div className="visitor-trends__card-text">
+                        <PortableText value={activeReport.description as TypedObject[]} />
+                    </div>
                     {activeReport.datetime && (
                         <p className="visitor-trends__card-bold">{activeReport.datetime}</p>
                     )}

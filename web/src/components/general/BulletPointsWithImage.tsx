@@ -74,7 +74,7 @@ export default function BulletPointsWithImage({ title }: BulletPointsWithImagePr
 		fetchData()
 	}, [title])
 
-	if (loading) return <div className="bullets-with-image">Loading...</div>
+	if (loading) return null
 	if (!sectionData) return <div className="bullets-with-image">Error Loading</div>
 
 	const bulletPoints: BulletPoint[] = [

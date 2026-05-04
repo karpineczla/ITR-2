@@ -11,7 +11,7 @@ export const hero = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'Optional title or heading for the hero section (not putting one)',
+      description: 'Optional internal title for the hero document in Studio.',
     }),
     defineField({
       name: 'images',
@@ -20,7 +20,37 @@ export const hero = defineType({
       of: [{
         type: 'image',
         fields: [
-          { name: 'alt', type: 'string', title: 'Alt Text', description: 'Describe the image for accessibility and SEO.' }
+          {
+            name: 'alt',
+            type: 'string',
+            title: 'Alt Text',
+            description: 'Describe the image for accessibility and SEO.',
+          },
+          {
+            name: 'overlayTitle',
+            type: 'string',
+            title: 'Overlay Title',
+            description: 'Title shown in the tan overlay on the right side of this image.',
+          },
+          {
+            name: 'overlayText',
+            type: 'text',
+            title: 'Overlay Text',
+            rows: 3,
+            description: 'Supporting text shown under the title in the overlay.',
+          },
+          {
+            name: 'buttonKey',
+            type: 'string',
+            title: 'Learn More Button Key',
+            description: 'Key used to load a Learn More button document for this image.',
+          },
+          {
+            name: 'fallbackDestination',
+            type: 'string',
+            title: 'Fallback Destination',
+            description: 'Fallback route or URL when no Learn More button document is found.',
+          },
         ]
       }],
       description: 'Images for the auto-scrolling hero slider',

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "../../sanityClient";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 interface InteractiveCard {
     _key: string;
@@ -70,7 +70,7 @@ export default function InteractiveDataLinksBox() {
                     {nonresidentToRender.map((card) => (
                         <Link
                             key={card._key}
-                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}&fullscreen=1`}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
                             className="interactive-links__card"
                         >
                             {card.imageUrl && (
@@ -92,7 +92,7 @@ export default function InteractiveDataLinksBox() {
                     {residentToRender.map((card) => (
                         <Link
                             key={card._key}
-                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}&fullscreen=1`}
+                            to={`/interactive-dashboard?title=${encodeURIComponent(card.title)}&src=${encodeURIComponent(card.link || '')}`}
                             className="interactive-links__card"
                         >
                             {card.imageUrl && (
